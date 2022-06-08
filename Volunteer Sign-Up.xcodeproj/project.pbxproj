@@ -44,6 +44,8 @@
 		7AD3390C285122B300C32976 /* Volunteer Sign-UpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Volunteer Sign-UpUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD33910285122B300C32976 /* Volunteer_Sign_UpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpUITests.swift; sourceTree = "<group>"; };
 		7AD33912285122B300C32976 /* Volunteer_Sign_UpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7AD3391F285122CD00C32976 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
+		7AD339202851230A00C32976 /* .gitattributes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitattributes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,8 @@
 		7AD338E9285122B100C32976 = {
 			isa = PBXGroup;
 			children = (
+				7AD339202851230A00C32976 /* .gitattributes.md */,
+				7AD3391F285122CD00C32976 /* .gitignore.md */,
 				7AD338F4285122B100C32976 /* Volunteer Sign-Up */,
 				7AD33905285122B300C32976 /* Volunteer Sign-UpTests */,
 				7AD3390F285122B300C32976 /* Volunteer Sign-UpUITests */,
