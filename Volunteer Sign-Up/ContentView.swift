@@ -20,6 +20,7 @@ struct ContentView: View {
             }
             
         }
+        .navigationBarBackButtonHidden(true)
         
     }
     
@@ -126,7 +127,9 @@ struct CreateAccountCopy: View {
                 //Spacer()
             }
             .navigationBarTitle("Create Account", displayMode: .inline)
+            
         }
+        .navigationBarBackButtonHidden(true)
         
     }
     
