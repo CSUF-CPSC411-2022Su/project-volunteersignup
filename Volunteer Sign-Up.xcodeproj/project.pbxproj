@@ -16,6 +16,7 @@
 		7AD33907285122B300C32976 /* Volunteer_Sign_UpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33906285122B300C32976 /* Volunteer_Sign_UpTests.swift */; };
 		7AD33911285122B300C32976 /* Volunteer_Sign_UpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33910285122B300C32976 /* Volunteer_Sign_UpUITests.swift */; };
 		7AD33913285122B300C32976 /* Volunteer_Sign_UpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33912285122B300C32976 /* Volunteer_Sign_UpUITestsLaunchTests.swift */; };
+		7AD844E52855649F0024867B /* CreateAccountIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD844E42855649F0024867B /* CreateAccountIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		7AD3390C285122B300C32976 /* Volunteer Sign-UpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Volunteer Sign-UpUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD33910285122B300C32976 /* Volunteer_Sign_UpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpUITests.swift; sourceTree = "<group>"; };
 		7AD33912285122B300C32976 /* Volunteer_Sign_UpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7AD844E42855649F0024867B /* CreateAccountIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */,
+				7AD844E42855649F0024867B /* CreateAccountIView.swift */,
 				7AD338F7285122B100C32976 /* ContentView.swift */,
 				7AD338F9285122B200C32976 /* Assets.xcassets */,
 				7AD338FB285122B200C32976 /* Preview Content */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AD844E52855649F0024867B /* CreateAccountIView.swift in Sources */,
 				7AD338F8285122B100C32976 /* ContentView.swift in Sources */,
 				7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */,
 			);
