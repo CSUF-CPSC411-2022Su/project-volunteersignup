@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2AEF3D52285571EF008E68DB /* Eventinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D51285571EF008E68DB /* Eventinfo.swift */; };
+		2AEF3D52285571EF008E68DB /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D51285571EF008E68DB /* EventInfo.swift */; };
 		2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
 		7A0F9BAC2851294F00D1C170 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAB2851294F00D1C170 /* .gitignore */; };
 		7A0F9BAE2851299800D1C170 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAD2851299800D1C170 /* .gitattributes */; };
@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2AEF3D51285571EF008E68DB /* Eventinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eventinfo.swift; sourceTree = "<group>"; };
+		2AEF3D51285571EF008E68DB /* EventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
 		2AEF3D5328557293008E68DB /* ClassProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProtocols.swift; sourceTree = "<group>"; };
 		7A0F9BAB2851294F00D1C170 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A0F9BAD2851299800D1C170 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */,
 				7AD338F7285122B100C32976 /* ContentView.swift */,
 				2AEF3D5328557293008E68DB /* ClassProtocols.swift */,
-				2AEF3D51285571EF008E68DB /* Eventinfo.swift */,
+				2AEF3D51285571EF008E68DB /* EventInfo.swift */,
 				7AD338F9285122B200C32976 /* Assets.xcassets */,
 				7AD338FB285122B200C32976 /* Preview Content */,
 			);
@@ -271,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AEF3D52285571EF008E68DB /* Eventinfo.swift in Sources */,
+				2AEF3D52285571EF008E68DB /* EventInfo.swift in Sources */,
 				7AD338F8285122B100C32976 /* ContentView.swift in Sources */,
 				2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */,
 				7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */,
