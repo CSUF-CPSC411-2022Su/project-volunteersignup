@@ -11,7 +11,9 @@ import SwiftUI
 struct Volunteer_Sign_UpApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //TODO: Delete comments and HomeView() before merging with main
+            //ContentView()
+            HomeView()
         }
     }
 }

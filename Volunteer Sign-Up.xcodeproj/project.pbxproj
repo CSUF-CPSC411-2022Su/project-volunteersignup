@@ -11,6 +11,8 @@
 		2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
 		7A0F9BAC2851294F00D1C170 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAB2851294F00D1C170 /* .gitignore */; };
 		7A0F9BAE2851299800D1C170 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAD2851299800D1C170 /* .gitattributes */; };
+		7A6955F4285746F900B62BED /* MyEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F3285746F900B62BED /* MyEventsView.swift */; };
+		7A6955F6285747F900B62BED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F5285747F900B62BED /* HomeView.swift */; };
 		7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */; };
 		7AD338F8285122B100C32976 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F7285122B100C32976 /* ContentView.swift */; };
 		7AD338FA285122B200C32976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD338F9285122B200C32976 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		2AEF3D5328557293008E68DB /* ClassProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProtocols.swift; sourceTree = "<group>"; };
 		7A0F9BAB2851294F00D1C170 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A0F9BAD2851299800D1C170 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		7A6955F3285746F900B62BED /* MyEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsView.swift; sourceTree = "<group>"; };
+		7A6955F5285747F900B62BED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7AD338F2285122B100C32976 /* Volunteer Sign-Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Volunteer Sign-Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpApp.swift; sourceTree = "<group>"; };
 		7AD338F7285122B100C32976 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				2AEF3D51285571EF008E68DB /* EventInfo.swift */,
 				7AD338F9285122B200C32976 /* Assets.xcassets */,
 				7AD338FB285122B200C32976 /* Preview Content */,
+				7A6955F3285746F900B62BED /* MyEventsView.swift */,
+				7A6955F5285747F900B62BED /* HomeView.swift */,
 			);
 			path = "Volunteer Sign-Up";
 			sourceTree = "<group>";
@@ -272,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AEF3D52285571EF008E68DB /* EventInfo.swift in Sources */,
+				7A6955F4285746F900B62BED /* MyEventsView.swift in Sources */,
 				7AD338F8285122B100C32976 /* ContentView.swift in Sources */,
+				7A6955F6285747F900B62BED /* HomeView.swift in Sources */,
 				2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */,
 				7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */,
 			);
