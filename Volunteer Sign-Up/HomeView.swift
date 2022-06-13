@@ -2,59 +2,30 @@
 //  HomeView.swift
 //  Volunteer Sign-Up
 //
-//  Created by Nathan Mayne on 6/13/22.
+//  Created by csuftitan on 6/13/22.
 //
 
 import SwiftUI
 
-struct GreenButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding(50)
-            .background(.green)
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-    }
-}
+//TODO: Link Sign In and Create Account to their respective pages
 
 struct HomeView: View {
-    
     var body: some View {
-        // TODO: Remove NavigationView instance when merging with main to avoid multiple instances of NavigationView
         NavigationView{
-        
-        VStack {
-            NavigationLink("Find Events"){
-                WIPView()
+            VStack {
+                NavigationLink("Sign In"){
+                    VolunteerMenuView()
+                }
+                .buttonStyle(GreenButton())
+                
+                NavigationLink("Create Account"){
+                    VolunteerMenuView()
+                }
+                .buttonStyle(GreenButton())
             }
-            .buttonStyle(GreenButton())
-            
-            NavigationLink("Create Event"){
-                WIPView()
-            }
-            .buttonStyle(GreenButton())
-            
-            NavigationLink("My Events"){
-                MyEventsView()
-            }
-            .buttonStyle(GreenButton())
-            
-            NavigationLink("My Profile"){
-                WIPView()
-            }
-            .buttonStyle(GreenButton())
+            .navigationBarTitle("Welcome")
+            .navigationBarBackButtonHidden(true)
         }
-        
-        .navigationBarTitle("Home")
-        .navigationBarBackButtonHidden(true)
-        }
-    }
-    
-}
-
-struct WIPView: View {
-    var body: some View {
-        Text("This Page is Under Development")
     }
 }
 
