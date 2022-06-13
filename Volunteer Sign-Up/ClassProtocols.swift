@@ -17,3 +17,11 @@ protocol p_Event {
     func EditEventInfo() throws -> p_Event
     func DeleteEventInfo() throws -> Bool
 }
+
+protocol p_ListEvents {
+    var listEventsCreated: [EventInfo] { get set }
+    var listEventsSigned: [EventInfo] { get set }
+    
+    func EditList(_ list: [EventInfo]) throws -> p_ListEvents
+    func DeleteEvent(at index: Int, in list: [EventInfo]) throws -> Bool
+}
