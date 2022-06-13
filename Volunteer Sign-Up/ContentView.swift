@@ -32,7 +32,7 @@ struct HomePageView: View {
     
     var body: some View {
         
-        NavigationLink(destination: CreateAccountIView(myAccount: CreateAccount()))
+        NavigationLink(destination: CreateAccountIView())
         {
             Text("* HomePage goes here *")
         }

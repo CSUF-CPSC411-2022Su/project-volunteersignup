@@ -2,7 +2,7 @@
 //  CreateAccountIView.swift
 //  Volunteer Sign-Up
 //
-//  Created by csuftitan on 6/11/22.
+//  Created by Steven on 6/11/22.
 //
 
 import SwiftUI
@@ -20,9 +20,8 @@ struct CreateAccountIView: View {
     @State var phone: String = ""
     @State var username: String = ""
     @State var password: String = ""*/
-    
-    @State var myAccount: CreateAccount
-    
+
+    @State var myAccount: CreateAccount = CreateAccount()
     
     
     var body: some View {
@@ -121,6 +120,6 @@ struct CreateAccountIView: View {
 
 struct CreateAccountIView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountIView(myAccount: CreateAccount())
+        CreateAccountIView()
     }
 }
