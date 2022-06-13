@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FindEvent : EventSearch{
+class findEvent : eventSearch{
     var searchLocation: String
     var searchRadius: Int
     
@@ -16,7 +16,7 @@ class FindEvent : EventSearch{
         self.searchRadius = rad
     }
     
-    func findEvent() throws -> EventSearch {
+    func findEvent() throws -> eventSearch {
         return self
     }
 }

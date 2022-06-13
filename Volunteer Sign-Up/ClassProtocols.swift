@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol EventSearch {
+protocol eventSearch {
     var searchLocation: String {get set}
     var searchRadius: Int {get set}
     
-    func findEvent() throws -> EventSearch
+    func findEvent() throws -> eventSearch
 }
