@@ -15,11 +15,15 @@ import SwiftUI
 struct CreateAccountIView: View {
     
     // There are the variables I use in the form
-    @State var name: String = ""
+    /*@State var name: String = ""
     @State var email: String = ""
     @State var phone: String = ""
     @State var username: String = ""
-    @State var password: String = ""
+    @State var password: String = ""*/
+    
+    @State var myAccount: CreateAccount
+    
+    
     
     var body: some View {
         
@@ -40,31 +44,31 @@ struct CreateAccountIView: View {
                 
                 Section(header: Text("Full Name")) {
                     
-                    TextField("Full Name", text: $name, prompt: Text("Enter your name"))
+                    TextField("Full Name", text: $myAccount.name, prompt: Text("Enter your name"))
                     
                 }
                 
                 Section(header: Text("Email")) {
                     
-                    TextField("Email", text: $email, prompt: Text("Enter your email"))
+                    TextField("Email", text: $myAccount.email, prompt: Text("Enter your email"))
                     
                 }
                 
                 Section(header: Text("Phone")) {
                     
-                    TextField("Phone", text: $phone, prompt: Text("Enter your phone number"))
+                    TextField("Phone", text: $myAccount.phone, prompt: Text("Enter your phone number"))
                     
                 }
                 
                 Section(header: Text("Username")) {
                     
-                    TextField("Username", text: $username, prompt: Text("Enter a username"))
+                    TextField("Username", text: $myAccount.username, prompt: Text("Enter a username"))
                     
                 }
                 
                 Section(header: Text("Password")) {
                     
-                    SecureField("Password", text: $password, prompt: Text("Enter a password"))
+                    SecureField("Password", text: $myAccount.password, prompt: Text("Enter a password"))
                     
                 }
                 
@@ -117,6 +121,6 @@ struct CreateAccountIView: View {
 
 struct CreateAccountIView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountIView()
+        CreateAccountIView(myAccount: CreateAccount())
     }
 }

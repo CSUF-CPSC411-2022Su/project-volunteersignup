@@ -9,19 +9,19 @@ import Foundation
 
 class CreateAccount {
     
-    var name: String = ""
-    var email: String = ""
-    var phone: String = ""
-    var username: String = ""
-    var password: String = ""
+    var name: String
+    var email: String
+    var phone: String
+    var username: String
+    var password: String
     
-    init(name: String, email: String, phone: String, username: String, password: String)
+    init()
     {
-        self.name = name
-        self.email = email
-        self.phone = phone
-        self.username = username
-        self.password = password
+        self.name = ""
+        self.email = ""
+        self.phone = ""
+        self.username = ""
+        self.password = ""
     }
     
 }
