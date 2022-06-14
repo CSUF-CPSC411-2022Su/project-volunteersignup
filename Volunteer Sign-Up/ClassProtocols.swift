@@ -27,3 +27,5 @@ protocol p_Account {
     var password: String {get set}
     
 }
+
+// Note: Additional protocols will be added here when my other group members fill this out

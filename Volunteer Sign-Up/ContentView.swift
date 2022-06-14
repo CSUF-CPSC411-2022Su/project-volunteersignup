@@ -28,11 +28,12 @@ struct ContentView: View {
     
 }
 
+// This is a dummy structure for testing purposes and can be removed when the HomePageView.swift file is created
 struct HomePageView: View {
     
     var body: some View {
         
-        NavigationLink(destination: CreateAccountIView())
+        NavigationLink(destination: CreateAccountView())
         {
             Text("* HomePage goes here *")
         }
@@ -41,6 +42,7 @@ struct HomePageView: View {
     
 }
 
+// This is a dummy structure for testing purposes and can be removed when the VolunteerMenuView.swift file is created
 struct VolunteerMenuView: View {
     
     var body: some View {

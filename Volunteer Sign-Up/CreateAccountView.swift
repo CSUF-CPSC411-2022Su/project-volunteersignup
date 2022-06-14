@@ -12,7 +12,7 @@ import SwiftUI
 // TODO: Setup the capability to go back to HomePage (This may not be something I have to do, but rather something Nathan has to do when he creates the HomePage)
 // TODO: (The hard part) Find a way to store the Form information in a database
 // TODO: Tie this page to Nathan's page (VolunteerMenu) when he finishes it
-struct CreateAccountIView: View {
+struct CreateAccountView: View {
     
     // There are the variables I use in the form
     /*@State var name: String = ""
@@ -21,7 +21,9 @@ struct CreateAccountIView: View {
     @State var username: String = ""
     @State var password: String = ""*/
 
-    @State var myAccount: CreateAccount = CreateAccount()
+    //@State var myAccount: CreateAccount = CreateAccount()
+    
+    @State var myAccount: AccountInfo = AccountInfo()
     
     
     var body: some View {
@@ -43,19 +45,19 @@ struct CreateAccountIView: View {
                 
                 Section(header: Text("Full Name")) {
                     
-                    TextField("Full Name", text: $myAccount.name, prompt: Text("Enter your name"))
+                    TextField("Full Name", text: $myAccount.myInfo.name, prompt: Text("Enter your name"))
                     
                 }
                 
                 Section(header: Text("Email")) {
                     
-                    TextField("Email", text: $myAccount.email, prompt: Text("Enter your email"))
+                    TextField("Email", text: $myAccount.myInfo.email, prompt: Text("Enter your email"))
                     
                 }
                 
                 Section(header: Text("Phone")) {
                     
-                    TextField("Phone", text: $myAccount.phone, prompt: Text("Enter your phone number"))
+                    TextField("Phone", text: $myAccount.myInfo.phone, prompt: Text("Enter your phone number"))
                     
                 }
                 
@@ -118,8 +120,8 @@ struct CreateAccountIView: View {
     
 }
 
-struct CreateAccountIView_Previews: PreviewProvider {
+struct CreateAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountIView()
+        CreateAccountView()
     }
 }
