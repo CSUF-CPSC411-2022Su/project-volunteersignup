@@ -18,6 +18,8 @@ struct EventSearchView: View {
                 Text("Start searching for events in your area to volunteer for!").multilineTextAlignment(.center)
             }.padding().frame(maxWidth: .infinity, maxHeight: .infinity).foregroundColor(.gray).navigationTitle("Search")
         }.searchable(text: $searchText)
+        
+        
     }
 }
 

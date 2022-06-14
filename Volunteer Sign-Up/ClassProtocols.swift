@@ -9,7 +9,7 @@ import Foundation
 
 protocol eventSearch {
     var searchLocation: String {get set}
-    var searchRadius: Int {get set}
+    var searchRadius: Int {get}
     
     func findEvent() throws -> eventSearch
 }
