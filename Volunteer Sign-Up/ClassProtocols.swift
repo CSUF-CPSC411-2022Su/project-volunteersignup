@@ -13,9 +13,9 @@ protocol p_Event {
     var dateTime: Date {get set}
     var eventNotes: String {get set}
     
-    func SaveEventInfo() throws -> p_Event
-    func EditEventInfo() throws -> p_Event
-    func DeleteEventInfo() throws -> Bool
+    func saveEventInfo() throws -> p_Event
+    func editEventInfo() throws -> p_Event
+    func deleteEventInfo() throws -> Bool
 }
 
 protocol p_UserInfo {

@@ -23,15 +23,15 @@ class EventInfo : p_Event{
         self.eventNotes = notes
     }
     
-    func SaveEventInfo() throws -> p_Event {
+    func saveEventInfo() throws -> p_Event {
         return self
     }
     
-    func EditEventInfo() throws -> p_Event {
+    func editEventInfo() throws -> p_Event {
         return self
     }
     
-    func DeleteEventInfo() throws -> Bool {
+    func deleteEventInfo() throws -> Bool {
         return false
     }
     
