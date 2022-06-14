@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AADCEB628585CA600469E6F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADCEB528585CA600469E6F /* UserInfo.swift */; };
 		2AEF3D52285571EF008E68DB /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D51285571EF008E68DB /* EventInfo.swift */; };
 		2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
 		7A0F9BAC2851294F00D1C170 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAB2851294F00D1C170 /* .gitignore */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AADCEB528585CA600469E6F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		2AEF3D51285571EF008E68DB /* EventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
 		2AEF3D5328557293008E68DB /* ClassProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProtocols.swift; sourceTree = "<group>"; };
 		7A0F9BAB2851294F00D1C170 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				7AD338F7285122B100C32976 /* ContentView.swift */,
 				2AEF3D5328557293008E68DB /* ClassProtocols.swift */,
 				2AEF3D51285571EF008E68DB /* EventInfo.swift */,
+				2AADCEB528585CA600469E6F /* UserInfo.swift */,
 				7AD338F9285122B200C32976 /* Assets.xcassets */,
 				7AD338FB285122B200C32976 /* Preview Content */,
 			);
@@ -274,6 +277,7 @@
 				2AEF3D52285571EF008E68DB /* EventInfo.swift in Sources */,
 				7AD338F8285122B100C32976 /* ContentView.swift in Sources */,
 				2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */,
+				2AADCEB628585CA600469E6F /* UserInfo.swift in Sources */,
 				7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
