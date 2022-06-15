@@ -11,20 +11,23 @@ class UserInfo {
     
     var name: String
     var email: String
+    var address: String
     var phone: String
     
     init() {
         
         name = ""
         email = ""
+        address = ""
         phone = ""
         
     }
     
-    init(name: String, email: String, phone: String) {
+    init(name: String, email: String, address: String, phone: String) {
         
         self.name = name
         self.email = email
+        self.address = address
         self.phone = phone
         
     }

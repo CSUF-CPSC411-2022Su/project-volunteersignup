@@ -18,13 +18,14 @@ protocol p_Event {
     func DeleteEventInfo() throws -> Bool
 }
 
-protocol p_Account {
+protocol p_UserInfo {
     
     var name: String {get set}
     var email: String {get set}
+    var address: String {get set}
     var phone: String {get set}
-    var username: String {get set}
-    var password: String {get set}
+    //var username: String {get set}
+    //var password: String {get set}
     
 }
 
