@@ -25,13 +25,19 @@ struct SignedEventsView: View{
     var body: some View {
         List {
             Section(header: Text("June 30")){
-                Text("Event 1")
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 1")
+                }
             }
             Section(header: Text("July 4")){
-                Text("Event 2")
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 2")
+                }
             }
             Section(header: Text("July 8")){
-                Text("Event 3")
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 3")
+                }
             }
         }
         .navigationBarTitle("My Events", displayMode: .inline)
