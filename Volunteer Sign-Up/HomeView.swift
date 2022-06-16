@@ -19,7 +19,8 @@ struct HomeView: View {
                 .buttonStyle(GreenButton())
                 
                 NavigationLink("Create Account"){
-                    VolunteerMenuView()
+                    //VolunteerMenuView()
+                    CreateAccountView()
                 }
                 .buttonStyle(GreenButton())
             }
