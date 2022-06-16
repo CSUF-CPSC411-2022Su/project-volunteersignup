@@ -43,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		2AADCEB528585CA600469E6F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		2AEF3D51285571EF008E68DB /* EventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
 		2AEF3D5328557293008E68DB /* ClassProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProtocols.swift; sourceTree = "<group>"; };
 		7A0F9BAB2851294F00D1C170 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A0F9BAD2851299800D1C170 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 				7A1F56D228582E0900033FCC /* ListEventsClass.swift */,
 				2AEF3D5328557293008E68DB /* ClassProtocols.swift */,
 				7A1F56D62858304400033FCC /* EventInfo.swift */,
-				2AEF3D51285571EF008E68DB /* EventInfo.swift */,
 				2AADCEB528585CA600469E6F /* UserInfo.swift */,
 				7AD338F9285122B200C32976 /* Assets.xcassets */,
 				7AD338FB285122B200C32976 /* Preview Content */,
