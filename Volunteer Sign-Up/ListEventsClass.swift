@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ListEvents {
+/*class ListEvents {
     
     var listEventsCreated: EventInfo
     var listEventsSigned: EventInfo
@@ -26,4 +26,4 @@ class ListEvents {
         
     }
     
-}
+}*/
