@@ -13,18 +13,50 @@ struct ContentView: View {
         
         NavigationView {
             
-            NavigationLink(destination: CreateAccountCopy())
+            /*NavigationLink(destination: CreateAccountIView())
             {
                 Text("Click Here To See My Page!")
                 
-            }
+            }*/
             
+            HomePageView()
+            
+        }
+        //.navigationBarBackButtonHidden(true)
+        
+    }
+    
+}
+
+// This is a dummy structure for testing purposes and can be removed when the HomePageView.swift file is created
+struct HomePageView: View {
+    
+    var body: some View {
+        
+        NavigationLink(destination: CreateAccountView())
+        {
+            Text("* HomePage goes here *")
         }
         
     }
     
 }
 
+// This is a dummy structure for testing purposes and can be removed when the VolunteerMenuView.swift file is created
+struct VolunteerMenuView: View {
+    
+    var body: some View {
+        
+        Text("* VolunteerMenu goes here *")
+        
+        //.navigationBarBackButtonHidden(true)
+        
+    }
+    
+    
+}
+
+/*
 // This is the latest working version of CreateAccount!
 // TODO: Figure out if "Create Account" can be created slightly bigger
 // TODO: Setup the capability to go back to HomePage (This may not be something I have to do, but rather something Nathan has to do when he creates the HomePage)
@@ -126,7 +158,9 @@ struct CreateAccountCopy: View {
                 //Spacer()
             }
             .navigationBarTitle("Create Account", displayMode: .inline)
+            
         }
+        .navigationBarBackButtonHidden(true)
         
     }
     
@@ -224,7 +258,7 @@ struct CreateAccount: View {
         
     }
     
-}
+}*/
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
