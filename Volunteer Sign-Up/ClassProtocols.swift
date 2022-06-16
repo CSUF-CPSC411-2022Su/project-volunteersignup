@@ -30,14 +30,20 @@ protocol p_Event {
     func DeleteEventInfo() throws -> Bool
 }
 
+protocol p_ListEvents {
+    var listEventsCreated: [EventInfo] { get set }
+    var listEventsSigned: [EventInfo] { get set }
+    
+    func EditList(_ list: [EventInfo]) throws -> p_ListEvents
+    func DeleteEvent(at index: Int, in list: [EventInfo]) throws -> Bool
+}
+
 protocol p_UserInfo {
+    
     var name: String {get set}
     var address: String {get set}
     var email: String {get set}
     var phone: String {get set}
     
-    
-    //var username: String {get set}
-    //var password: String {get set}
 }
 // Note: Additional protocols will be added here when my other group members fill this out
