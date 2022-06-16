@@ -11,12 +11,18 @@ class UserInfo: p_UserInfo {
     var name: String
     var address: String
     var email: String
-    var phoneNumer: String
+    var phone: String
     
-    init(name: String, address: String, email: String, phoneNumber: String){
+    init(){
+        self.name = ""
+        self.address = ""
+        self.email = ""
+        self.phone = ""
+    }
+    init(name: String, address: String, email: String, phone: String){
         self.name = name
         self.address = address
         self.email = email
-        self.phoneNumer = phoneNumber
+        self.phone = phone
     }
 }

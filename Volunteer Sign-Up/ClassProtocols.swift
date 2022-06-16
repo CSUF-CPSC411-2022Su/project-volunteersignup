@@ -22,7 +22,9 @@ protocol p_UserInfo {
     var name: String {get set}
     var address: String {get set}
     var email: String {get set}
-    var phoneNumer: String {get set}
+    var phone: String {get set}
+    
+    
     //var username: String {get set}
     //var password: String {get set}
 }
