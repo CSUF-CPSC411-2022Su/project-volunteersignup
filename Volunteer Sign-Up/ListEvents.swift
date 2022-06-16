@@ -11,6 +11,11 @@ class ListEvents: p_ListEvents {
     var listEventsSigned: [EventInfo] = []
     var listEventsCreated: [EventInfo] = []
     
+    // Replace this default constructor to what you need, but make sure this class contains a default constructor
+    init() {
+        
+    }
+    
     func EditList(_ list: [EventInfo]) throws -> p_ListEvents {
         return self
     }
