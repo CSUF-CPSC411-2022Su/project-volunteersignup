@@ -1,4 +1,9 @@
 //
+//  EventSearch.swift
+//  Volunteer Sign-Up
+//
+//  Created by Tianna Cano on 6/12/22.
+//
 //  ClassProtocols.swift
 //  Volunteer Sign-Up
 //
@@ -7,6 +12,13 @@
 
 import Foundation
 
+protocol p_eventSearch {
+    var searchLocation: String {get set}
+    var searchRadius: Int {get}
+    
+    func findEvent() throws -> p_eventSearch
+}
+    
 protocol p_Event {
     var eventName: String {get set}
     var location: String {get set}

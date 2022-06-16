@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A9CE04B285ACBEA00C77FAB /* EventSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE04A285ACBEA00C77FAB /* EventSearch.swift */; };
+		2A9CE04D285ACC1800C77FAB /* EventSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE04C285ACC1800C77FAB /* EventSearchView.swift */; };
 		2AADCEB628585CA600469E6F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADCEB528585CA600469E6F /* UserInfo.swift */; };
 		2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
 		7A0F9BAC2851294F00D1C170 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAB2851294F00D1C170 /* .gitignore */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A9CE04A285ACBEA00C77FAB /* EventSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearch.swift; sourceTree = "<group>"; };
+		2A9CE04C285ACC1800C77FAB /* EventSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchView.swift; sourceTree = "<group>"; };
 		2AADCEB528585CA600469E6F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		2AEF3D5328557293008E68DB /* ClassProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProtocols.swift; sourceTree = "<group>"; };
 		7A0F9BAB2851294F00D1C170 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				7A1F56D228582E0900033FCC /* ListEventsClass.swift */,
 				2AEF3D5328557293008E68DB /* ClassProtocols.swift */,
 				7AFE8196285ACFE900CD24FE /* MyAccountClass.swift */,
+				2A9CE04C285ACC1800C77FAB /* EventSearchView.swift */,
+				2A9CE04A285ACBEA00C77FAB /* EventSearch.swift */,
 				7A1F56D62858304400033FCC /* EventInfo.swift */,
 				2AADCEB528585CA600469E6F /* UserInfo.swift */,
 				7AD338F9285122B200C32976 /* Assets.xcassets */,
@@ -294,7 +300,9 @@
 				2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */,
 				2AADCEB628585CA600469E6F /* UserInfo.swift in Sources */,
 				7AFE8197285ACFE900CD24FE /* MyAccountClass.swift in Sources */,
+				2A9CE04D285ACC1800C77FAB /* EventSearchView.swift in Sources */,
 				7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */,
+				2A9CE04B285ACBEA00C77FAB /* EventSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
