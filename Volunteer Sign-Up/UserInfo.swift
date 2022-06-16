@@ -8,15 +8,13 @@
 import Foundation
 
 class UserInfo: p_UserInfo {
-    var firstName: String
-    var lastName: String
+    var name: String
     var address: String
     var email: String
     var phoneNumer: String
     
-    init(firstName: String, lastName: String, address: String, email: String, phoneNumber: String){
-        self.firstName = firstName
-        self.lastName = lastName
+    init(name: String, address: String, email: String, phoneNumber: String){
+        self.name = name
         self.address = address
         self.email = email
         self.phoneNumer = phoneNumber
