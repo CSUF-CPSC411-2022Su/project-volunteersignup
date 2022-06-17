@@ -8,10 +8,10 @@
 import Foundation
 
 class UserInfo: p_UserInfo {
-    var name: String
-    var address: String
-    var email: String
-    var phone: String
+    @Published var name: String
+    @Published var address: String
+    @Published var email: String
+    @Published var phone: String
     
     init(){
         self.name = ""

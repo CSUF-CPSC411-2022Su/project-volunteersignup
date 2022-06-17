@@ -11,22 +11,22 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        NavigationView{
-            VStack {
-                NavigationLink("Sign In"){
-                    VolunteerMenuView()
-                }
-                .buttonStyle(GreenButton())
-                
-                NavigationLink("Create Account"){
-                    //VolunteerMenuView()
-                    CreateAccountView()
-                }
-                .buttonStyle(GreenButton())
+        //NavigationView{
+        VStack {
+            NavigationLink("Sign In"){
+                VolunteerMenuView()
             }
-            .navigationBarTitle("Welcome")
-            .navigationBarBackButtonHidden(true)
+            .buttonStyle(GreenButton())
+            
+            NavigationLink("Create Account"){
+                //VolunteerMenuView()
+                CreateAccountView()
+            }
+            .buttonStyle(GreenButton())
         }
+        .navigationBarTitle("Welcome")
+        .navigationBarBackButtonHidden(true)
+        //}
     }
 }
 

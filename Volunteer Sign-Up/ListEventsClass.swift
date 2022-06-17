@@ -1,29 +1,25 @@
 //
-//  ListEventsClass.swift
+//  ListEvents.swift
 //  Volunteer Sign-Up
 //
-//  Created by csuftitan on 6/13/22.
+//  Created by Nathan Mayne on 6/13/22.
 //
 
 import Foundation
 
-/*class ListEvents {
+class ListEvents: p_ListEvents {
+    var listEventsSigned: [EventInfo] = []
+    var listEventsCreated: [EventInfo] = []
     
-    var listEventsCreated: EventInfo
-    var listEventsSigned: EventInfo
-    
+    // Replace this default constructor to what you need, but make sure this class contains a default constructor
     init() {
         
-        listEventsCreated = EventInfo()
-        listEventsSigned = EventInfo()
-        
     }
     
-    init(createdEvents: EventInfo, signedEvents: EventInfo) {
-        
-        self.listEventsCreated = createdEvents
-        self.listEventsSigned = signedEvents
-        
+    func EditList(_ list: [EventInfo]) throws -> p_ListEvents {
+        return self
     }
-    
-}*/
+    func DeleteEvent(at index: Int, in list: [EventInfo]) throws -> Bool {
+        return true
+    }
+}
