@@ -14,28 +14,11 @@ import SwiftUI
 // TODO: Tie this page to Nathan's page (VolunteerMenu) when he finishes it
 struct CreateAccountView: View {
     
-    // There are the variables I use in the form
-    /*@State var name: String = ""
-    @State var email: String = ""
-    @State var phone: String = ""
-    @State var username: String = ""
-    @State var password: String = ""*/
-
-    //@State var myAccount: CreateAccount = CreateAccount()
-    
-    @State var myAccount: AccountInfo = AccountInfo()
-    
+    @StateObject var myAccount: AccountInfo = AccountInfo()
     
     var body: some View {
         
-        //NavigationView {
-        
         VStack {
-        
-            //HStack {
-                
-            //}
-            //.padding()
             
             Divider()
             
@@ -73,8 +56,7 @@ struct CreateAccountView: View {
                     
                 }
                 
-                // Note: ContentView() MUST be changed to the name of the struct Nathan creates to implement VolunteerMenu()
-                // Note: There's also an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly
+                // Note: There's an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly
                 NavigationLink(destination: VolunteerMenuView()) {
                     
                     Text("Create Account")
@@ -112,9 +94,6 @@ struct CreateAccountView: View {
             //Spacer()
         }
         .navigationBarTitle("Create Account", displayMode: .inline)
-            
-        //}
-        //.navigationBarBackButtonHidden(true)
         
     }
     
