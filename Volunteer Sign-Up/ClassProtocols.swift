@@ -14,7 +14,7 @@ import Foundation
 
 protocol p_eventSearch {
     var searchLocation: String {get set}
-    var searchRadius: Int {get}
+    var searchRadius: Int {get set}
     
     func findEvent() throws -> p_eventSearch
 }
