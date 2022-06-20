@@ -14,8 +14,11 @@
 		7A0F9BAE2851299800D1C170 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAD2851299800D1C170 /* .gitattributes */; };
 		7A1F56D12857EB1A00033FCC /* AccountInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F56D02857EB1A00033FCC /* AccountInfoClass.swift */; };
 		7A1F56D72858304400033FCC /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F56D62858304400033FCC /* EventInfo.swift */; };
-		7A6955F4285746F900B62BED /* ListEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F3285746F900B62BED /* ListEventsView.swift */; };
-		7A6955F6285747F900B62BED /* VolunteerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F5285747F900B62BED /* VolunteerMenuView.swift */; };
+		7A3D27D7285B0BA7001C8A0C /* ListEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F3285746F900B62BED /* ListEventsView.swift */; };
+		7A5E7AB8285B025E006A4C0F /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
+		7A5E7AB9285B02A5006A4C0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F7285122B100C32976 /* ContentView.swift */; };
+		7A5E7ABA285B02E4006A4C0F /* Volunteer_Sign_UpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */; };
+		7A5E7ABB285B02EF006A4C0F /* VolunteerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F5285747F900B62BED /* VolunteerMenuView.swift */; };
 		7AD338FA285122B200C32976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD338F9285122B200C32976 /* Assets.xcassets */; };
 		7AD338FD285122B200C32976 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD338FC285122B200C32976 /* Preview Assets.xcassets */; };
 		7AD33907285122B300C32976 /* Volunteer_Sign_UpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33906285122B300C32976 /* Volunteer_Sign_UpTests.swift */; };
@@ -24,9 +27,6 @@
 		7AD3532E2857EDEC00285730 /* ListEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3532D2857EDEC00285730 /* ListEvents.swift */; };
 		7AD353302857F87600285730 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3532F2857F87600285730 /* HomeView.swift */; };
 		7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD844E42855649F0024867B /* CreateAccountView.swift */; };
-		7AE31EF9285B05470062AC8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F7285122B100C32976 /* ContentView.swift */; };
-		7AE31EFA285B05700062AC8B /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
-		7AE31EFB285B05B20062AC8B /* Volunteer_Sign_UpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */; };
 		7AFE8197285ACFE900CD24FE /* MyAccountClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFE8196285ACFE900CD24FE /* MyAccountClass.swift */; };
 /* End PBXBuildFile section */
 
@@ -301,11 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AE31EFB285B05B20062AC8B /* Volunteer_Sign_UpApp.swift in Sources */,
-				7AE31EFA285B05700062AC8B /* ClassProtocols.swift in Sources */,
-				7AE31EF9285B05470062AC8B /* ContentView.swift in Sources */,
-				7A6955F4285746F900B62BED /* ListEventsView.swift in Sources */,
-				7A6955F6285747F900B62BED /* VolunteerMenuView.swift in Sources */,
+				7A3D27D7285B0BA7001C8A0C /* ListEventsView.swift in Sources */,
+				7A5E7ABB285B02EF006A4C0F /* VolunteerMenuView.swift in Sources */,
+				7A5E7ABA285B02E4006A4C0F /* Volunteer_Sign_UpApp.swift in Sources */,
+				7A5E7AB9285B02A5006A4C0F /* ContentView.swift in Sources */,
+				7A5E7AB8285B025E006A4C0F /* ClassProtocols.swift in Sources */,
 				7AD353302857F87600285730 /* HomeView.swift in Sources */,
 				7AD3532E2857EDEC00285730 /* ListEvents.swift in Sources */,
 				7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */,
