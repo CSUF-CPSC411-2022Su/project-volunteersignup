@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyEventsView: View {
+    @StateObject var myEvents = ListEvents()
     var body: some View {
         TabView {
             SignedEventsView()
@@ -18,15 +19,16 @@ struct MyEventsView: View {
                 .tabItem {
                     Label("Created Events", systemImage: "person")
                 }
-        }
+        }.environmentObject(myEvents)
     }
 }
 struct SignedEventsView: View{
+    @EnvironmentObject var myEvents: ListEvents
     var body: some View {
         List {
             Section(header: Text("June 30")){
                 NavigationLink(destination: WIPView()) {
-                    Text("Event 1")
+                    Text(myEvents.listEventsSigned[0].eventName)
                 }
             }
             Section(header: Text("July 4")){
@@ -44,16 +46,23 @@ struct SignedEventsView: View{
     }
 }
 struct CreatedEventsView: View{
+    @EnvironmentObject var myEvents: ListEvents
     var body: some View {
         List {
             Section(header: Text("February 10")){
-                Text("Event 1")
+                NavigationLink(destination: WIPView()) {
+                    Text(myEvents.listEventsCreated[0].eventName)
+                }
             }
             Section(header: Text("August 9")){
-                Text("Event 2")
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 2")
+                }
             }
             Section(header: Text("December 24")){
-                Text("Event 3")
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 3")
+                }
             }
         }
         .navigationBarTitle("My Events", displayMode: .inline)

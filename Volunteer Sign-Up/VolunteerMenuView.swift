@@ -18,12 +18,13 @@ struct GreenButton: ButtonStyle {
 }
 
 struct VolunteerMenuView: View {
+    @StateObject var myEvents = ListEvents()
     
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {
             NavigationLink("Find Events"){
-                WIPView()
+                EventSearchView()
             }
             .buttonStyle(GreenButton())
             
@@ -44,7 +45,9 @@ struct VolunteerMenuView: View {
         }
         .navigationBarTitle("Home", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
+        .environmentObject(myEvents)
     }
+
 }
 
 struct WIPView: View {
