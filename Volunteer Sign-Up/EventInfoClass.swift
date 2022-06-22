@@ -1,8 +1,8 @@
 //
-//  Eventinfo.swift
+//  EventInfo2.swift
 //  Volunteer Sign-Up
 //
-//  Created by Kai Eusebio on 6/11/22.
+//  Created by csuftitan on 6/13/22.
 //
 
 import Foundation
@@ -15,6 +15,15 @@ class EventInfo : p_Event{
     var dateTime: Date
     
     var eventNotes: String
+    
+    init() {
+        
+        self.eventName = ""
+        self.location = ""
+        self.dateTime = Date()
+        self.eventNotes = ""
+        
+    }
     
     init(eventName n: String, at loc: String, timeAndDate dt: Date, notes: String){
         self.eventName = n

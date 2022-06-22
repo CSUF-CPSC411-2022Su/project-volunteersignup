@@ -11,15 +11,28 @@
 		2AADCEB82858610100469E6F /* EventInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADCEB72858610100469E6F /* EventInfoView.swift */; };
 		2AEF3D52285571EF008E68DB /* EventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D51285571EF008E68DB /* EventInfo.swift */; };
 		2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
+		2A9CE04B285ACBEA00C77FAB /* EventSearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE04A285ACBEA00C77FAB /* EventSearchClass.swift */; };
+		2A9CE04D285ACC1800C77FAB /* EventSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE04C285ACC1800C77FAB /* EventSearchView.swift */; };
+		7A0C054F285C1C7900375DE1 /* UserInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0C054E285C1C7900375DE1 /* UserInfoClass.swift */; };
+		7A0C0553285C2E2E00375DE1 /* EditMyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0C0552285C2E2E00375DE1 /* EditMyAccountView.swift */; };
 		7A0F9BAC2851294F00D1C170 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAB2851294F00D1C170 /* .gitignore */; };
 		7A0F9BAE2851299800D1C170 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F9BAD2851299800D1C170 /* .gitattributes */; };
-		7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */; };
-		7AD338F8285122B100C32976 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F7285122B100C32976 /* ContentView.swift */; };
+		7A1F56D12857EB1A00033FCC /* AccountInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F56D02857EB1A00033FCC /* AccountInfoClass.swift */; };
+		7A1F56D72858304400033FCC /* EventInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F56D62858304400033FCC /* EventInfoClass.swift */; };
+		7A3D27D6285B09DB001C8A0C /* ListEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F3285746F900B62BED /* ListEventsView.swift */; };
+		7A5E7AB8285B025E006A4C0F /* ClassProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF3D5328557293008E68DB /* ClassProtocols.swift */; };
+		7A5E7AB9285B02A5006A4C0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F7285122B100C32976 /* ContentView.swift */; };
+		7A5E7ABA285B02E4006A4C0F /* Volunteer_Sign_UpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */; };
+		7A5E7ABB285B02EF006A4C0F /* VolunteerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F5285747F900B62BED /* VolunteerMenuView.swift */; };
 		7AD338FA285122B200C32976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD338F9285122B200C32976 /* Assets.xcassets */; };
 		7AD338FD285122B200C32976 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD338FC285122B200C32976 /* Preview Assets.xcassets */; };
 		7AD33907285122B300C32976 /* Volunteer_Sign_UpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33906285122B300C32976 /* Volunteer_Sign_UpTests.swift */; };
 		7AD33911285122B300C32976 /* Volunteer_Sign_UpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33910285122B300C32976 /* Volunteer_Sign_UpUITests.swift */; };
 		7AD33913285122B300C32976 /* Volunteer_Sign_UpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33912285122B300C32976 /* Volunteer_Sign_UpUITestsLaunchTests.swift */; };
+		7AD3532E2857EDEC00285730 /* ListEventsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3532D2857EDEC00285730 /* ListEventsClass.swift */; };
+		7AD353302857F87600285730 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3532F2857F87600285730 /* HomeView.swift */; };
+		7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD844E42855649F0024867B /* CreateAccountView.swift */; };
+		7AD99761285BF3860089FB61 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD99760285BF3860089FB61 /* MyAccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +56,17 @@
 		2AADCEB528585CA600469E6F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		2AADCEB72858610100469E6F /* EventInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoView.swift; sourceTree = "<group>"; };
 		2AEF3D51285571EF008E68DB /* EventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfo.swift; sourceTree = "<group>"; };
+		2A9CE04A285ACBEA00C77FAB /* EventSearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchClass.swift; sourceTree = "<group>"; };
+		2A9CE04C285ACC1800C77FAB /* EventSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchView.swift; sourceTree = "<group>"; };
 		2AEF3D5328557293008E68DB /* ClassProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProtocols.swift; sourceTree = "<group>"; };
+		7A0C054E285C1C7900375DE1 /* UserInfoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoClass.swift; sourceTree = "<group>"; };
+		7A0C0552285C2E2E00375DE1 /* EditMyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyAccountView.swift; sourceTree = "<group>"; };
 		7A0F9BAB2851294F00D1C170 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A0F9BAD2851299800D1C170 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		7A1F56D02857EB1A00033FCC /* AccountInfoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoClass.swift; sourceTree = "<group>"; };
+		7A1F56D62858304400033FCC /* EventInfoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoClass.swift; sourceTree = "<group>"; };
+		7A6955F3285746F900B62BED /* ListEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventsView.swift; sourceTree = "<group>"; };
+		7A6955F5285747F900B62BED /* VolunteerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerMenuView.swift; sourceTree = "<group>"; };
 		7AD338F2285122B100C32976 /* Volunteer Sign-Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Volunteer Sign-Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpApp.swift; sourceTree = "<group>"; };
 		7AD338F7285122B100C32976 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +77,10 @@
 		7AD3390C285122B300C32976 /* Volunteer Sign-UpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Volunteer Sign-UpUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD33910285122B300C32976 /* Volunteer_Sign_UpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpUITests.swift; sourceTree = "<group>"; };
 		7AD33912285122B300C32976 /* Volunteer_Sign_UpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7AD3532D2857EDEC00285730 /* ListEventsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventsClass.swift; sourceTree = "<group>"; };
+		7AD3532F2857F87600285730 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7AD844E42855649F0024867B /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		7AD99760285BF3860089FB61 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +134,23 @@
 			isa = PBXGroup;
 			children = (
 				7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */,
+				7A1F56D02857EB1A00033FCC /* AccountInfoClass.swift */,
+				7AD844E42855649F0024867B /* CreateAccountView.swift */,
 				7AD338F7285122B100C32976 /* ContentView.swift */,
 				2AEF3D5328557293008E68DB /* ClassProtocols.swift */,
 				2AADCEB72858610100469E6F /* EventInfoView.swift */,
 				2AEF3D51285571EF008E68DB /* EventInfo.swift */,
 				2AADCEB528585CA600469E6F /* UserInfo.swift */,
+				7A0C054E285C1C7900375DE1 /* UserInfoClass.swift */,
+				7A0C0552285C2E2E00375DE1 /* EditMyAccountView.swift */,
+				7AD99760285BF3860089FB61 /* MyAccountView.swift */,
+				2A9CE04C285ACC1800C77FAB /* EventSearchView.swift */,
+				2A9CE04A285ACBEA00C77FAB /* EventSearchClass.swift */,
+				7A6955F5285747F900B62BED /* VolunteerMenuView.swift */,
+				7A6955F3285746F900B62BED /* ListEventsView.swift */,
+				7AD3532D2857EDEC00285730 /* ListEventsClass.swift */,
+				7A1F56D62858304400033FCC /* EventInfoClass.swift */,
+				7AD3532F2857F87600285730 /* HomeView.swift */,
 				7AD338F9285122B200C32976 /* Assets.xcassets */,
 				7AD338FB285122B200C32976 /* Preview Content */,
 			);
@@ -283,6 +320,21 @@
 				2AADCEB628585CA600469E6F /* UserInfo.swift in Sources */,
 				7AD338F6285122B100C32976 /* Volunteer_Sign_UpApp.swift in Sources */,
 				2AADCEB82858610100469E6F /* EventInfoView.swift in Sources */,
+				7A3D27D6285B09DB001C8A0C /* ListEventsView.swift in Sources */,
+				7A5E7ABB285B02EF006A4C0F /* VolunteerMenuView.swift in Sources */,
+				7A5E7ABA285B02E4006A4C0F /* Volunteer_Sign_UpApp.swift in Sources */,
+				7A5E7AB9285B02A5006A4C0F /* ContentView.swift in Sources */,
+				7A5E7AB8285B025E006A4C0F /* ClassProtocols.swift in Sources */,
+				7A0C0553285C2E2E00375DE1 /* EditMyAccountView.swift in Sources */,
+				7AD353302857F87600285730 /* HomeView.swift in Sources */,
+				7AD3532E2857EDEC00285730 /* ListEventsClass.swift in Sources */,
+				7AD99761285BF3860089FB61 /* MyAccountView.swift in Sources */,
+				7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */,
+				7A1F56D72858304400033FCC /* EventInfoClass.swift in Sources */,
+				7A1F56D12857EB1A00033FCC /* AccountInfoClass.swift in Sources */,
+				2A9CE04D285ACC1800C77FAB /* EventSearchView.swift in Sources */,
+				7A0C054F285C1C7900375DE1 /* UserInfoClass.swift in Sources */,
+				2A9CE04B285ACBEA00C77FAB /* EventSearchClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Volunteer Sign-Up/Preview Content\"";
+				DEVELOPMENT_TEAM = 85SY8839ZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -469,6 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Volunteer Sign-Up/Preview Content\"";
+				DEVELOPMENT_TEAM = 85SY8839ZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
