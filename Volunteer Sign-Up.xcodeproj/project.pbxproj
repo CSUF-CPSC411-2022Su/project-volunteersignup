@@ -29,6 +29,7 @@
 		7AD353302857F87600285730 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3532F2857F87600285730 /* HomeView.swift */; };
 		7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD844E42855649F0024867B /* CreateAccountView.swift */; };
 		7AD99761285BF3860089FB61 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD99760285BF3860089FB61 /* MyAccountView.swift */; };
+		7AF4854C285D2954000D6624 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4854B285D2954000D6624 /* LoginPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		7AD3532F2857F87600285730 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7AD844E42855649F0024867B /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		7AD99760285BF3860089FB61 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
+		7AF4854B285D2954000D6624 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */,
 				7A1F56D02857EB1A00033FCC /* AccountInfoClass.swift */,
 				7AD844E42855649F0024867B /* CreateAccountView.swift */,
+				7AF4854B285D2954000D6624 /* LoginPageView.swift */,
 				7AD338F7285122B100C32976 /* ContentView.swift */,
 				2AEF3D5328557293008E68DB /* ClassProtocols.swift */,
 				7A0C054E285C1C7900375DE1 /* UserInfoClass.swift */,
@@ -319,6 +322,7 @@
 				2A9CE04D285ACC1800C77FAB /* EventSearchView.swift in Sources */,
 				7A0C054F285C1C7900375DE1 /* UserInfoClass.swift in Sources */,
 				2A9CE04B285ACBEA00C77FAB /* EventSearchClass.swift in Sources */,
+				7AF4854C285D2954000D6624 /* LoginPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

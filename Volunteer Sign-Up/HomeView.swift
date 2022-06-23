@@ -14,12 +14,11 @@ struct HomeView: View {
         //NavigationView{
         VStack {
             NavigationLink("Sign In"){
-                VolunteerMenuView()
+                LoginPageView()
             }
             .buttonStyle(GreenButton())
             
             NavigationLink("Create Account"){
-                //VolunteerMenuView()
                 CreateAccountView()
             }
             .buttonStyle(GreenButton())
