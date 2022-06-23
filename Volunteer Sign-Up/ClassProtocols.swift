@@ -13,21 +13,23 @@
 import Foundation
 
 protocol p_eventSearch {
-    var searchLocation: String {get set}
-    var searchRadius: Int {get}
+    var searchLocation: String { get set }
+    var searchRadius: Int { get }
     
     func findEvent() throws -> p_eventSearch
 }
     
-protocol p_Event {
-    var eventName: String {get set}
-    var location: String {get set}
-    var dateTime: Date {get set}
-    var eventNotes: String {get set}
+protocol p_Event: Codable, Identifiable {
+    var eventName: String { get set }
+    var location: String { get set }
+    var dateTime: Date { get set }
+    var eventNotes: String { get set }
+    var owner: String { get set }
+    var zip: Int { get set }
     
-    func SaveEventInfo() throws -> p_Event
-    func EditEventInfo() throws -> p_Event
-    func DeleteEventInfo() throws -> Bool
+    func saveEventInfo() throws -> Bool
+    func editEventInfo() throws -> Bool
+    func deleteEventInfo() throws -> Bool
 }
 
 protocol p_ListEvents {
@@ -39,11 +41,10 @@ protocol p_ListEvents {
 }
 
 protocol p_UserInfo {
-    
-    var name: String {get set}
-    var address: String {get set}
-    var email: String {get set}
-    var phone: String {get set}
-    
+    var name: String { get set }
+    var address: String { get set }
+    var email: String { get set }
+    var phone: String { get set }
 }
+
 // Note: Additional protocols will be added here when my other group members fill this out
