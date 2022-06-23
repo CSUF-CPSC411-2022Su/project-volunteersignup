@@ -7,7 +7,25 @@
 
 import Foundation
 
-class EventInfo : p_Event{
+struct EventInfo: Codable {
+    
+    var eventName: String
+    var location: String
+    var dateTime: Date
+    var eventNotes: String
+    
+    init() {
+        
+        self.eventName = ""
+        self.location = ""
+        self.dateTime = Date()
+        self.eventNotes = ""
+        
+    }
+    
+}
+
+/*class EventInfo : p_Event{
     var eventName: String
     
     var location: String
@@ -45,4 +63,4 @@ class EventInfo : p_Event{
     }
     
     
-}
+}*/

@@ -7,7 +7,21 @@
 
 import Foundation
 
-class ListEvents: p_ListEvents {
+struct ListEvents: Codable {
+    
+    var listEventsSigned: [EventInfo]
+    var listEventsCreated: [EventInfo]
+    
+    init() {
+        
+        listEventsSigned = []
+        listEventsCreated = []
+        
+    }
+    
+}
+
+/*class ListEvents: p_ListEvents {
     var listEventsSigned: [EventInfo] = []
     var listEventsCreated: [EventInfo] = []
     
@@ -22,4 +36,4 @@ class ListEvents: p_ListEvents {
     func DeleteEvent(at index: Int, in list: [EventInfo]) throws -> Bool {
         return true
     }
-}
+}*/
