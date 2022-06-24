@@ -24,12 +24,12 @@ class EventInfo: p_Event, Codable, Identifiable {
         self.zip = -1
     }
     
-    init(eventName n: String, at loc: String, timeAndDate dt: Date, notes: String, user: AccountInfo, zip: Int) {
+    init(eventName n: String, at loc: String, timeAndDate dt: Date, notes: String, user: String, zip: Int) {
         self.eventName = n
         self.location = loc
         self.dateTime = dt
         self.eventNotes = notes
-        self.owner = user.username
+        self.owner = user
         self.zip = zip
     }
     
