@@ -20,6 +20,7 @@
 		7A5E7AB9285B02A5006A4C0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F7285122B100C32976 /* ContentView.swift */; };
 		7A5E7ABA285B02E4006A4C0F /* Volunteer_Sign_UpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */; };
 		7A5E7ABB285B02EF006A4C0F /* VolunteerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6955F5285747F900B62BED /* VolunteerMenuView.swift */; };
+		7A98FFAF286513FC000F7D86 /* AccountInfoFileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A98FFAE286513FC000F7D86 /* AccountInfoFileClass.swift */; };
 		7AD338FA285122B200C32976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD338F9285122B200C32976 /* Assets.xcassets */; };
 		7AD338FD285122B200C32976 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD338FC285122B200C32976 /* Preview Assets.xcassets */; };
 		7AD33907285122B300C32976 /* Volunteer_Sign_UpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD33906285122B300C32976 /* Volunteer_Sign_UpTests.swift */; };
@@ -61,6 +62,7 @@
 		7A1F56D62858304400033FCC /* EventInfoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoClass.swift; sourceTree = "<group>"; };
 		7A6955F3285746F900B62BED /* ListEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventsView.swift; sourceTree = "<group>"; };
 		7A6955F5285747F900B62BED /* VolunteerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerMenuView.swift; sourceTree = "<group>"; };
+		7A98FFAE286513FC000F7D86 /* AccountInfoFileClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoFileClass.swift; sourceTree = "<group>"; };
 		7AD338F2285122B100C32976 /* Volunteer Sign-Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Volunteer Sign-Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD338F5285122B100C32976 /* Volunteer_Sign_UpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_Sign_UpApp.swift; sourceTree = "<group>"; };
 		7AD338F7285122B100C32976 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				7AF4854B285D2954000D6624 /* LoginPageView.swift */,
 				7AD338F7285122B100C32976 /* ContentView.swift */,
 				2AEF3D5328557293008E68DB /* ClassProtocols.swift */,
+				7A98FFAE286513FC000F7D86 /* AccountInfoFileClass.swift */,
 				7A0C054E285C1C7900375DE1 /* UserInfoClass.swift */,
 				7A0C0552285C2E2E00375DE1 /* EditMyAccountView.swift */,
 				7AD99760285BF3860089FB61 /* MyAccountView.swift */,
@@ -317,6 +320,7 @@
 				7AD3532E2857EDEC00285730 /* ListEventsClass.swift in Sources */,
 				7AD99761285BF3860089FB61 /* MyAccountView.swift in Sources */,
 				7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */,
+				7A98FFAF286513FC000F7D86 /* AccountInfoFileClass.swift in Sources */,
 				7A1F56D72858304400033FCC /* EventInfoClass.swift in Sources */,
 				7A1F56D12857EB1A00033FCC /* AccountInfoClass.swift in Sources */,
 				2A9CE04D285ACC1800C77FAB /* EventSearchView.swift in Sources */,

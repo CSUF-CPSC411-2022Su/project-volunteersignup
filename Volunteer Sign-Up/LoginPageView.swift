@@ -9,7 +9,12 @@ import SwiftUI
 
 struct LoginPageView: View {
     
-    @StateObject var myAccount: AccountInfo = AccountInfo()
+    @StateObject var myAccount: AccountInfoFile = AccountInfoFile()
+    @State var name: String = ""
+    @State var email: String = ""
+    @State var phone: String = ""
+    @State var username: String = ""
+    @State var password: String = ""
     
     var body: some View {
         
