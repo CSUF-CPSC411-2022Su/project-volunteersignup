@@ -14,13 +14,7 @@ import SwiftUI
 // TODO: Tie this page to Nathan's page (VolunteerMenu) when he finishes it
 struct CreateAccountView: View {
     
-    @StateObject var myAccount: AccountInfoFile = AccountInfoFile()
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var phone: String = ""
-    @State var username: String = ""
-    @State var password: String = ""
-    //@StateObject var myAccount: AccountInfo = AccountInfo()
+    @EnvironmentObject var myAccountFile: AccountInfoFile
     
     var body: some View {
         
@@ -36,31 +30,31 @@ struct CreateAccountView: View {
                     
                     /*TextField("Full Name", text: $myAccount.myInfo.name, prompt: Text("Enter your name"))*/
                     
-                    TextField("Full Name", text: $name, prompt: Text("Enter your name"))
+                    TextField("Full Name", text: $myAccountFile.myAccount.myInfo.name, prompt: Text("Enter your name"))
                     
                 }
                 
                 Section(header: Text("Email")) {
                     
-                    TextField("Email", text: $email, prompt: Text("Enter your email"))
+                    TextField("Email", text: $myAccountFile.myAccount.myInfo.email, prompt: Text("Enter your email"))
                     
                 }
                 
                 Section(header: Text("Phone")) {
                     
-                    TextField("Phone", text: $phone, prompt: Text("Enter your phone number"))
+                    TextField("Phone", text: $myAccountFile.myAccount.myInfo.phone, prompt: Text("Enter your phone number"))
                     
                 }
                 
                 Section(header: Text("Username")) {
                     
-                    TextField("Username", text: $username, prompt: Text("Enter a username"))
+                    TextField("Username", text: $myAccountFile.myAccount.username, prompt: Text("Enter a username"))
                     
                 }
                 
                 Section(header: Text("Password")) {
                     
-                    SecureField("Password", text: $password, prompt: Text("Enter a password"))
+                    SecureField("Password", text: $myAccountFile.myAccount.password, prompt: Text("Enter a password"))
                     
                 }
                 

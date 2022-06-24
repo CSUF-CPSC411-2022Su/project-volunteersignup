@@ -9,12 +9,7 @@ import SwiftUI
 
 struct EditMyAccountView: View {
     
-    @EnvironmentObject var myAccount: AccountInfoFile
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var phone: String = ""
-    @State var username: String = ""
-    @State var password: String = ""
+    @EnvironmentObject var myAccountFile: AccountInfoFile
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -29,7 +24,7 @@ struct EditMyAccountView: View {
             
                 Section(header: Text("Name").padding(.top)) {
                     
-                    TextField("Full Name", text: $name, prompt: Text("Enter your name"))
+                    TextField("Full Name", text: $myAccountFile.myAccount.myInfo.name, prompt: Text("Enter your name"))
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -47,7 +42,7 @@ struct EditMyAccountView: View {
             
                 Section(header: Text("Email").padding(.top)) {
                     
-                    TextField("", text: $email, prompt: Text("Enter your email"))
+                    TextField("", text: $myAccountFile.myAccount.myInfo.email, prompt: Text("Enter your email"))
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -64,7 +59,7 @@ struct EditMyAccountView: View {
             
                 Section(header: Text("Phone").padding(.top)) {
                     
-                    TextField("", text: $phone, prompt: Text("Enter your phone number"))
+                    TextField("", text: $myAccountFile.myAccount.myInfo.phone, prompt: Text("Enter your phone number"))
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -81,7 +76,7 @@ struct EditMyAccountView: View {
             
                 Section(header: Text("Username").padding(.top)) {
                     
-                    TextField("", text: $username, prompt: Text("Enter your username"))
+                    TextField("", text: $myAccountFile.myAccount.username, prompt: Text("Enter your username"))
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -98,7 +93,7 @@ struct EditMyAccountView: View {
             
                 Section(header: Text("Password").padding(.top)) {
                     
-                    SecureField("", text: $password, prompt: Text("Enter your password"))
+                    SecureField("", text: $myAccountFile.myAccount.password, prompt: Text("Enter your password"))
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()

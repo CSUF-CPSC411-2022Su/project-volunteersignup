@@ -19,6 +19,8 @@ struct GreenButton: ButtonStyle {
 
 struct VolunteerMenuView: View {
     
+    @EnvironmentObject var myAccountFile: AccountInfoFile
+    
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {

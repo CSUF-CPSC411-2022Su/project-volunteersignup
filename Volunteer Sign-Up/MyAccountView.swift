@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MyAccountView: View {
+    
+    @EnvironmentObject var myAccountFile: AccountInfoFile
+    
     var body: some View {
         
         VStack {
@@ -20,7 +23,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Name").padding(.top)) {
                     
-                    Text("<Insert Name Here>")
+                    Text("\(myAccountFile.myAccount.myInfo.name)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()

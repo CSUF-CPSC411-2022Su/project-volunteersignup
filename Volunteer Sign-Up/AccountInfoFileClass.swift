@@ -10,24 +10,19 @@ import SwiftUI
 
 class AccountInfoFile: ObservableObject {
     @Published var myAccount: AccountInfo = AccountInfo()
-    @Published var username: String
-    @Published var password: String
     @Published var fileURL: URL? = nil
     
     // This default constructor is called only at the CreateAccount page when username and password aren't available
     init() {
         
-        username = ""
-        password = ""
-
     }
 
     // This type constructor is called from any page that already has access to username and password
     init(username: String, password: String) {
         // TODO: Create a path to a file named crosswalks.plist and store in fileURL
         
-        self.username = username
-        self.password = password
+        self.myAccount.username = username
+        self.myAccount.password = password
 
         let documentsDirectory = FileManager
             .default
@@ -35,7 +30,7 @@ class AccountInfoFile: ObservableObject {
             .first!
 
         fileURL = documentsDirectory
-            .appendingPathComponent("\(username)")
+            .appendingPathComponent("\(self.myAccount.username)")
             .appendingPathExtension("plist")
 
         loadHistory()

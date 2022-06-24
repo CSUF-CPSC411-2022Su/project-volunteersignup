@@ -9,12 +9,7 @@ import SwiftUI
 
 struct LoginPageView: View {
     
-    @StateObject var myAccount: AccountInfoFile = AccountInfoFile()
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var phone: String = ""
-    @State var username: String = ""
-    @State var password: String = ""
+    @EnvironmentObject var myAccountFile: AccountInfoFile
     
     var body: some View {
         
@@ -28,13 +23,13 @@ struct LoginPageView: View {
                 
                 Section(header: Text("Username")) {
                     
-                    TextField("Username", text: $myAccount.username, prompt: Text("Enter your username"))
+                    TextField("Username", text: $myAccountFile.myAccount.username, prompt: Text("Enter your username"))
                     
                 }
                 
                 Section(header: Text("Password")) {
                     
-                    SecureField("Password", text: $myAccount.password, prompt: Text("Enter a password"))
+                    SecureField("Password", text: $myAccountFile.myAccount.password, prompt: Text("Enter a password"))
                     
                 }
                 
