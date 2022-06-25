@@ -116,6 +116,7 @@ struct CreateAccountView: View {
                     }
                     
                 })
+                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "" || myAccountFile.myAccount.myInfo.phone == "" || myAccountFile.myAccount.myInfo.email == "")
                 
                 if didSaveHistory {
                     NavigationLink(destination: VolunteerMenuView(), isActive: $didSaveHistory) {
