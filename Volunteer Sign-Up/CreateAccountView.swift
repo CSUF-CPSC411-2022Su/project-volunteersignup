@@ -102,6 +102,7 @@ struct CreateAccountView: View {
                 
                 Button("Create Account", action: {
                     
+                    // This following line can be uncommented to see the documents directory on the current machine (can be used to see which files have been created)
                     //myAccountFile.clearDocuments()
                     
                     if myAccountFile.saveHistory() {
@@ -110,17 +111,21 @@ struct CreateAccountView: View {
                     }
                     else
                     {
+                        // TODO: This line needs to be replaced with some type of notification that an account couldn't be created due to the username already existing
                         print("Unable to create account! (Username taken)")
                     }
                     
                 })
                 
-                NavigationLink(destination: VolunteerMenuView(), isActive: $didSaveHistory) {
-                    
-                    EmptyView()
-                    
+                if didSaveHistory {
+                    NavigationLink(destination: VolunteerMenuView(), isActive: $didSaveHistory) {
+                        
+                        EmptyView()
+                        
+                    }
+                    .disabled(!didSaveHistory)
+                        
                 }
-                .disabled(!didSaveHistory)
                 
                 // Note: The main thing that made this button align correctly is the fact that maxWidth was set to .infinity
                 //Button("Create Account", action: {})
