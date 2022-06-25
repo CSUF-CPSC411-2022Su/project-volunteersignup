@@ -209,4 +209,13 @@ class AccountInfoFile: ObservableObject {
         
         return true
     }
+    
+    func clearDocuments() {
+        
+        let documentsDirectory =
+           FileManager.default.urls(for: .documentDirectory,
+           in: .userDomainMask).first!
+
+        print(documentsDirectory)
+    }
 }

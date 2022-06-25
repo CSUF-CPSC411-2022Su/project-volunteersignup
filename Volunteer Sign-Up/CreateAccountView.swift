@@ -15,6 +15,7 @@ import SwiftUI
 struct CreateAccountView: View {
     
     @EnvironmentObject var myAccountFile: AccountInfoFile
+    @State var didSaveHistory: Bool = false
     
     var body: some View {
         
@@ -60,7 +61,7 @@ struct CreateAccountView: View {
                 
                 // Note: There's an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly
                 
-                NavigationLink(destination: VolunteerMenuView()) {
+                /*NavigationLink(destination: VolunteerMenuView()) {
                     
                     //Text("Create Account")
                     Button("Create Account", action: {
@@ -74,8 +75,52 @@ struct CreateAccountView: View {
                     })
                     
                 }
-                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "")
+                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "" || myAccountFile.myAccount.myInfo.phone == "" || myAccountFile.myAccount.myInfo.email == "" || myAccountFile.saveHistory())*/
                 
+                /*Button("Create Account", action: {
+                    
+                    if didSaveHistory {
+                        
+                        didSaveHistory = myAccountFile.updateHistory()
+                        
+                    }
+                    else {
+                    
+                        didSaveHistory = myAccountFile.saveHistory()
+                        
+                    }
+                    
+                })
+                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "" || myAccountFile.myAccount.myInfo.phone == "" || myAccountFile.myAccount.myInfo.email == "")
+                
+                NavigationLink(destination: VolunteerMenuView()) {
+                    
+                    Text("Next Page")
+                    
+                }
+                .disabled(!didSaveHistory)*/
+                
+                Button("Create Account", action: {
+                    
+                    //myAccountFile.clearDocuments()
+                    
+                    if myAccountFile.saveHistory() {
+                        
+                        didSaveHistory = true
+                    }
+                    else
+                    {
+                        print("Unable to create account! (Username taken)")
+                    }
+                    
+                })
+                
+                NavigationLink(destination: VolunteerMenuView(), isActive: $didSaveHistory) {
+                    
+                    EmptyView()
+                    
+                }
+                .disabled(!didSaveHistory)
                 
                 // Note: The main thing that made this button align correctly is the fact that maxWidth was set to .infinity
                 //Button("Create Account", action: {})

@@ -34,11 +34,36 @@ struct LoginPageView: View {
                 }
                 
                 // Note: There's an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly
-                NavigationLink(destination: VolunteerMenuView()) {
+                /*NavigationLink(destination: VolunteerMenuView()) {
                     
-                    Text("Sign in")
+                    //Text("Sign in")
+                    Button("Sign in", action: {
+                        
+                        if !myAccountFile.loadHistory(username: myAccountFile.myAccount.username, password: myAccountFile.myAccount.password) {
+                            
+                            print("Error! Account info not saved!")
+                            
+                        }
+                        
+                    })
                     
                 }
+                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "")*/
+                
+                Button("Sign in", action: {
+                    
+                    if !myAccountFile.loadHistory(username: myAccountFile.myAccount.username, password: myAccountFile.myAccount.password) {
+                        
+                        print("Error! Account info not saved!")
+                        
+                    }
+                    else {
+                        
+                        print("Success! Account info was loaded!")
+                        
+                    }
+                    
+                })
                 
             }
 
