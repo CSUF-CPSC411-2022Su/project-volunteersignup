@@ -59,11 +59,23 @@ struct CreateAccountView: View {
                 }
                 
                 // Note: There's an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly
+                
                 NavigationLink(destination: VolunteerMenuView()) {
                     
-                    Text("Create Account")
+                    //Text("Create Account")
+                    Button("Create Account", action: {
+                        
+                        if !myAccountFile.saveHistory() {
+                            
+                            print("Error! Account info not saved!")
+                            
+                        }
+                        
+                    })
                     
                 }
+                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "")
+                
                 
                 // Note: The main thing that made this button align correctly is the fact that maxWidth was set to .infinity
                 //Button("Create Account", action: {})
@@ -102,7 +114,11 @@ struct CreateAccountView: View {
 }
 
 struct CreateAccountView_Previews: PreviewProvider {
+    
+    static var myAccount = AccountInfoFile()
+    
     static var previews: some View {
         CreateAccountView()
+            .environmentObject(myAccount)
     }
 }

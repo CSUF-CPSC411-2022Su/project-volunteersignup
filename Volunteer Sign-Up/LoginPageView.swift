@@ -49,7 +49,11 @@ struct LoginPageView: View {
 }
 
 struct LoginPageView_Previews: PreviewProvider {
+    
+    static var myAccount = AccountInfoFile()
+    
     static var previews: some View {
         LoginPageView()
+            .environmentObject(myAccount)
     }
 }

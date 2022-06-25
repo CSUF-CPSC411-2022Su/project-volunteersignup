@@ -41,7 +41,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Email").padding(.top)) {
                     
-                    Text("<Insert Email Here>")
+                    Text("\(myAccountFile.myAccount.myInfo.email)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -58,7 +58,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Phone").padding(.top)) {
                     
-                    Text("<Insert Phone Here>")
+                    Text("\(myAccountFile.myAccount.myInfo.phone)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -75,7 +75,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Username").padding(.top)) {
                     
-                    Text("<Insert Username Here>")
+                    Text("\(myAccountFile.myAccount.username)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -92,7 +92,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Password").padding(.top)) {
                     
-                    Text("<Insert Password Here>")
+                    Text("\(myAccountFile.myAccount.password)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -126,7 +126,11 @@ struct MyAccountView: View {
 }
 
 struct MyAccountView_Previews: PreviewProvider {
+    
+    static let myAccount = AccountInfoFile()
+    
     static var previews: some View {
         MyAccountView()
+            .environmentObject(myAccount)
     }
 }

@@ -117,7 +117,11 @@ struct EditMyAccountView: View {
 }
 
 struct EditMyAccountView_Previews: PreviewProvider {
+    
+    static let myAccount = AccountInfoFile()
+    
     static var previews: some View {
         EditMyAccountView()
+            .environmentObject(myAccount)
     }
 }
