@@ -23,7 +23,7 @@ struct VolunteerMenuView: View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {
             NavigationLink("Find Events"){
-                WIPView()
+                EventSearchView()
             }
             .buttonStyle(GreenButton())
             

@@ -5,36 +5,47 @@
 //  Created by Tianna Cano on 6/12/22.
 //
 
-import MapKit
 import SwiftUI
 
 struct EventSearchView: View {
-    @StateObject var event = FindEvent(searchLocation: "", searchRadius: 0)
-    @State var searchLocationInput: String
-    @State var searchRadiusInput: String
-    // @StateObject var searchResults = SearchResults()
-    
-    //@EnvironmentObject var EventResults: SearchResults
+    @State var searchString: String = ""
+    @StateObject var event = FindEvent()
+    @State var searchLocationInput: String = ""
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Search for Events")
-                    .font(.headline)
-                VStack {
-                    HStack {
-                        Text("Location:").padding(.leading)
-                        TextField("Location", text: $searchLocationInput)
-                        Spacer()
-                    }
-                    HStack {
-                        Text("Radius:").padding(.leading)
-                        TextField("Radius", text: $searchRadiusInput)
-                        Spacer()
-                    }
-                    NavigationLink(destination: FindEvents()) {
-                        Text("Search!")
-                            .bold().padding(10).background(.green).cornerRadius(10).foregroundColor(.white)
+        VStack(alignment: .leading) {
+            /*TextField("Location", text: $searchString)
+                .modifier(TextEntry())
+            
+            Button(action: {
+                event.find(searchString)
+            }) {
+                Text("Find events")
+            }
+            .modifier(ButtonDesign())
+            .padding(.bottom, 20)*/
+            
+            EventList()
+            
+            Spacer()
+        }.padding()
+    }
+}
+
+struct EventList: View {
+    @State var searchString: String = ""
+    @StateObject var event = FindEvent()
+    @StateObject var eventInfo = EventInfoList()
+    
+    var body: some View {
+        VStack {
+            ForEach(eventInfo.eventList) {
+                event in
+                List {
+                    Section(){
+                        NavigationLink(destination: EventMap()) {
+                            Text("Event: \(event.eventName)")
+                        }
                     }
                 }
             }
@@ -42,26 +53,36 @@ struct EventSearchView: View {
     }
 }
 
-struct FindEvents: View {
-    /*
-     @StateObject var event = FindEvent(searchLocation: "", searchRadius: 0)
-    @State var searchLocationInput: String
-    @State var searchRadiusInput: Int
-    */
-    @StateObject var searchResults = SearchResults()
+struct EventMap: View {
+    @State var searchString: String = ""
+    @StateObject var event = FindEvent()
+    @StateObject var eventInfo = EventInfoList()
     
     var body: some View {
         VStack {
-            Text("Results: ")
-            Text(searchResults.locationList)
+            ForEach(eventInfo.eventList) {
+                events in
+                //events.location = searchString
+                HStack {
+                    Balloon().fill(.pink)
+                        .frame(width: 40, height: 50)
+                    Text(event.searchLocation)
+                        .font(.body)
+                }
+                Button(action: {
+                    event.find(searchString)
+                }) {
+                    Text("Find events")
+                }
+                Image(uiImage: event.image)
+            }
         }
     }
 }
 
 struct EventSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        EventSearchView(searchLocationInput: "", searchRadiusInput: "")
+        EventSearchView()
             .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
-
