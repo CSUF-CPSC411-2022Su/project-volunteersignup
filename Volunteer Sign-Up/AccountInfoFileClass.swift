@@ -210,6 +210,119 @@ class AccountInfoFile: ObservableObject {
         return true
     }
     
+    func fileExists(at file: String) -> Bool {
+        
+        let fileNameToDelete = file
+        var filePath = ""
+        // Fine documents directory on device
+         let dirs : [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
+        if dirs.count > 0 {
+            let dir = dirs[0] //documents directory
+            filePath = dir.appendingFormat("/" + fileNameToDelete)
+            //print("Local path = \(filePath)")
+        } else {
+            //print("Could not find local directory to store file")
+            return false
+        }
+        let fileManager = FileManager.default
+        // Check if file exists
+        if fileManager.fileExists(atPath: filePath) {
+            //print("File exists")
+            return true
+        } else {
+            //print("File does not exist")
+            return false
+        }
+        
+    }
+    
+    func moveItem(at oldPath: String, to newPath: String) -> Bool {
+        
+        let fileNameToDelete = oldPath
+        let fileNameToMove = newPath
+        var filePathToDelete = ""
+        var filePathToMove = ""
+        // Find documents directory on device
+         let dirs : [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
+        if dirs.count > 0 {
+            let dir = dirs[0] //documents directory
+            filePathToDelete = dir.appendingFormat("/" + fileNameToDelete)
+            filePathToMove = dir.appendingFormat("/" + fileNameToMove)
+            //print("Local path = \(filePath)")
+        } else {
+            //print("Could not find local directory to store file")
+            return false
+        }
+        
+        let fileManager = FileManager.default
+        
+        // Check to see if the file exists
+        if fileManager.fileExists(atPath: fileNameToMove) {
+            
+            print("Error! The file at \(newPath).plist already exists!")
+            return false
+        }
+        else {
+            
+            // Move file
+            if let success = try? fileManager.moveItem(atPath: filePathToDelete, toPath: filePathToMove) {
+                
+                print("Successfully moved \(fileNameToDelete).plist to \(fileNameToMove).plist! (Code: \(success)")
+                return true
+            } else {
+                
+                print("Error! Unable to complete the move of \(fileNameToDelete).plist to \(fileNameToMove).plist!")
+                return false
+            }
+        }
+        
+    }
+    
+    func updateUsername(username: String) -> Bool {
+        
+        // Check to make sure that the new username doesn't already exist
+        if fileExists(at: username + ".plist") {
+            print("Error! \(username).plist already exists! Unable to update the current username!")
+            return false
+        }
+        
+        // Get the documents directory
+        let documentsDirectory = FileManager
+            .default
+            .urls(for: .documentDirectory, in: .userDomainMask)
+            .first!
+
+        // Get the address of the <username>.plist file
+        fileURL = documentsDirectory
+            .appendingPathComponent("\(myAccount.username)")
+            .appendingPathExtension("plist")
+        
+        // Copy the old file into the new file
+        /*var rv = URLResourceValues()
+        rv.name = username + ".plist"
+        if let myFile = try? fileURL!.setResourceValues(rv) {
+            print("Success! File converted to \(username).plist! (File name: \(myFile))")
+            return true
+        }
+        else {
+            print("Error! Unable to convert \(myAccount.username).plist to \(username).plist!")
+            return false
+        }*/
+        
+        if moveItem(at: myAccount.username + ".plist", to: username + ".plist") {
+            
+            print("Successfully moved the file at \(myAccount.username).plist to \(username).plist!")
+            return true
+        }
+        else {
+            
+            print("Error! Unable to move the file at \(myAccount.username).plist to \(username).plist!")
+            return false
+        }
+        
+    }
+    
+    // This function is used to find your local Documents directory
     func clearDocuments() {
         
         let documentsDirectory =

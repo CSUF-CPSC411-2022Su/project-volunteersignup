@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginPageView: View {
     
     @EnvironmentObject var myAccountFile: AccountInfoFile
+    @State var didLoadHistory: Bool = false
     
     var body: some View {
         
@@ -52,18 +53,32 @@ struct LoginPageView: View {
                 
                 Button("Sign in", action: {
                     
-                    if !myAccountFile.loadHistory(username: myAccountFile.myAccount.username, password: myAccountFile.myAccount.password) {
-                        
-                        print("Error! Account info not saved!")
-                        
-                    }
-                    else {
-                        
-                        print("Success! Account info was loaded!")
-                        
+                    if myAccountFile.myAccount.username != "" && myAccountFile.myAccount.password != "" {
+                    
+                        if myAccountFile.loadHistory(username: myAccountFile.myAccount.username, password: myAccountFile.myAccount.password) {
+                            
+                            didLoadHistory = true
+                            
+                        }
+                        else {
+                            
+                            print("Error! The account with username: \(myAccountFile.myAccount.username) and password: \(myAccountFile.myAccount.password) does not exist!")
+                            
+                        }
+                    
                     }
                     
                 })
+                
+                if didLoadHistory {
+                    NavigationLink(destination: VolunteerMenuView(), isActive: $didLoadHistory) {
+                        
+                        EmptyView()
+                        
+                    }
+                    .disabled(!didLoadHistory)
+                        
+                }
                 
             }
 

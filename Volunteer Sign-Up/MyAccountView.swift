@@ -127,10 +127,10 @@ struct MyAccountView: View {
 
 struct MyAccountView_Previews: PreviewProvider {
     
-    static let myAccount = AccountInfoFile()
+    static let myAccountFile = AccountInfoFile()
     
     static var previews: some View {
         MyAccountView()
-            .environmentObject(myAccount)
+            .environmentObject(myAccountFile)
     }
 }
