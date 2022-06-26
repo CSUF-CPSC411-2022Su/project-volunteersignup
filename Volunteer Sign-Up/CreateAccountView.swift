@@ -16,6 +16,11 @@ struct CreateAccountView: View {
     
     @EnvironmentObject var myAccountFile: AccountInfoFile
     @State var didSaveHistory: Bool = false
+    @State var name: String = ""
+    @State var email: String = ""
+    @State var phone: String = ""
+    @State var username: String = ""
+    @State var password: String = ""
     
     var body: some View {
         
@@ -31,31 +36,31 @@ struct CreateAccountView: View {
                     
                     /*TextField("Full Name", text: $myAccount.myInfo.name, prompt: Text("Enter your name"))*/
                     
-                    TextField("Full Name", text: $myAccountFile.myAccount.myInfo.name, prompt: Text("Enter your name"))
+                    TextField("Full Name", text: $name, prompt: Text("Enter your name"))
                     
                 }
                 
                 Section(header: Text("Email")) {
                     
-                    TextField("Email", text: $myAccountFile.myAccount.myInfo.email, prompt: Text("Enter your email"))
+                    TextField("Email", text: $email, prompt: Text("Enter your email"))
                     
                 }
                 
                 Section(header: Text("Phone")) {
                     
-                    TextField("Phone", text: $myAccountFile.myAccount.myInfo.phone, prompt: Text("Enter your phone number"))
+                    TextField("Phone", text: $phone, prompt: Text("Enter your phone number"))
                     
                 }
                 
                 Section(header: Text("Username")) {
                     
-                    TextField("Username", text: $myAccountFile.myAccount.username, prompt: Text("Enter a username"))
+                    TextField("Username", text: $username, prompt: Text("Enter a username"))
                     
                 }
                 
                 Section(header: Text("Password")) {
                     
-                    SecureField("Password", text: $myAccountFile.myAccount.password, prompt: Text("Enter a password"))
+                    SecureField("Password", text: $password, prompt: Text("Enter a password"))
                     
                 }
                 
@@ -102,8 +107,12 @@ struct CreateAccountView: View {
                 
                 Button("Create Account", action: {
                     
-                    // This following line can be uncommented to see the documents directory on the current machine (can be used to see which files have been created)
-                    //myAccountFile.clearDocuments()
+                    // Assign the user-typed credentials into the myAccount object
+                    myAccountFile.myAccount.myInfo.name = name
+                    myAccountFile.myAccount.myInfo.email = email
+                    myAccountFile.myAccount.myInfo.phone = phone
+                    myAccountFile.myAccount.username = username
+                    myAccountFile.myAccount.password = password
                     
                     if myAccountFile.saveHistory() {
                         
@@ -116,7 +125,7 @@ struct CreateAccountView: View {
                     }
                     
                 })
-                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "" || myAccountFile.myAccount.myInfo.phone == "" || myAccountFile.myAccount.myInfo.email == "")
+                .disabled(username == "" || password == "" || name == "" || phone == "" || email == "")
                 
                 if didSaveHistory {
                     NavigationLink(destination: VolunteerMenuView(), isActive: $didSaveHistory) {

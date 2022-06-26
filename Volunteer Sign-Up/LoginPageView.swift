@@ -11,6 +11,8 @@ struct LoginPageView: View {
     
     @EnvironmentObject var myAccountFile: AccountInfoFile
     @State var didLoadHistory: Bool = false
+    @State var username: String = ""
+    @State var password: String = ""
     
     var body: some View {
         
@@ -24,13 +26,13 @@ struct LoginPageView: View {
                 
                 Section(header: Text("Username")) {
                     
-                    TextField("Username", text: $myAccountFile.myAccount.username, prompt: Text("Enter your username"))
+                    TextField("Username", text: $username, prompt: Text("Enter your username"))
                     
                 }
                 
                 Section(header: Text("Password")) {
                     
-                    SecureField("Password", text: $myAccountFile.myAccount.password, prompt: Text("Enter a password"))
+                    SecureField("Password", text: $password, prompt: Text("Enter a password"))
                     
                 }
                 
@@ -53,6 +55,10 @@ struct LoginPageView: View {
                 
                 Button("Sign in", action: {
                     
+                    // Assign the values typed in by the user to the myAccount variable
+                    myAccountFile.myAccount.username = username
+                    myAccountFile.myAccount.password = password
+                    
                     if myAccountFile.myAccount.username != "" && myAccountFile.myAccount.password != "" {
                     
                         if myAccountFile.loadHistory(username: myAccountFile.myAccount.username, password: myAccountFile.myAccount.password) {
@@ -62,7 +68,7 @@ struct LoginPageView: View {
                         }
                         else {
                             
-                            print("Error! The account with username: \(myAccountFile.myAccount.username) and password: \(myAccountFile.myAccount.password) does not exist!")
+                            print("Error! The account with username: \(username) and password: \(password) does not exist!")
                             
                         }
                     
