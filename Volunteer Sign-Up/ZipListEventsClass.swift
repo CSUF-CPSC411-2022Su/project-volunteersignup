@@ -11,7 +11,7 @@ import Foundation
 var ZIP_LIST_EVENTS = ZipListEvents()
 
 // class used to store Events by Zip to assist with searching
-class ZipListEvents: Codable {
+class ZipListEvents/*:Codable*/ {
     var zipList: [Int: [EventInfo]]
 
     init() {

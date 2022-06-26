@@ -1,53 +1,47 @@
 //
-//  EventInfoView.swift
+//  EventInfoCreateView.swift
 //  Volunteer Sign-Up
 //
-//  Created by Kai Eusebio on 6/13/22.
+//  Created by Kai Eusebio on 6/26/22.
 //
 
 import SwiftUI
 
-struct EventInfoView: View {
+struct EventInfoCreateView: View {
     @StateObject var eventInfo: EventInfo
     // @StateObject var accountInfo: AccountInfo
 
     var body: some View {
         VStack {
-            // Event Name
             // Text(accountInfo.myEvents.listEventsSigned[0].eventName)
-            Text(eventInfo.eventName).bold()
+            Text("Create New Event").bold()
             // EventInfo
             List {
                 // Coordinator
-                Section(header: Text("Coordinator")) {
-                    Text(eventInfo.owner)
+                Section(header: Text("Event Name")) {
+                    TextField("Event Name", text: $eventInfo.eventName)
                 }
 
                 // address
                 Section(header: Text("Address")) {
-                    // location
-                    Text("\(eventInfo.location)")
+                    TextField("123 Goofy Ln Dump Town, CA USA", text: $eventInfo.location)
 
-                    // Image(eventInfo.mapImage)
-                    Rectangle()
-                        .frame(width: 300, height: 300)
                 }
 
                 // date and time
                 Section(header: Text("date and time")) {
-                    Text(eventInfo.dateTime
-                            .formatted(date: .long, time: .shortened))
+                    DatePicker("Enter Date and Time", selection: $eventInfo.dateTime, in: Date.now...).labelsHidden()
                 }
 
                 // Event Notes/Details
                 Section(header: Text("Event Details")) {
-                    Text(eventInfo.eventNotes)
+                    TextField("Event Details", text: $eventInfo.eventNotes)
                 }
             } // end list
             Button(action: {
                 // TODO: insert action
             }) {
-                Text("Sign Up")
+                Text("Create Event")
                     .bold()
                     .frame(width: 300, height: 50)
             }.buttonStyle(.borderedProminent)
@@ -55,10 +49,8 @@ struct EventInfoView: View {
     }
 }
 
-struct EventInfoView_Previews: PreviewProvider {
+struct EventInfoCreateView_Previews: PreviewProvider {
     static var previews: some View {
-        EventInfoView(eventInfo: dummyEventInfo
-            // , accountInfo: dummyAccountInfo
-        )
+        EventInfoCreateView(eventInfo: emptyEventInfo)
     }
 }

@@ -7,13 +7,13 @@
 
 import Foundation
 
-class EventInfo: p_Event, Codable, Identifiable {
-    var eventName: String
-    var location: String
-    var dateTime: Date
-    var eventNotes: String
-    var owner: String
-    var zip: Int
+class EventInfo: p_Event, /*Codable,*/ Identifiable, ObservableObject {
+    @Published var eventName: String
+    @Published var location: String
+    @Published var dateTime: Date
+    @Published var eventNotes: String
+    @Published var owner: String
+    @Published var zip: Int
     
     init() {
         self.eventName = ""
