@@ -26,9 +26,21 @@ struct EditMyAccountView: View {
             
             Divider()
             
+            /*VStack {
+                
+                Image(systemName: "person.circle.fill")
+                    .font(Font.system(.largeTitle))
+                    //.resizable()
+                    .scaledToFit()
+                    //.frame(width: 175)
+                    .padding()
+                    .foregroundColor(.blue)
+                    .shadow(radius: 5)
+            }*/
+            
             VStack {
             
-                Section(header: Text("Name").padding(.top)) {
+                Section(header: Text("Name")) {
                     
                     TextField("Full Name", text: $name, prompt: Text("\(myAccountFile.myAccount.myInfo.name)"))
                         .frame(maxWidth: .infinity, maxHeight: 120)

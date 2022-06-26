@@ -13,7 +13,7 @@ struct MyAccountView: View {
     
     var body: some View {
         
-        VStack {
+    VStack {
             
             //Text("My Account")
             
@@ -121,7 +121,13 @@ struct MyAccountView: View {
             Spacer()
             
         }
-        .navigationBarTitle("My Profile", displayMode: .inline)
+        //.navigationBarTitle("My Profile", displayMode: .inline)
+        //.navigationBarTitle(Image(systemName: "person.circle.fill").frame(maxWidth: .infinity, alignment: .center).cornerRadius(20), displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Image(systemName: "person.circle.fill").scaledToFit().foregroundColor(.blue)
+            }
+        }
     }
 }
 
