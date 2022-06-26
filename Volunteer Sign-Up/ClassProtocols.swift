@@ -19,7 +19,7 @@ protocol p_eventSearch {
     func findEvent() throws -> p_eventSearch
 }
     
-protocol p_Event: Codable, Identifiable {
+protocol p_Event: /*Codable, */Identifiable {
     var eventName: String { get set }
     var location: String { get set }
     var dateTime: Date { get set }
