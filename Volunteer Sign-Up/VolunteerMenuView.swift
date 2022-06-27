@@ -10,38 +10,47 @@ import SwiftUI
 struct GreenButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .buttonStyle(.borderedProminent)
             .padding(50)
-            .background(.green)
+            .background(.blue)
             .foregroundColor(.white)
-            .clipShape(Capsule())
+            .cornerRadius(16)
+            //.bold()
+            //.clipShape(Capsule())
     }
 }
 
+/*
+ .bold()
+ .frame(width: 300, height: 50)
+}.buttonStyle(.borderedProminent)
+ */
+
 struct VolunteerMenuView: View {
-    @StateObject var myEvents = ListEvents()
-    // @StateObject var listDays = ListDays()
+    //@StateObject var myEvents = ListEvents()
 
     @EnvironmentObject var myAccountFile: AccountInfoFile
+    @State var listEvents = ListEvents()
 
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {
+            Text("Hello, \(myAccountFile.myAccount.username)")
             NavigationLink("Find Events") {
                 EventSearchView()
             }
             .buttonStyle(GreenButton())
 
             NavigationLink("Create Event") {
-                // WIPView()
                 EventInfoCreateView(eventInfo: emptyEventInfo)
             }
             .buttonStyle(GreenButton())
 
             NavigationLink("My Events") {
-                MyEventsView(myEvents: myEvents)
-            }.onTapGesture(perform: { myEvents.sortList() })
-                .buttonStyle(GreenButton())
-
+                MyEventsView(myAccount: _myAccountFile)
+            }
+            .buttonStyle(GreenButton())
+            
             NavigationLink("My Profile") {
                 MyAccountView()
             }
@@ -49,8 +58,7 @@ struct VolunteerMenuView: View {
         }
         .navigationBarTitle("Home", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
-        .environmentObject(myEvents)
-        // .environmentObject(listDays)
+        .environmentObject(myAccountFile)
     }
 }
 
