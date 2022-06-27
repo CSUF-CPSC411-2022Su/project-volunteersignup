@@ -2,34 +2,27 @@
 //  UserInfoClass.swift
 //  Volunteer Sign-Up
 //
-//  Created by csuftitan on 6/13/22.
+//  Created by csuftitan on 6/16/22.
 //
 
 import Foundation
 
-class UserInfo {
-    
+class UserInfo: p_UserInfo {
     var name: String
-    var email: String
     var address: String
+    var email: String
     var phone: String
     
-    init() {
-        
-        name = ""
-        email = ""
-        address = ""
-        phone = ""
-        
+    init(){
+        self.name = ""
+        self.address = ""
+        self.email = ""
+        self.phone = ""
     }
-    
-    init(name: String, email: String, address: String, phone: String) {
-        
+    init(name: String, address: String, email: String, phone: String){
         self.name = name
-        self.email = email
         self.address = address
+        self.email = email
         self.phone = phone
-        
     }
-    
 }

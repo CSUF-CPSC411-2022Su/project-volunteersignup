@@ -41,7 +41,7 @@ struct VolunteerMenuView: View {
             .buttonStyle(GreenButton())
             
             NavigationLink("My Profile"){
-                WIPView()
+                MyAccountView()
             }
             .buttonStyle(GreenButton())
         }
