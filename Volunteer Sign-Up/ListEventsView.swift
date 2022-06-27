@@ -22,7 +22,6 @@ struct MyEventsView: View {
                 }
         }
         .environmentObject(myEvents)
-        //.environmentObject(listDays)
     }
 }
 
@@ -55,7 +54,6 @@ struct CreatedEventsView: View{
     @EnvironmentObject var myEvents: ListEvents
     
     var body: some View {
-        //WIPView()
         List {
             ForEach(myEvents.listEventsCreated) {
                 day in
