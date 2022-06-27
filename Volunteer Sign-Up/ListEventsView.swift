@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct MyEventsView: View {
-    @StateObject var myEvents: ListEvents
-
+    @EnvironmentObject var myAccount: AccountInfoFile
     var body: some View {
         TabView {
             SignedEventsView()
@@ -22,16 +21,15 @@ struct MyEventsView: View {
                     Label("Created Events", systemImage: "person")
                 }
         }
-        .environmentObject(myEvents)
-        // .environmentObject(listDays)
+        .environmentObject(myAccount)
     }
 }
 
 struct SignedEventsView: View {
-    @EnvironmentObject var myEvents: ListEvents
+    @EnvironmentObject var myAccount: AccountInfoFile
     var body: some View {
         List {
-            ForEach(myEvents.listEventsSigned) {
+            ForEach(myAccount.myAccount.myEvents.listEventsSigned) {
                 day in
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
@@ -53,12 +51,10 @@ struct SignedEventsView: View {
 }
 
 struct CreatedEventsView: View {
-    @EnvironmentObject var myEvents: ListEvents
-
+    @EnvironmentObject var myAccount: AccountInfoFile
     var body: some View {
-        // WIPView()
         List {
-            ForEach(myEvents.listEventsCreated) {
+            ForEach(myAccount.myAccount.myEvents.listEventsCreated) {
                 day in
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
@@ -80,6 +76,6 @@ struct CreatedEventsView: View {
 
 struct MyEventsView_Previews: PreviewProvider {
     static var previews: some View {
-        MyEventsView(myEvents: ListEvents())
+        MyEventsView()
     }
 }
