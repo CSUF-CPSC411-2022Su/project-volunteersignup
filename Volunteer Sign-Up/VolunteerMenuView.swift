@@ -49,7 +49,7 @@ struct VolunteerMenuView: View {
             NavigationLink("My Events") {
                 MyEventsView(myAccount: _myAccountFile)
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(GreenButton())
             
             NavigationLink("My Profile") {
                 MyAccountView()
