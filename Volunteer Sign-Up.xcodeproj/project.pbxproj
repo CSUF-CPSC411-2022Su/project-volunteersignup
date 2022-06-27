@@ -33,6 +33,7 @@
 		7AD353302857F87600285730 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3532F2857F87600285730 /* HomeView.swift */; };
 		7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD844E42855649F0024867B /* CreateAccountView.swift */; };
 		7AD99761285BF3860089FB61 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD99760285BF3860089FB61 /* MyAccountView.swift */; };
+		7AF08B3A2863B8640088B2C8 /* EventSearchModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF08B392863B8640088B2C8 /* EventSearchModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		7AD3532F2857F87600285730 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7AD844E42855649F0024867B /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		7AD99760285BF3860089FB61 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
+		7AF08B392863B8640088B2C8 /* EventSearchModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				7A0C0552285C2E2E00375DE1 /* EditMyAccountView.swift */,
 				7AD99760285BF3860089FB61 /* MyAccountView.swift */,
 				2A9CE04C285ACC1800C77FAB /* EventSearchView.swift */,
+				7AF08B392863B8640088B2C8 /* EventSearchModifiers.swift */,
 				2A9CE04A285ACBEA00C77FAB /* EventSearchClass.swift */,
 				7A6955F5285747F900B62BED /* VolunteerMenuView.swift */,
 				7A6955F3285746F900B62BED /* ListEventsView.swift */,
@@ -335,6 +338,7 @@
 				2A9CE04D285ACC1800C77FAB /* EventSearchView.swift in Sources */,
 				7A0C054F285C1C7900375DE1 /* UserInfoClass.swift in Sources */,
 				2A9CE04B285ACBEA00C77FAB /* EventSearchClass.swift in Sources */,
+				7AF08B3A2863B8640088B2C8 /* EventSearchModifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Volunteer Sign-Up/Preview Content\"";
-				DEVELOPMENT_TEAM = 85SY8839ZV;
+				DEVELOPMENT_TEAM = XGVQ6YN3SU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -522,7 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Volunteer Sign-Up/Preview Content\"";
-				DEVELOPMENT_TEAM = 85SY8839ZV;
+				DEVELOPMENT_TEAM = XGVQ6YN3SU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
