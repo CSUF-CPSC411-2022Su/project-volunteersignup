@@ -34,7 +34,7 @@ struct SignedEventsView: View {
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
                         event in
-                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
+                        NavigationLink(destination: EventInfoFromSignedListView(eventInfo: event)) {
                             VStack(alignment: .leading) {
                                 Text(event.eventName)
                                     .font(.headline)
@@ -52,6 +52,7 @@ struct SignedEventsView: View {
 
 struct CreatedEventsView: View {
     @EnvironmentObject var myAccount: AccountInfoFile
+    //@StateObject var myEvent = EventInfo()
     var body: some View {
         List {
             ForEach(myAccount.myAccount.myEvents.listEventsCreated) {
@@ -59,7 +60,7 @@ struct CreatedEventsView: View {
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
                         event in
-                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
+                        NavigationLink(destination: EventInfoFromCreatedListView(eventInfo: event)) {
                             VStack(alignment: .leading) {
                                 Text(event.eventName)
                                     .font(.headline)
@@ -67,6 +68,7 @@ struct CreatedEventsView: View {
                                     .font(.caption)
                             }
                         }
+                        .environmentObject(myAccount)
                     }
                 }
             }

@@ -30,10 +30,12 @@ struct VolunteerMenuView: View {
     //@StateObject var myEvents = ListEvents()
 
     @EnvironmentObject var myAccountFile: AccountInfoFile
+    @State var listEvents = ListEvents()
 
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {
+            Text("Hello, \(myAccountFile.myAccount.username)")
             NavigationLink("Find Events") {
                 EventSearchView()
             }
@@ -46,9 +48,9 @@ struct VolunteerMenuView: View {
 
             NavigationLink("My Events") {
                 MyEventsView(myAccount: _myAccountFile)
-            }//.onTapGesture(perform: { myEvents.sortList() })
-            .buttonStyle(.borderedProminent)
-
+            }
+            .buttonStyle(GreenButton())
+            
             NavigationLink("My Profile") {
                 MyAccountView()
             }
