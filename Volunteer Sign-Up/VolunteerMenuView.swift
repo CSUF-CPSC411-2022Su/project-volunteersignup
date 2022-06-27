@@ -10,12 +10,21 @@ import SwiftUI
 struct GreenButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .buttonStyle(.borderedProminent)
             .padding(50)
-            .background(.green)
+            .background(.blue)
             .foregroundColor(.white)
-            .clipShape(Capsule())
+            .cornerRadius(16)
+            //.bold()
+            //.clipShape(Capsule())
     }
 }
+
+/*
+ .bold()
+ .frame(width: 300, height: 50)
+}.buttonStyle(.borderedProminent)
+ */
 
 struct VolunteerMenuView: View {
     //@StateObject var myEvents = ListEvents()
@@ -38,7 +47,7 @@ struct VolunteerMenuView: View {
             NavigationLink("My Events") {
                 MyEventsView(myAccount: _myAccountFile)
             }//.onTapGesture(perform: { myEvents.sortList() })
-                .buttonStyle(GreenButton())
+            .buttonStyle(.borderedProminent)
 
             NavigationLink("My Profile") {
                 MyAccountView()
