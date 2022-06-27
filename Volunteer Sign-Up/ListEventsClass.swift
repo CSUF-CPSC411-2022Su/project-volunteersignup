@@ -8,12 +8,16 @@
 
 import Foundation
 
-class ListEvents: ObservableObject, Identifiable {
+class ListEvents: Codable, ObservableObject, Identifiable {
+    enum CodingKeys: CodingKey {
+        case listEventsSigned, listEventsCreated, id
+    }
+
     @Published var listEventsSigned: [Day] = []
     @Published var listEventsCreated: [Day] = []
-    
+
     var id = UUID()
-    
+
     //Initializes ListEvents with Dummy Data
     init() {
         let events = [EventInfo(eventName: "Dummy Event", at: "Epic Dr.", timeAndDate: Date(), notes: "Bring sandiwches", user: "father", zip: 100), EventInfo(eventName: "Milk Fest", at: "Pog Ch.", timeAndDate: Date(), notes: "Lol Nerd", user: "Dad", zip: 10)]
@@ -28,7 +32,22 @@ class ListEvents: ObservableObject, Identifiable {
         }
         listEventsCreated.append(day)
     }
-    
+
+    //conform to Codable
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        listEventsSigned = try container.decode(Array<Day>.self, forKey: .listEventsSigned)
+        listEventsCreated = try container.decode(Array<Day>.self, forKey: .listEventsCreated)
+        id = try container.decode(UUID.self, forKey: .id)
+
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(listEventsSigned, forKey: .listEventsSigned)
+        try container.encode(listEventsCreated, forKey: .listEventsCreated)
+        try container.encode(id, forKey: .id)
+    }
+
     func AddSigned(event: EventInfo) {
         var list = listEventsSigned
         let date = event.dateTime
@@ -44,7 +63,7 @@ class ListEvents: ObservableObject, Identifiable {
             sortList()
         }
     }
-    
+
     func AddCreated(event: EventInfo) {
         var list = listEventsCreated
         let date = event.dateTime
@@ -60,7 +79,7 @@ class ListEvents: ObservableObject, Identifiable {
             sortList()
         }
     }
-        
+
     func FindDay(_ date: Date, in list: [Day]) -> Day {
         for day in list {
             if day.date == date {
@@ -69,11 +88,11 @@ class ListEvents: ObservableObject, Identifiable {
         }
         return Day()
     }
-    
+
     func DeleteEvent(at index: Int, in list: [Day]) throws -> Bool {
         return true
     }
-    
+
     func sortList() -> Void {
         listEventsSigned = listEventsSigned.sorted(by: {$0.date.timeIntervalSince1970 < $1.date.timeIntervalSince1970})
         listEventsCreated = listEventsCreated.sorted(by: {$0.date.timeIntervalSince1970 < $1.date.timeIntervalSince1970})
@@ -94,24 +113,24 @@ class ListEvents: ObservableObject, Identifiable {
      */
 }
 
-class Day: Identifiable {
+class Day: Codable, Identifiable {
     var id = UUID()
     var events: [EventInfo] = []
     //var events2: ListEvents
     var date: Date
     var dateString: String
-    
+
     init() {
         date = Date()
         dateString = date.formatted(date: .abbreviated, time: .omitted)
     }
-    
+
     init(events: [EventInfo]) {
         date = events[0].dateTime
         dateString = date.formatted(date: .abbreviated, time: .omitted)
         self.events = events
     }
-    
+
     init(dateString: String, events: [EventInfo], date: Date) {
         self.date = date
         self.dateString = dateString
