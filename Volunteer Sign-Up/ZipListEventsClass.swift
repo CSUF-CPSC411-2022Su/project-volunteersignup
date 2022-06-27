@@ -12,7 +12,7 @@ var ZIP_LIST_EVENTS = ZipListEvents()
 
 // class used to store Events by Zip to assist with searching
 class ZipListEvents /*: Codable */ {
-    var zipList: [Int: [EventInfo]]
+    var zipList: [String: [EventInfo]]
 
     init() {
         self.zipList = [:]
@@ -24,7 +24,7 @@ class ZipListEvents /*: Codable */ {
     // input        - Int; the key for the dictionary
     // output       - Array<EventInfo>; the list of events for that zipcode
     //              - nil; key was invalid
-    func FindByZip(_ zip: Int) -> Any? {
+    func FindByZip(_ zip: String) -> Any? {
         if let keyExists = zipList[zip] {
             return keyExists
         } else {
