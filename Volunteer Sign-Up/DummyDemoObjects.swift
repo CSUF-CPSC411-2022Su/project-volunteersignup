@@ -25,13 +25,9 @@ extension AccountInfo {
 
     func fakeInit() {
         let dummyEvent = EventInfo(eventName: "Free Teeth Cleaning", at: "42 Walabee Way Sydney, Australia", timeAndDate: Date.now, notes: "Need volunteers to help our Dental Hygenist students practice.", user: "P. Sherman", zip: 90015)
-        
-        //let dummyList = [dummyEvent]
-        //myEvents.listEventsSigned = dummyList
-        //myEvents.listEventsCreated = dummyList
-        
-        myEvents.AddSigned(event: dummyEvent)
-        myEvents.AddCreated(event: dummyEvent)
+        let dummyList = [dummyEvent]
+        myEvents.listEventsSigned = dummyList
+        myEvents.listEventsCreated = dummyList
     }
 }
 
