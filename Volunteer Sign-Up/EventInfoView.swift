@@ -39,14 +39,14 @@ struct EventInfoView: View {
                             .bold()
                     }
                     Image(uiImage: eventSearch.image)
-                    //Rectangle()
-                        //.frame(width: 300, height: 300)
+                    // Rectangle()
+                    // .frame(width: 300, height: 300)
                 }
 
                 // date and time
                 Section(header: Text("date and time")) {
                     Text(eventInfo.dateTime
-                            .formatted(date: .long, time: .shortened))
+                        .formatted(date: .long, time: .shortened))
                 }
 
                 // Event Notes/Details

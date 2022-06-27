@@ -8,39 +8,35 @@
 import Foundation
 
 struct UserInfo: Codable {
-    
     var name: String
     var address: String
     var email: String
     var phone: String
     
     init() {
-        
         self.name = ""
         self.address = ""
         self.email = ""
         self.phone = ""
-        
     }
-    
 }
 
-/*class UserInfo: p_UserInfo {
-    var name: String
-    var address: String
-    var email: String
-    var phone: String
+/* class UserInfo: p_UserInfo {
+     var name: String
+     var address: String
+     var email: String
+     var phone: String
     
-    init(){
-        self.name = ""
-        self.address = ""
-        self.email = ""
-        self.phone = ""
-    }
-    init(name: String, address: String, email: String, phone: String){
-        self.name = name
-        self.address = address
-        self.email = email
-        self.phone = phone
-    }
-}*/
+     init(){
+         self.name = ""
+         self.address = ""
+         self.email = ""
+         self.phone = ""
+     }
+     init(name: String, address: String, email: String, phone: String){
+         self.name = name
+         self.address = address
+         self.email = email
+         self.phone = phone
+     }
+ } */

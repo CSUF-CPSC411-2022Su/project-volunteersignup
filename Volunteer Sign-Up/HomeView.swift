@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-//TODO: Link Sign In and Create Account to their respective pages
+// TODO: Link Sign In and Create Account to their respective pages
 
 struct HomeView: View {
     var body: some View {
-        //NavigationView{
+        // NavigationView{
         VStack {
-            NavigationLink("Sign In"){
+            NavigationLink("Sign In") {
                 LoginPageView()
             }
             .buttonStyle(GreenButton())
-            
-            NavigationLink("Create Account"){
+
+            NavigationLink("Create Account") {
                 CreateAccountView()
             }
             .buttonStyle(GreenButton())
         }
         .navigationBarTitle("Welcome")
         .navigationBarBackButtonHidden(true)
-        //}
+        // }
     }
 }
 

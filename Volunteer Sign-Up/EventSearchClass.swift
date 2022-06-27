@@ -21,8 +21,8 @@ class Event: Codable {
     var center: [Double]
 }
 
-class FindEvent : ObservableObject {
-    //var loggedIn: Bool // TC: Bool to check when or if a user is logged in?
+class FindEvent: ObservableObject {
+    // var loggedIn: Bool // TC: Bool to check when or if a user is logged in?
     @Published var searchLocation: String = ""
     @Published var image = UIImage()
     

@@ -19,16 +19,16 @@ import Foundation
  */ // *********************************************************************
 extension AccountInfo {
     /*
-    convenience init(testFlag: Bool) {
-        self.init(username: "psherman", password: "password", )
-        fakeInit()
-    }*/
+     convenience init(testFlag: Bool) {
+         self.init(username: "psherman", password: "password", )
+         fakeInit()
+     }*/
 
     func fakeInit() {
         let dummyEvent = EventInfo(eventName: "Free Teeth Cleaning", at: "42 Walabee Way Sydney, Australia", timeAndDate: Date.now, notes: "Need volunteers to help our Dental Hygenist students practice.", user: "P. Sherman", zip: 90015)
-        //let dummyList = [dummyEvent]
-        //myEvents.listEventsSigned = dummyList
-        //myEvents.listEventsCreated = dummyList
+        // let dummyList = [dummyEvent]
+        // myEvents.listEventsSigned = dummyList
+        // myEvents.listEventsCreated = dummyList
 
         myEvents.AddSigned(event: dummyEvent)
         myEvents.AddCreated(event: dummyEvent)
@@ -36,14 +36,11 @@ extension AccountInfo {
 }
 
 extension EventInfoList {
-
-    convenience init(testFlag: Bool){
+    convenience init(testFlag: Bool) {
         self.init()
         self.event(dummyEventInfo)
     }
-
 }
-
 
 /* / **** Objects **********************************************************/
 
@@ -51,6 +48,6 @@ extension EventInfoList {
 var dummyEventInfo = EventInfo(eventName: "Free Teeth Cleaning", at: "42 Walabee Way Sydney, Australia", timeAndDate: Date.now, notes: "Need volunteers to help our Dental Hygenist students practice.", user: "P. Sherman", zip: 90015)
 var emptyEventInfo = EventInfo()
 // dummy account used to pass to preview for testing
-//var dummyAccountInfo = AccountInfo(testFlag: true)
+// var dummyAccountInfo = AccountInfo(testFlag: true)
 
 var dummySearchList = EventInfoList(testFlag: true)

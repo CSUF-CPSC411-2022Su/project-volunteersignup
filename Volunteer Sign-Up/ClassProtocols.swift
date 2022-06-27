@@ -15,18 +15,18 @@ import Foundation
 protocol p_eventSearch {
     var searchLocation: String { get set }
     var searchRadius: Int { get }
-    
+
     func findEvent() throws -> p_eventSearch
 }
-    
-protocol p_Event: /*Codable, */Identifiable {
+
+protocol p_Event: /* Codable, */ Identifiable {
     var eventName: String { get set }
     var location: String { get set }
     var dateTime: Date { get set }
     var eventNotes: String { get set }
     var owner: String { get set }
     var zip: Int { get set }
-    
+
     func saveEventInfo() throws -> Bool
     func editEventInfo() throws -> Bool
     func deleteEventInfo() throws -> Bool
@@ -35,7 +35,7 @@ protocol p_Event: /*Codable, */Identifiable {
 protocol p_ListEvents {
     var listEventsCreated: [EventInfo] { get set }
     var listEventsSigned: [EventInfo] { get set }
-    
+
     func EditList(_ list: [EventInfo]) throws -> p_ListEvents
     func DeleteEvent(at index: Int, in list: [EventInfo]) throws -> Bool
 }

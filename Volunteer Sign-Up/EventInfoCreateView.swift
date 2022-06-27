@@ -25,7 +25,6 @@ struct EventInfoCreateView: View {
                 // address
                 Section(header: Text("Address")) {
                     TextField("123 Goofy Ln Dump Town, CA USA", text: $eventInfo.location)
-
                 }
 
                 // date and time

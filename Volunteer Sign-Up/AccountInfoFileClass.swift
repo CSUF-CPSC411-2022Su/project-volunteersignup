@@ -9,55 +9,53 @@ import Foundation
 import SwiftUI
 
 class AccountInfoFile: ObservableObject {
-    @Published var myAccount: AccountInfo = AccountInfo()
+    @Published var myAccount: AccountInfo = .init()
     @Published var fileURL: URL? = nil
     
     // This default constructor is called only at the CreateAccount page when username and password aren't available
     init() {
-        
         myAccount.username = ""
         myAccount.password = ""
         myAccount.myInfo.phone = ""
         myAccount.myInfo.email = ""
         myAccount.myInfo.address = ""
         myAccount.myInfo.name = ""
-        
     }
 
     // This type constructor is called from any page that already has access to username and password
-    /*init(username: String, password: String) {
-        // TODO: Create a path to a file named crosswalks.plist and store in fileURL
+    /* init(username: String, password: String) {
+         // TODO: Create a path to a file named crosswalks.plist and store in fileURL
         
-        self.myAccount.username = username
-        self.myAccount.password = password
+         self.myAccount.username = username
+         self.myAccount.password = password
 
-        let documentsDirectory = FileManager
-            .default
-            .urls(for: .documentDirectory, in: .userDomainMask)
-            .first!
+         let documentsDirectory = FileManager
+             .default
+             .urls(for: .documentDirectory, in: .userDomainMask)
+             .first!
 
-        fileURL = documentsDirectory
-            .appendingPathComponent("\(self.myAccount.username)")
-            .appendingPathExtension("plist")
+         fileURL = documentsDirectory
+             .appendingPathComponent("\(self.myAccount.username)")
+             .appendingPathExtension("plist")
 
-        loadHistory()
-    }*/
+         loadHistory()
+     } */
 
-    /*func addSearchString(_ searchString: String) {
-        if searchStrings.count == maxsearches {
-            searchStrings.remove(at: maxsearches - 1)
-        }
-        searchStrings.insert(searchString, at: 0)
-        saveHistory()
-    }*/
+    /* func addSearchString(_ searchString: String) {
+         if searchStrings.count == maxsearches {
+             searchStrings.remove(at: maxsearches - 1)
+         }
+         searchStrings.insert(searchString, at: 0)
+         saveHistory()
+     } */
 
     func saveHistory() -> Bool {
         // TODO: Save the searchStrings array into a file
         
         // The issue with this function is that if the user provides a username that already exists, then that information will be overwritten
         
-        //self.myAccount.username = username
-        //self.myAccount.password = password
+        // self.myAccount.username = username
+        // self.myAccount.password = password
         
         // Check if the <username>.plist file exists or not
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
@@ -95,19 +93,15 @@ class AccountInfoFile: ObservableObject {
         let propertyListEncoder = PropertyListEncoder()
         if let encodedAccount = try? propertyListEncoder.encode(myAccount) {
             try? encodedAccount.write(to: fileURL!,
-                                        options: .noFileProtection)
+                                      options: .noFileProtection)
             return true
-        }
-        else {
-            
+        } else {
             print("Cannot write to \(myAccount.username).plist file!")
             return false
-            
         }
     }
     
     func updateHistory() -> Bool {
-        
         // Check if the <username>.plist file exists or not
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let url = NSURL(fileURLWithPath: path)
@@ -144,16 +138,12 @@ class AccountInfoFile: ObservableObject {
         let propertyListEncoder = PropertyListEncoder()
         if let encodedAccount = try? propertyListEncoder.encode(myAccount) {
             try? encodedAccount.write(to: fileURL!,
-                                        options: .noFileProtection)
+                                      options: .noFileProtection)
             return true
-        }
-        else {
-            
+        } else {
             print("Cannot write to \(myAccount.username).plist file!")
             return false
-            
         }
-        
     }
 
     func loadHistory(username: String, password: String) -> Bool {
@@ -188,9 +178,7 @@ class AccountInfoFile: ObservableObject {
                                       from: retrievedAccount)
         {
             myAccount = decodedAccount
-        }
-        else
-        {
+        } else {
             print("Error! The \(username).plist file could not be decoded! (The file likely doesn't exist)")
             return false
         }
@@ -198,11 +186,9 @@ class AccountInfoFile: ObservableObject {
         // 2) Check to see if myAccount.password is the same as the password loaded from <username>.plist (return false if passwords do NOT match)
         
         if myAccount.password != password {
-            
             // This means that the username exists, but the password doesn't match the AccountInfo object
             print("Error! The password in \(username).plist does not match the password: \(password) provided")
             return false
-            
         }
         
         // Assuming 1) and 2) didn't return false, myAccount is the new object to be used within the program so we return true
@@ -211,46 +197,43 @@ class AccountInfoFile: ObservableObject {
     }
     
     func fileExists(at file: String) -> Bool {
-        
         let fileNameToDelete = file
         var filePath = ""
         // Fine documents directory on device
-         let dirs : [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let dirs: [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
         if dirs.count > 0 {
-            let dir = dirs[0] //documents directory
+            let dir = dirs[0] // documents directory
             filePath = dir.appendingFormat("/" + fileNameToDelete)
-            //print("Local path = \(filePath)")
+            // print("Local path = \(filePath)")
         } else {
-            //print("Could not find local directory to store file")
+            // print("Could not find local directory to store file")
             return false
         }
         let fileManager = FileManager.default
         // Check if file exists
         if fileManager.fileExists(atPath: filePath) {
-            //print("File exists")
+            // print("File exists")
             return true
         } else {
-            //print("File does not exist")
+            // print("File does not exist")
             return false
         }
-        
     }
     
     func moveItem(at oldPath: String, to newPath: String) -> Bool {
-        
         let fileNameToDelete = oldPath
         let fileNameToMove = newPath
         var filePathToDelete = ""
         var filePathToMove = ""
         // Find documents directory on device
-         let dirs : [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let dirs: [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
         if dirs.count > 0 {
-            let dir = dirs[0] //documents directory
+            let dir = dirs[0] // documents directory
             filePathToDelete = dir.appendingFormat("/" + fileNameToDelete)
             filePathToMove = dir.appendingFormat("/" + fileNameToMove)
-            //print("Local path = \(filePath)")
+            // print("Local path = \(filePath)")
         } else {
-            //print("Could not find local directory to store file")
+            // print("Could not find local directory to store file")
             return false
         }
         
@@ -258,28 +241,21 @@ class AccountInfoFile: ObservableObject {
         
         // Check to see if the file exists
         if fileManager.fileExists(atPath: fileNameToMove) {
-            
             print("Error! The file at \(newPath).plist already exists!")
             return false
-        }
-        else {
-            
+        } else {
             // Move file
             if let success = try? fileManager.moveItem(atPath: filePathToDelete, toPath: filePathToMove) {
-                
                 print("Successfully moved \(fileNameToDelete).plist to \(fileNameToMove).plist! (Code: \(success)")
                 return true
             } else {
-                
                 print("Error! Unable to complete the move of \(fileNameToDelete).plist to \(fileNameToMove).plist!")
                 return false
             }
         }
-        
     }
     
     func updateUsername(username: String) -> Bool {
-        
         // Check to make sure that the new username doesn't already exist
         if fileExists(at: username + ".plist") {
             print("Error! \(username).plist already exists! Unable to update the current username!")
@@ -298,36 +274,31 @@ class AccountInfoFile: ObservableObject {
             .appendingPathExtension("plist")
         
         // Copy the old file into the new file
-        /*var rv = URLResourceValues()
-        rv.name = username + ".plist"
-        if let myFile = try? fileURL!.setResourceValues(rv) {
-            print("Success! File converted to \(username).plist! (File name: \(myFile))")
-            return true
-        }
-        else {
-            print("Error! Unable to convert \(myAccount.username).plist to \(username).plist!")
-            return false
-        }*/
+        /* var rv = URLResourceValues()
+         rv.name = username + ".plist"
+         if let myFile = try? fileURL!.setResourceValues(rv) {
+             print("Success! File converted to \(username).plist! (File name: \(myFile))")
+             return true
+         }
+         else {
+             print("Error! Unable to convert \(myAccount.username).plist to \(username).plist!")
+             return false
+         } */
         
         if moveItem(at: myAccount.username + ".plist", to: username + ".plist") {
-            
             print("Successfully moved the file at \(myAccount.username).plist to \(username).plist!")
             return true
-        }
-        else {
-            
+        } else {
             print("Error! Unable to move the file at \(myAccount.username).plist to \(username).plist!")
             return false
         }
-        
     }
     
     // This function is used to find your local Documents directory
     func clearDocuments() {
-        
         let documentsDirectory =
-           FileManager.default.urls(for: .documentDirectory,
-           in: .userDomainMask).first!
+            FileManager.default.urls(for: .documentDirectory,
+                                     in: .userDomainMask).first!
 
         print(documentsDirectory)
     }

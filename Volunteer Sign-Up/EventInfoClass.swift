@@ -41,12 +41,12 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        eventName = try container.decode(String.self, forKey: .eventName)
-        location = try container.decode(String.self, forKey: .location)
-        dateTime = try container.decode(Date.self, forKey: .dateTime)
-        eventNotes = try container.decode(String.self, forKey: .eventNotes)
-        owner = try container.decode(String.self, forKey: .owner)
-        zip = try container.decode(Int.self, forKey: .zip)
+        self.eventName = try container.decode(String.self, forKey: .eventName)
+        self.location = try container.decode(String.self, forKey: .location)
+        self.dateTime = try container.decode(Date.self, forKey: .dateTime)
+        self.eventNotes = try container.decode(String.self, forKey: .eventNotes)
+        self.owner = try container.decode(String.self, forKey: .owner)
+        self.zip = try container.decode(Int.self, forKey: .zip)
     }
 
     func encode(to encoder: Encoder) throws {

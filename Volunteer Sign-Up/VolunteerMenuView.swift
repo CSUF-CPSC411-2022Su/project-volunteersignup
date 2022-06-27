@@ -19,31 +19,30 @@ struct GreenButton: ButtonStyle {
 
 struct VolunteerMenuView: View {
     @StateObject var myEvents = ListEvents()
-    //@StateObject var listDays = ListDays()
+    // @StateObject var listDays = ListDays()
 
-    
     @EnvironmentObject var myAccountFile: AccountInfoFile
-    
+
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {
-            NavigationLink("Find Events"){
+            NavigationLink("Find Events") {
                 EventSearchView()
             }
             .buttonStyle(GreenButton())
-            
-            NavigationLink("Create Event"){
-                //WIPView()
+
+            NavigationLink("Create Event") {
+                // WIPView()
                 EventInfoCreateView(eventInfo: emptyEventInfo)
             }
             .buttonStyle(GreenButton())
-            
-            NavigationLink("My Events"){
+
+            NavigationLink("My Events") {
                 MyEventsView(myEvents: myEvents)
             }.onTapGesture(perform: { myEvents.sortList() })
-            .buttonStyle(GreenButton())
-            
-            NavigationLink("My Profile"){
+                .buttonStyle(GreenButton())
+
+            NavigationLink("My Profile") {
                 MyAccountView()
             }
             .buttonStyle(GreenButton())
@@ -51,9 +50,8 @@ struct VolunteerMenuView: View {
         .navigationBarTitle("Home", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .environmentObject(myEvents)
-        //.environmentObject(listDays)
+        // .environmentObject(listDays)
     }
-
 }
 
 struct WIPView: View {

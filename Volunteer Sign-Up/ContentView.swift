@@ -8,28 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @ObservedObject var myAccount: AccountInfoFile = AccountInfoFile()
+    @ObservedObject var myAccount: AccountInfoFile = .init()
     
     var body: some View {
-        
         NavigationView {
-        
             HomeView()
-            
         }
         .environmentObject(myAccount)
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-            //CreateAccount()
-            //CreateAccountCopy()
+            // CreateAccount()
+            // CreateAccountCopy()
         }
     }
 }

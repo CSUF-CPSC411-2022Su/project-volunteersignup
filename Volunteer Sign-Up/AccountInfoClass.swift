@@ -8,53 +8,48 @@
 import Foundation
 
 struct AccountInfo: Codable {
-    
     var username: String
     var password: String
     var myEvents: ListEvents
     var myInfo: UserInfo
     
     init() {
-        
-        self.username = ""
-        self.password = ""
+        username = ""
+        password = ""
         myEvents = ListEvents()
         myInfo = UserInfo()
-        
     }
-    
 }
 
-/*class AccountInfo: ObservableObject {
+/* class AccountInfo: ObservableObject {
     
-    @Published var username: String
-    @Published var password: String
+     @Published var username: String
+     @Published var password: String
     
+     @Published var myEvents: ListEvents
+     @Published var myInfo: UserInfo
+     //var mySettings: UserSettings?
     
-    @Published var myEvents: ListEvents
-    @Published var myInfo: UserInfo
-    //var mySettings: UserSettings?
-    
-    // This initializer is used first when CreateAccount is filled out
-    init() {
+     // This initializer is used first when CreateAccount is filled out
+     init() {
         
-        self.username = ""
-        self.password = ""
-        myEvents = ListEvents()
-        myInfo = UserInfo()
-        //mySettings = nil
+         self.username = ""
+         self.password = ""
+         myEvents = ListEvents()
+         myInfo = UserInfo()
+         //mySettings = nil
         
-    }
+     }
     
-    // This initializer is used first when LoginPage is filled out
-    init(username: String, password: String) {
+     // This initializer is used first when LoginPage is filled out
+     init(username: String, password: String) {
         
-        self.username = username
-        self.password = password
-        myEvents = ListEvents()
-        myInfo = UserInfo()
-        //mySettings = nil
+         self.username = username
+         self.password = password
+         myEvents = ListEvents()
+         myInfo = UserInfo()
+         //mySettings = nil
         
-    }
+     }
     
-}*/
+ } */
