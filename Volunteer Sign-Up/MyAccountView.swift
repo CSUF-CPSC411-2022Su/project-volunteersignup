@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct MyAccountView: View {
+    
+    @EnvironmentObject var myAccountFile: AccountInfoFile
+    
     var body: some View {
         
-        VStack {
+    VStack {
             
             //Text("My Account")
             
@@ -20,7 +23,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Name").padding(.top)) {
                     
-                    Text("<Insert Name Here>")
+                    Text("\(myAccountFile.myAccount.myInfo.name)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -38,7 +41,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Email").padding(.top)) {
                     
-                    Text("<Insert Email Here>")
+                    Text("\(myAccountFile.myAccount.myInfo.email)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -55,7 +58,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Phone").padding(.top)) {
                     
-                    Text("<Insert Phone Here>")
+                    Text("\(myAccountFile.myAccount.myInfo.phone)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -72,7 +75,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Username").padding(.top)) {
                     
-                    Text("<Insert Username Here>")
+                    Text("\(myAccountFile.myAccount.username)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -89,7 +92,7 @@ struct MyAccountView: View {
             
                 Section(header: Text("Password").padding(.top)) {
                     
-                    Text("<Insert Password Here>")
+                    Text("\(myAccountFile.myAccount.password)")
                         .frame(maxWidth: .infinity, maxHeight: 120)
                         //.padding(.top, 5)
                         .padding()
@@ -118,12 +121,22 @@ struct MyAccountView: View {
             Spacer()
             
         }
-        .navigationBarTitle("My Profile", displayMode: .inline)
+        //.navigationBarTitle("My Profile", displayMode: .inline)
+        //.navigationBarTitle(Image(systemName: "person.circle.fill").frame(maxWidth: .infinity, alignment: .center).cornerRadius(20), displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Image(systemName: "person.circle.fill").scaledToFit().foregroundColor(.blue)
+            }
+        }
     }
 }
 
 struct MyAccountView_Previews: PreviewProvider {
+    
+    static let myAccountFile = AccountInfoFile()
+    
     static var previews: some View {
         MyAccountView()
+            .environmentObject(myAccountFile)
     }
 }

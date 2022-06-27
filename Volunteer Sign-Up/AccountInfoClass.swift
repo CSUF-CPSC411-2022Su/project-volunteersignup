@@ -7,7 +7,25 @@
 
 import Foundation
 
-class AccountInfo: ObservableObject {
+struct AccountInfo: Codable {
+    
+    var username: String
+    var password: String
+    var myEvents: ListEvents
+    var myInfo: UserInfo
+    
+    init() {
+        
+        self.username = ""
+        self.password = ""
+        myEvents = ListEvents()
+        myInfo = UserInfo()
+        
+    }
+    
+}
+
+/*class AccountInfo: ObservableObject {
     
     @Published var username: String
     @Published var password: String
@@ -39,4 +57,4 @@ class AccountInfo: ObservableObject {
         
     }
     
-}
+}*/
