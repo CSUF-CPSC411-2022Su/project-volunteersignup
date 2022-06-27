@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyEventsView: View {
     @StateObject var myEvents: ListEvents
-    //@StateObject var listDays: ListDays
+    
     var body: some View {
         TabView {
             SignedEventsView()
@@ -28,20 +28,15 @@ struct MyEventsView: View {
 
 struct SignedEventsView: View {
     @EnvironmentObject var myEvents: ListEvents
-    //@EnvironmentObject var listDays: ListDays
-    
-
-    //sortList()
-    //convertDays(list: myEvents.listEventsSigned)
-        var body: some View {
+    var body: some View {
         List {
-
+            
             ForEach(myEvents.listEventsSigned) {
                 day in
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
                         event in
-                        NavigationLink(destination: WIPView()) {
+                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
                             VStack(alignment: .leading) {
                                 Text(event.eventName)
                                     .font(.headline)
@@ -52,40 +47,6 @@ struct SignedEventsView: View {
                     }
                 }
             }
-            /*var prev = Date()
-            ForEach(myEvents.listEventsSigned.indices, id: \.self) {
-                index in
-                //var date = myEvents.listEventsSigned[index].dateTime
-                if myEvents.listEventsSigned[index].dateTime != prev {
-                    Section(header: Text(myEvents.listEventsSigned[index].dateTime.formatted(date: .abbreviated, time: .omitted))) {
-                        NavigationLink(destination: WIPView()) {
-                            VStack(alignment: .leading) {
-                                Text(myEvents.listEventsSigned[index].eventName)
-                                    .font(.headline)
-                                Text(myEvents.listEventsSigned[index].eventNotes)
-                                    .font(.caption)
-                            }
-                        }
-                    }
-                }
-            }*/
-            /*
-            Section(header: Text("June 30")){
-                NavigationLink(destination: WIPView()) {
-                    Text(myEvents.listEventsSigned[0].eventName)
-                }
-            }
-            Section(header: Text("July 4")){
-                NavigationLink(destination: WIPView()) {
-                    Text("Event 2")
-                }
-            }
-            Section(header: Text("July 8")){
-                NavigationLink(destination: WIPView()) {
-                    Text("Event 3")
-                }
-            }
-             */
         }
         .navigationBarTitle("My Events", displayMode: .inline)
     }
@@ -101,7 +62,7 @@ struct CreatedEventsView: View{
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
                         event in
-                        NavigationLink(destination: WIPView()) {
+                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
                             VStack(alignment: .leading) {
                                 Text(event.eventName)
                                     .font(.headline)
@@ -113,46 +74,13 @@ struct CreatedEventsView: View{
                 }
             }
         }
-         /*List {
-            ForEach(myEvents.listEventsCreated.indices, id: \.self) {
-                index in
-                Section(header: Text(myEvents.listEventsCreated[index].dateTime.formatted(date: .abbreviated, time: .omitted))) {
-                    NavigationLink(destination: WIPView()) {
-                        VStack(alignment: .leading) {
-                            Text(myEvents.listEventsCreated[index].eventName)
-                                .font(.headline)
-                            Text(myEvents.listEventsCreated[index].eventNotes)
-                                .font(.caption)
-                        }
-                    }
-                }
-            }
-            /*
-            Section(header: Text("February 10")){
-                NavigationLink(destination: WIPView()) {
-                    Text(myEvents.listEventsCreated[0].eventName)
-                }
-            }
-            Section(header: Text("August 9")){
-                NavigationLink(destination: WIPView()) {
-                    Text("Event 2")
-                }
-            }
-            Section(header: Text("December 24")){
-                NavigationLink(destination: WIPView()) {
-                    Text("Event 3")
-                }
-            }
-             */
-        }*/
-        //.navigationBarTitle("My Events", displayMode: .inline)
     }
 }
 
-/*
+
 struct MyEventsView_Previews: PreviewProvider {
-    some View {
-        MyEventsView()
+    static var previews: some View {
+        MyEventsView(myEvents: ListEvents())
     }
 }
-*/
+
