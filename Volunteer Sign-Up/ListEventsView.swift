@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MyEventsView: View {
-    @StateObject var myEvents: ListEvents
-    
     var body: some View {
         TabView {
             SignedEventsView()
@@ -21,30 +19,24 @@ struct MyEventsView: View {
                     Label("Created Events", systemImage: "person")
                 }
         }
-        .environmentObject(myEvents)
-        //.environmentObject(listDays)
     }
 }
-
-struct SignedEventsView: View {
-    @EnvironmentObject var myEvents: ListEvents
+struct SignedEventsView: View{
     var body: some View {
         List {
-            
-            ForEach(myEvents.listEventsSigned) {
-                day in
-                Section(header: Text(day.dateString)) {
-                    ForEach(day.events) {
-                        event in
-                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
-                            VStack(alignment: .leading) {
-                                Text(event.eventName)
-                                    .font(.headline)
-                                Text(event.eventNotes)
-                                    .font(.caption)
-                            }
-                        }
-                    }
+            Section(header: Text("June 30")){
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 1")
+                }
+            }
+            Section(header: Text("July 4")){
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 2")
+                }
+            }
+            Section(header: Text("July 8")){
+                NavigationLink(destination: WIPView()) {
+                    Text("Event 3")
                 }
             }
         }
@@ -52,35 +44,24 @@ struct SignedEventsView: View {
     }
 }
 struct CreatedEventsView: View{
-    @EnvironmentObject var myEvents: ListEvents
-    
     var body: some View {
-        //WIPView()
         List {
-            ForEach(myEvents.listEventsCreated) {
-                day in
-                Section(header: Text(day.dateString)) {
-                    ForEach(day.events) {
-                        event in
-                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
-                            VStack(alignment: .leading) {
-                                Text(event.eventName)
-                                    .font(.headline)
-                                Text(event.eventNotes)
-                                    .font(.caption)
-                            }
-                        }
-                    }
-                }
+            Section(header: Text("February 10")){
+                Text("Event 1")
+            }
+            Section(header: Text("August 9")){
+                Text("Event 2")
+            }
+            Section(header: Text("December 24")){
+                Text("Event 3")
             }
         }
+        .navigationBarTitle("My Events", displayMode: .inline)
     }
 }
-
 
 struct MyEventsView_Previews: PreviewProvider {
     static var previews: some View {
-        MyEventsView(myEvents: ListEvents())
+        MyEventsView()
     }
 }
-
