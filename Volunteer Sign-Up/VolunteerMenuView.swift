@@ -19,6 +19,8 @@ struct GreenButton: ButtonStyle {
 
 struct VolunteerMenuView: View {
     @StateObject var myEvents = ListEvents()
+    //@StateObject var listDays = ListDays()
+
     
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
@@ -34,8 +36,8 @@ struct VolunteerMenuView: View {
             .buttonStyle(GreenButton())
             
             NavigationLink("My Events"){
-                MyEventsView()
-            }
+                MyEventsView(myEvents: myEvents)
+            }.onTapGesture(perform: { myEvents.sortList() })
             .buttonStyle(GreenButton())
             
             NavigationLink("My Profile"){
@@ -46,6 +48,7 @@ struct VolunteerMenuView: View {
         .navigationBarTitle("Home", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .environmentObject(myEvents)
+        //.environmentObject(listDays)
     }
 
 }
