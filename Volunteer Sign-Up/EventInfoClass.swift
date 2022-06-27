@@ -74,17 +74,46 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
 
 class EventInfoList: ObservableObject, Identifiable {
     @Published var eventList: [EventInfo] = []
+    var fileURL: URL
 
     func event(_ event: EventInfo) {
         let newCopy = EventInfo(eventName: event.eventName, at: event.location, timeAndDate: event.dateTime, notes: event.eventNotes, user: event.owner, zip: event.zip)
         eventList.append(newCopy)
 
         eventList.append(EventInfo(eventName: "Food Drive", at: "Southlands Church Brea 2950 E Imperial Hwy, Brea, CA", timeAndDate: Date(), notes: "N/A", user: "Kate", zip: 92821))
+        
+        saveHistory()
     }
 
-    init() {}
+    init() {
+        self.fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        self.fileURL = fileURL.appendingPathComponent("events").appendingPathExtension("plist")
+        
+        loadHistory()
+    }
+    
+    func saveHistory() {
+        // TODO: Save the searchStrings array into a file
+        let searchStringListEncoder = PropertyListEncoder()
+        if let encodedSearchStrings = try? searchStringListEncoder.encode(eventList) {
+            try? encodedSearchStrings.write(to: fileURL,
+                                            options: .noFileProtection)
+        }
+    }
+
+    func loadHistory() {
+        // TODO: Load data from the file and store it in searchStrings
+        let searchStringListDecoder = PropertyListDecoder()
+        if let retrievedSearchString = try? Data(contentsOf: fileURL),
+           let decodedSearchStrings = try?
+           searchStringListDecoder.decode([EventInfo].self,
+                                          from: retrievedSearchString)
+        {
+            eventList = decodedSearchStrings
+        }
 }
 
+/*
 class EventPList: ObservableObject, Identifiable {
     @Published var events: [String] = []
     var maxsearches: Int = 5
@@ -129,3 +158,4 @@ class EventPList: ObservableObject, Identifiable {
         }
     }
 }
+*/

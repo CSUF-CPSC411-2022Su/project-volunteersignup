@@ -10,16 +10,15 @@ import SwiftUI
 struct EventSearchView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Find Events").bold()
             TabView {
                 ZipSearch()
                     .tabItem {
-                        Image(systemName: "info")
+                        Image(systemName: "magnifyingglass")
                         Text("Search")
                     }
                 EventList(eventInfo: dummySearchList)
                     .tabItem {
-                        Image(systemName: "car")
+                        Image(systemName: "mappin.and.ellipse")
                         Text("View Events")
                     }
                 }
@@ -36,6 +35,11 @@ struct EventList: View {
     
     var body: some View {
         VStack {
+            HStack {
+            Text("View Events")
+                .bold()
+                .font(.largeTitle)
+            }
             List {
                 ForEach(eventInfo.eventList) {
                     event in
@@ -112,6 +116,9 @@ struct ZipSearch: View {
                     Spacer()
                 }
                 .padding(.bottom, 20)
+                Button(action: ZipListEvents.FindByZip($zipcode)) {
+                    Text("Search")
+                }
             }
         }
     }
