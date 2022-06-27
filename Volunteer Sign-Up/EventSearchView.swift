@@ -116,7 +116,7 @@ struct ZipSearch: View {
                     Spacer()
                 }
                 .padding(.bottom, 20)
-                Button(action: ZipListEvents.FindByZip($zipcode)) {
+                Button(action: { ZIP_LIST_EVENTS.FindByZip(zipcode) }) {
                     Text("Search")
                 }
             }

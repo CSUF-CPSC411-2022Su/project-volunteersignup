@@ -111,6 +111,7 @@ class EventInfoList: ObservableObject, Identifiable {
         {
             eventList = decodedSearchStrings
         }
+    }
 }
 
 /*
