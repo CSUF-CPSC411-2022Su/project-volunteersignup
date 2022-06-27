@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EventInfoView: View {
+    @StateObject var eventSearch = FindEvent()
     @StateObject var eventInfo: EventInfo
     // @StateObject var accountInfo: AccountInfo
 
@@ -29,8 +30,17 @@ struct EventInfoView: View {
                     Text("\(eventInfo.location)")
 
                     // Image(eventInfo.mapImage)
-                    Rectangle()
-                        .frame(width: 300, height: 300)
+                    Button(action: {
+                        // TODO: insert action
+                        let searchString = eventInfo.location
+                        eventSearch.find(searchString)
+                    }) {
+                        Text("Load map")
+                            .bold()
+                    }
+                    Image(uiImage: eventSearch.image)
+                    //Rectangle()
+                        //.frame(width: 300, height: 300)
                 }
 
                 // date and time

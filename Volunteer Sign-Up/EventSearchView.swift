@@ -22,13 +22,13 @@ struct EventSearchView: View {
             .modifier(ButtonDesign())
             .padding(.bottom, 20)*/
             
-            EventList()
+            EventList(eventInfo: dummySearchList)
             Spacer()
-            
+            /*
             List {
                 Section(){
                     NavigationLink(destination: EventMap()) {
-                        Text("Event 1")
+                        //Text("Event 1")
                     }
                 }
                 Section(){
@@ -36,21 +36,22 @@ struct EventSearchView: View {
                         Text("Event 2")
                     }
                 }
-            }
+            } */
         }.padding()
     }
 }
 
 struct EventList: View {
-    @StateObject var eventInfo = EventInfoList()
+    @StateObject var eventInfo: EventInfoList
     
     var body: some View {
         VStack {
-            ForEach(eventInfo.eventList) {
-                event in
-                List {
+            
+            List {
+                ForEach(eventInfo.eventList) {
+                    event in
                     Section(){
-                        NavigationLink(destination: EventMap()) {
+                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
                             Text("Event: \(event.eventName)")
                         }
                     }
@@ -60,10 +61,11 @@ struct EventList: View {
     }
 }
 
+/* changed to EventInfoView
 struct EventMap: View {
-    @State var searchString: String = ""
+    //@State var searchString: String = ""
     @StateObject var eventSearch = FindEvent()
-    @StateObject var eventInfo = EventInfoList()
+    @StateObject var eventInfo = EventInfoList(testFlag: true)
     
     var body: some View {
         VStack {
@@ -95,10 +97,26 @@ struct EventMap: View {
         }
     }
 }
-
+*/
 struct EventSearchView_Previews: PreviewProvider {
     static var previews: some View {
         EventSearchView()
             .previewInterfaceOrientation(.portrait)
     }
 }
+
+struct EventList_Previews: PreviewProvider {
+    static var previews: some View {
+        EventList(eventInfo: dummySearchList)
+            
+    }
+}
+
+/*
+struct EventMap_Previews: PreviewProvider {
+    static var previews: some View {
+        EventMap()
+            
+    }
+}
+*/
