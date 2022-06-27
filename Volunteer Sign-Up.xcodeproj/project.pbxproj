@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A371BD5286A2AA60088FADF /* EventInfoFromSignedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A371BD4286A2AA60088FADF /* EventInfoFromSignedListView.swift */; };
+		2A371BD7286A2B080088FADF /* EventInfoFromCreatedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A371BD6286A2B080088FADF /* EventInfoFromCreatedListView.swift */; };
 		2A4C91CE28650525005D5D19 /* ZipListEventsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C91CD28650525005D5D19 /* ZipListEventsClass.swift */; };
 		2A4C91D028683028005D5D19 /* DummyDemoObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C91CF28683028005D5D19 /* DummyDemoObjects.swift */; };
 		2A4C91D228683D35005D5D19 /* EventInfoCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C91D128683D34005D5D19 /* EventInfoCreateView.swift */; };
@@ -34,8 +36,8 @@
 		7AD353302857F87600285730 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3532F2857F87600285730 /* HomeView.swift */; };
 		7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD844E42855649F0024867B /* CreateAccountView.swift */; };
 		7AD99761285BF3860089FB61 /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD99760285BF3860089FB61 /* MyAccountView.swift */; };
-		7AF4854C285D2954000D6624 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4854B285D2954000D6624 /* LoginPageView.swift */; };
 		7AF08B3A2863B8640088B2C8 /* EventSearchModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF08B392863B8640088B2C8 /* EventSearchModifiers.swift */; };
+		7AF4854C285D2954000D6624 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF4854B285D2954000D6624 /* LoginPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A371BD4286A2AA60088FADF /* EventInfoFromSignedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoFromSignedListView.swift; sourceTree = "<group>"; };
+		2A371BD6286A2B080088FADF /* EventInfoFromCreatedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoFromCreatedListView.swift; sourceTree = "<group>"; };
 		2A4C91CD28650525005D5D19 /* ZipListEventsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipListEventsClass.swift; sourceTree = "<group>"; };
 		2A4C91CF28683028005D5D19 /* DummyDemoObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDemoObjects.swift; sourceTree = "<group>"; };
 		2A4C91D128683D34005D5D19 /* EventInfoCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoCreateView.swift; sourceTree = "<group>"; };
@@ -86,8 +90,8 @@
 		7AD3532F2857F87600285730 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7AD844E42855649F0024867B /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		7AD99760285BF3860089FB61 /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
-		7AF4854B285D2954000D6624 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		7AF08B392863B8640088B2C8 /* EventSearchModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchModifiers.swift; sourceTree = "<group>"; };
+		7AF4854B285D2954000D6624 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				7AD3532D2857EDEC00285730 /* ListEventsClass.swift */,
 				7A1F56D62858304400033FCC /* EventInfoClass.swift */,
 				2AADCEB72858610100469E6F /* EventInfoView.swift */,
+				2A371BD4286A2AA60088FADF /* EventInfoFromSignedListView.swift */,
+				2A371BD6286A2B080088FADF /* EventInfoFromCreatedListView.swift */,
 				2A4C91D128683D34005D5D19 /* EventInfoCreateView.swift */,
 				7AD3532F2857F87600285730 /* HomeView.swift */,
 				2A4C91CD28650525005D5D19 /* ZipListEventsClass.swift */,
@@ -326,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AEF3D5428557293008E68DB /* ClassProtocols.swift in Sources */,
+				2A371BD5286A2AA60088FADF /* EventInfoFromSignedListView.swift in Sources */,
 				2AADCEB82858610100469E6F /* EventInfoView.swift in Sources */,
 				7A3D27D6285B09DB001C8A0C /* ListEventsView.swift in Sources */,
 				2A4C91D228683D35005D5D19 /* EventInfoCreateView.swift in Sources */,
@@ -338,6 +345,7 @@
 				7AD99761285BF3860089FB61 /* MyAccountView.swift in Sources */,
 				2A4C91D028683028005D5D19 /* DummyDemoObjects.swift in Sources */,
 				2A4C91CE28650525005D5D19 /* ZipListEventsClass.swift in Sources */,
+				2A371BD7286A2B080088FADF /* EventInfoFromCreatedListView.swift in Sources */,
 				7AD844E52855649F0024867B /* CreateAccountView.swift in Sources */,
 				7A98FFAF286513FC000F7D86 /* AccountInfoFileClass.swift in Sources */,
 				7A1F56D72858304400033FCC /* EventInfoClass.swift in Sources */,
