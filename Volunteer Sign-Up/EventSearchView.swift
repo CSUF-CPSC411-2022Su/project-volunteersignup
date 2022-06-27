@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct EventSearchView: View {
-    @State var searchString: String = ""
-    @StateObject var event = FindEvent()
-    @State var searchLocationInput: String = ""
-    
     var body: some View {
         VStack(alignment: .leading) {
+            Text("Find Events").bold()
             /*TextField("Location", text: $searchString)
                 .modifier(TextEntry())
             
@@ -26,15 +23,25 @@ struct EventSearchView: View {
             .padding(.bottom, 20)*/
             
             EventList()
-            
             Spacer()
+            
+            List {
+                Section(){
+                    NavigationLink(destination: EventMap()) {
+                        Text("Event 1")
+                    }
+                }
+                Section(){
+                    NavigationLink(destination: EventMap()) {
+                        Text("Event 2")
+                    }
+                }
+            }
         }.padding()
     }
 }
 
 struct EventList: View {
-    @State var searchString: String = ""
-    @StateObject var event = FindEvent()
     @StateObject var eventInfo = EventInfoList()
     
     var body: some View {
@@ -55,26 +62,35 @@ struct EventList: View {
 
 struct EventMap: View {
     @State var searchString: String = ""
-    @StateObject var event = FindEvent()
+    @StateObject var eventSearch = FindEvent()
     @StateObject var eventInfo = EventInfoList()
     
     var body: some View {
         VStack {
+            HStack {
+                Balloon().fill(.pink)
+                    .frame(width: 40, height: 50)
+                
+                Text("Hello")
+            }
             ForEach(eventInfo.eventList) {
-                events in
-                //events.location = searchString
+                event in
+                let searchString = event.location
                 HStack {
                     Balloon().fill(.pink)
                         .frame(width: 40, height: 50)
-                    Text(event.searchLocation)
+                    Text(eventSearch.searchLocation)
                         .font(.body)
                 }
                 Button(action: {
-                    event.find(searchString)
+                    eventSearch.find(searchString)
                 }) {
-                    Text("Find events")
+                    Text("View Location")
                 }
-                Image(uiImage: event.image)
+                Image(uiImage: eventSearch.image)
+                NavigationLink(destination: EventInfoView(eventInfo: dummyEventInfo)) {
+                    Text("Sign up to volunteer")
+                }
             }
         }
     }
@@ -83,6 +99,6 @@ struct EventMap: View {
 struct EventSearchView_Previews: PreviewProvider {
     static var previews: some View {
         EventSearchView()
-            .previewInterfaceOrientation(.portraitUpsideDown)
+            .previewInterfaceOrientation(.portrait)
     }
 }

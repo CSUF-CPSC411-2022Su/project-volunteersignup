@@ -28,6 +28,7 @@ struct VolunteerMenuView: View {
             .buttonStyle(GreenButton())
             
             NavigationLink("Create Event"){
+                //EventInfoCreateView()
                 WIPView()
             }
             .buttonStyle(GreenButton())
