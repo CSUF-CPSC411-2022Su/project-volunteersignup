@@ -11,17 +11,22 @@ struct EventSearchView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Find Events").bold()
-            
-            EventList(eventInfo: dummySearchList)
-            Spacer()
-            
             TabView {
                 ZipSearch()
                     .tabItem {
                         Image(systemName: "info")
                         Text("Search")
                     }
-            }
+                EventList(eventInfo: dummySearchList)
+                    .tabItem {
+                        Image(systemName: "car")
+                        Text("View Events")
+                    }
+                }
+            
+            //EventList(eventInfo: dummySearchList)
+            Spacer()
+            
         }.padding()
     }
 }
