@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var myAccount: AccountInfoFile = AccountInfoFile()
+    
     var body: some View {
         
         NavigationView {
@@ -16,6 +18,7 @@ struct ContentView: View {
             HomeView()
             
         }
+        .environmentObject(myAccount)
         
     }
     

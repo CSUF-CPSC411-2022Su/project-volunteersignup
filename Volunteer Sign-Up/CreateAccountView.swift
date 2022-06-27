@@ -14,7 +14,13 @@ import SwiftUI
 // TODO: Tie this page to Nathan's page (VolunteerMenu) when he finishes it
 struct CreateAccountView: View {
     
-    @StateObject var myAccount: AccountInfo = AccountInfo()
+    @EnvironmentObject var myAccountFile: AccountInfoFile
+    @State var didSaveHistory: Bool = false
+    @State var name: String = ""
+    @State var email: String = ""
+    @State var phone: String = ""
+    @State var username: String = ""
+    @State var password: String = ""
     
     var body: some View {
         
@@ -28,39 +34,107 @@ struct CreateAccountView: View {
                 
                 Section(header: Text("Full Name")) {
                     
-                    TextField("Full Name", text: $myAccount.myInfo.name, prompt: Text("Enter your name"))
+                    /*TextField("Full Name", text: $myAccount.myInfo.name, prompt: Text("Enter your name"))*/
+                    
+                    TextField("Full Name", text: $name, prompt: Text("Enter your name"))
                     
                 }
                 
                 Section(header: Text("Email")) {
                     
-                    TextField("Email", text: $myAccount.myInfo.email, prompt: Text("Enter your email"))
+                    TextField("Email", text: $email, prompt: Text("Enter your email"))
                     
                 }
                 
                 Section(header: Text("Phone")) {
                     
-                    TextField("Phone", text: $myAccount.myInfo.phone, prompt: Text("Enter your phone number"))
+                    TextField("Phone", text: $phone, prompt: Text("Enter your phone number"))
                     
                 }
                 
                 Section(header: Text("Username")) {
                     
-                    TextField("Username", text: $myAccount.username, prompt: Text("Enter a username"))
+                    TextField("Username", text: $username, prompt: Text("Enter a username"))
                     
                 }
                 
                 Section(header: Text("Password")) {
                     
-                    SecureField("Password", text: $myAccount.password, prompt: Text("Enter a password"))
+                    SecureField("Password", text: $password, prompt: Text("Enter a password"))
                     
                 }
                 
                 // Note: There's an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly
+                
+                /*NavigationLink(destination: VolunteerMenuView()) {
+                    
+                    //Text("Create Account")
+                    Button("Create Account", action: {
+                        
+                        if !myAccountFile.saveHistory() {
+                            
+                            print("Error! Account info not saved!")
+                            
+                        }
+                        
+                    })
+                    
+                }
+                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "" || myAccountFile.myAccount.myInfo.phone == "" || myAccountFile.myAccount.myInfo.email == "" || myAccountFile.saveHistory())*/
+                
+                /*Button("Create Account", action: {
+                    
+                    if didSaveHistory {
+                        
+                        didSaveHistory = myAccountFile.updateHistory()
+                        
+                    }
+                    else {
+                    
+                        didSaveHistory = myAccountFile.saveHistory()
+                        
+                    }
+                    
+                })
+                .disabled(myAccountFile.myAccount.username == "" || myAccountFile.myAccount.password == "" || myAccountFile.myAccount.myInfo.name == "" || myAccountFile.myAccount.myInfo.phone == "" || myAccountFile.myAccount.myInfo.email == "")
+                
                 NavigationLink(destination: VolunteerMenuView()) {
                     
-                    Text("Create Account")
+                    Text("Next Page")
                     
+                }
+                .disabled(!didSaveHistory)*/
+                
+                Button("Create Account", action: {
+                    
+                    // Assign the user-typed credentials into the myAccount object
+                    myAccountFile.myAccount.myInfo.name = name
+                    myAccountFile.myAccount.myInfo.email = email
+                    myAccountFile.myAccount.myInfo.phone = phone
+                    myAccountFile.myAccount.username = username
+                    myAccountFile.myAccount.password = password
+                    
+                    if myAccountFile.saveHistory() {
+                        
+                        didSaveHistory = true
+                    }
+                    else
+                    {
+                        // TODO: This line needs to be replaced with some type of notification that an account couldn't be created due to the username already existing
+                        print("Unable to create account! (Username taken)")
+                    }
+                    
+                })
+                .disabled(username == "" || password == "" || name == "" || phone == "" || email == "")
+                
+                if didSaveHistory {
+                    NavigationLink(destination: VolunteerMenuView(), isActive: $didSaveHistory) {
+                        
+                        EmptyView()
+                        
+                    }
+                    .disabled(!didSaveHistory)
+                        
                 }
                 
                 // Note: The main thing that made this button align correctly is the fact that maxWidth was set to .infinity
@@ -100,7 +174,11 @@ struct CreateAccountView: View {
 }
 
 struct CreateAccountView_Previews: PreviewProvider {
+    
+    static var myAccount = AccountInfoFile()
+    
     static var previews: some View {
         CreateAccountView()
+            .environmentObject(myAccount)
     }
 }

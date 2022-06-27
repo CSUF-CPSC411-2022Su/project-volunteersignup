@@ -7,7 +7,25 @@
 
 import Foundation
 
-class UserInfo: p_UserInfo {
+struct UserInfo: Codable {
+    
+    var name: String
+    var address: String
+    var email: String
+    var phone: String
+    
+    init() {
+        
+        self.name = ""
+        self.address = ""
+        self.email = ""
+        self.phone = ""
+        
+    }
+    
+}
+
+/*class UserInfo: p_UserInfo {
     var name: String
     var address: String
     var email: String
@@ -25,4 +43,4 @@ class UserInfo: p_UserInfo {
         self.email = email
         self.phone = phone
     }
-}
+}*/
