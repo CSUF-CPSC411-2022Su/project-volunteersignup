@@ -59,7 +59,7 @@ class ListEvents: ObservableObject, Identifiable {
             sortList()
         }
     }
-    
+        
     func FindDay(_ date: Date, in list: [Day]) -> Day {
         for day in list {
             if day.date == date {
@@ -117,4 +117,3 @@ class Day: Identifiable {
         self.events = events
     }
 }
-
