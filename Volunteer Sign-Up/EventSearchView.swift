@@ -11,32 +11,17 @@ struct EventSearchView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Find Events").bold()
-            /* TextField("Location", text: $searchString)
-                 .modifier(TextEntry())
-            
-             Button(action: {
-                 event.find(searchString)
-             }) {
-                 Text("Find events")
-             }
-             .modifier(ButtonDesign())
-             .padding(.bottom, 20) */
             
             EventList(eventInfo: dummySearchList)
             Spacer()
-            /*
-             List {
-                 Section(){
-                     NavigationLink(destination: EventMap()) {
-                         //Text("Event 1")
-                     }
-                 }
-                 Section(){
-                     NavigationLink(destination: EventMap()) {
-                         Text("Event 2")
-                     }
-                 }
-             } */
+            
+            TabView {
+                ZipSearch()
+                    .tabItem {
+                        Image(systemName: "info")
+                        Text("Search")
+                    }
+            }
         }.padding()
     }
 }
@@ -72,31 +57,61 @@ struct EventList: View {
                  Balloon().fill(.pink)
                      .frame(width: 40, height: 50)
                 
-                 Text("Hello")
-             }
-             ForEach(eventInfo.eventList) {
-                 event in
-                 let searchString = event.location
-                 HStack {
-                     Balloon().fill(.pink)
-                         .frame(width: 40, height: 50)
-                     Text(eventSearch.searchLocation)
-                         .font(.body)
-                 }
-                 Button(action: {
-                     eventSearch.find(searchString)
-                 }) {
-                     Text("View Location")
-                 }
-                 Image(uiImage: eventSearch.image)
-                 NavigationLink(destination: EventInfoView(eventInfo: dummyEventInfo)) {
-                     Text("Sign up to volunteer")
-                 }
-             }
-         }
-     }
- }
- */
+                Text("Hello")
+            }
+            ForEach(eventInfo.eventList) {
+                event in
+                let searchString = event.location
+                HStack {
+                    Balloon().fill(.pink)
+                        .frame(width: 40, height: 50)
+                    Text(eventSearch.searchLocation)
+                        .font(.body)
+                }
+                Button(action: {
+                    eventSearch.find(searchString)
+                }) {
+                    Text("View Location")
+                }
+                Image(uiImage: eventSearch.image)
+                NavigationLink(destination: EventInfoView(eventInfo: dummyEventInfo)) {
+                    Text("Sign up to volunteer")
+                }
+            }
+        }
+    }
+}
+*/
+
+struct ZipSearch: View {
+    @SceneStorage("zipcode") var zipcode: String = ""
+    @EnvironmentObject var eventInfo: EventInfoList
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                HStack {
+                Text("Search by Zip Code")
+                    .bold()
+                    .font(.largeTitle)
+                }
+                .padding(.bottom, 30)
+                HStack {
+                    Text("Zipcode")
+                        .bold()
+                    Spacer()
+                }
+                .padding(.bottom, 5)
+                HStack {
+                    TextField("Zipcode", text: $zipcode)
+                    Spacer()
+                }
+                .padding(.bottom, 20)
+            }
+        }
+    }
+}
+
 struct EventSearchView_Previews: PreviewProvider {
     static var previews: some View {
         EventSearchView()
