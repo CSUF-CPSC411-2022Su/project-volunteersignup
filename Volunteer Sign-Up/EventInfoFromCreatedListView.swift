@@ -10,7 +10,7 @@ import SwiftUI
 struct EventInfoFromCreatedListView: View {
     @StateObject var eventSearch = FindEvent()
     @StateObject var eventInfo: EventInfo
-    // @StateObject var accountInfo: AccountInfo
+    @EnvironmentObject var myAccount: AccountInfoFile
 
     var body: some View {
         VStack {
