@@ -18,8 +18,7 @@ struct GreenButton: ButtonStyle {
 }
 
 struct VolunteerMenuView: View {
-    @StateObject var myEvents = ListEvents()
-    // @StateObject var listDays = ListDays()
+    //@StateObject var myEvents = ListEvents()
 
     @EnvironmentObject var myAccountFile: AccountInfoFile
 
@@ -32,14 +31,13 @@ struct VolunteerMenuView: View {
             .buttonStyle(GreenButton())
 
             NavigationLink("Create Event") {
-                // WIPView()
                 EventInfoCreateView(eventInfo: emptyEventInfo)
             }
             .buttonStyle(GreenButton())
 
             NavigationLink("My Events") {
-                MyEventsView(myEvents: myEvents)
-            }.onTapGesture(perform: { myEvents.sortList() })
+                MyEventsView(myAccount: _myAccountFile)
+            }//.onTapGesture(perform: { myEvents.sortList() })
                 .buttonStyle(GreenButton())
 
             NavigationLink("My Profile") {
@@ -49,8 +47,7 @@ struct VolunteerMenuView: View {
         }
         .navigationBarTitle("Home", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
-        .environmentObject(myEvents)
-        // .environmentObject(listDays)
+        .environmentObject(myAccountFile)
     }
 }
 
