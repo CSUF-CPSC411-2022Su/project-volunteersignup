@@ -13,9 +13,14 @@ var ZIP_LIST_EVENTS = ZipListEvents()
 // class used to store Events by Zip to assist with searching
 class ZipListEvents : Codable {
     var zipList: [String: [EventInfo]]
+    var fileURL: URL
 
     init() {
         self.zipList = [:]
+        self.fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        self.fileURL = fileURL.appendingPathComponent("ZIP_LIST_EVENTS").appendingPathExtension("plist")
+        
+        loadHistory()
     }
 
     // FindByZip(_ zip: Int) -> Any?  =========================================
@@ -55,6 +60,27 @@ class ZipListEvents : Codable {
         // TODO: implement decoder
         return false
     }
+    
+
+    func saveHistory() {
+        let eventListEncoder = PropertyListEncoder()
+        if let encodedEventList = try? eventListEncoder.encode(zipList) {
+            try? encodedEventList.write(to: fileURL,
+                                            options: .noFileProtection)
+        }
+    }
+
+    func loadHistory() {
+        let eventListDecoder = PropertyListDecoder()
+        if let retrievedEventList = try? Data(contentsOf: fileURL),
+           let decodedEventList = try?
+            eventListDecoder.decode([String: [EventInfo]].self,
+                                          from: retrievedEventList)
+        {
+            zipList = decodedEventList
+        }
+    }
+    
 }
 
 // add to global and zip lists

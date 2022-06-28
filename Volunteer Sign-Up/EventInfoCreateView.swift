@@ -60,6 +60,7 @@ struct EventInfoCreateView: View {
                 
                 //call func to update .plist files
                 GLOBAL_EVENT_LIST.saveHistory()
+                ZIP_LIST_EVENTS.saveHistory()
                 accountInfoFile.updateHistory()
                 self.presentationMode.wrappedValue.dismiss()
                 
