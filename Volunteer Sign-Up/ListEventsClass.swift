@@ -16,14 +16,15 @@ class ListEvents: Codable, ObservableObject, Identifiable {
     @Published var listEventsSigned: [Day] = []
     @Published var listEventsCreated: [Day] = []
 
-    var id = UUID()
+    @Published var id = UUID()
 
     // Initializes ListEvents with Dummy Data
     init() {
+        
         let events = [EventInfo(eventName: "Dummy Event", at: "Epic Dr.", timeAndDate: Date(), notes: "Bring sandiwches", user: "father", zip: 100), EventInfo(eventName: "Milk Fest", at: "Pog Ch.", timeAndDate: Date(), notes: "Lol Nerd", user: "Dad", zip: 10)]
         var day = Day(events: events)
         listEventsSigned.append(day)
-
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         if let date = formatter.date(from: "2016/10/08 22:31") {
@@ -31,6 +32,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
             day = Day(events: events2)
         }
         listEventsCreated.append(day)
+        
     }
 
     // conform to Codable
@@ -49,33 +51,61 @@ class ListEvents: Codable, ObservableObject, Identifiable {
     }
 
     func AddSigned(event: EventInfo) {
-        var list = listEventsSigned
+        //var list = listEventsSigned
         let date = event.dateTime
         var added = false
-        for day in list {
+        for day in self.listEventsSigned {
             if day.date == date {
                 day.events.append(event)
                 added = true
             }
         }
         if !added {
-            list.append(Day(events: [event]))
+            self.listEventsSigned.append(Day(events: [event]))
             sortList()
         }
     }
-
+    
+    func EditCreated(updated: EventInfo) {
+        // Deletes the old event from the list
+        for day in listEventsCreated {
+            for event in day.events {
+                if (event.id == updated.id) {
+                    day.events = day.events.filter { $0.id != updated.id }
+                    //Eliminates day from array if it no longer holds any events
+                    if(day.events.count == 0) {
+                        listEventsCreated = listEventsCreated.filter { $0.date != day.date }
+                    }
+                }
+            }
+        }
+        // Adds the new Event
+        AddCreated(event: updated)
+        objectWillChange.send()
+    }
+    
+    //This is for debugging purposes only
+    func PrintCreated() {
+        for day in listEventsCreated {
+            for event in day.events {
+                print(event.eventName)
+            }
+        }
+    }
+    
     func AddCreated(event: EventInfo) {
-        var list = listEventsCreated
+        //var list = listEventsCreated
         let date = event.dateTime
         var added = false
-        for day in list {
+        for day in self.listEventsCreated {
             if day.date == date {
                 day.events.append(event)
+                print("Added event")
                 added = true
             }
         }
         if !added {
-            list.append(Day(events: [event]))
+            self.listEventsCreated.append(Day(events: [event]))
             sortList()
         }
     }
@@ -113,7 +143,11 @@ class ListEvents: Codable, ObservableObject, Identifiable {
       */
 }
 
-class Day: Codable, Identifiable {
+class Day: Codable, ObservableObject ,Identifiable {
+    enum CodingKeys: CodingKey {
+        case id, events, date, dateString
+    }
+
     var id = UUID()
     var events: [EventInfo] = []
     // var events2: ListEvents
@@ -135,5 +169,22 @@ class Day: Codable, Identifiable {
         self.date = date
         self.dateString = dateString
         self.events = events
+    }
+
+    //codable
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        events = try container.decode(Array<EventInfo>.self, forKey: .events)
+        date = try container.decode(Date.self, forKey: .date)
+        dateString = try container.decode(String.self, forKey: .dateString)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(events, forKey: .events)
+        try container.encode(date, forKey: .date)
+        try container.encode(dateString, forKey: .dateString)
     }
 }

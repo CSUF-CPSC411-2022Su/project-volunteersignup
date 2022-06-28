@@ -11,7 +11,7 @@ import Foundation
 var ZIP_LIST_EVENTS = ZipListEvents()
 
 // class used to store Events by Zip to assist with searching
-class ZipListEvents /*: Codable */ {
+class ZipListEvents : Codable {
     var zipList: [String: [EventInfo]]
 
     init() {
@@ -32,6 +32,20 @@ class ZipListEvents /*: Codable */ {
         }
     }
 
+    
+    func addEvent(_ event: EventInfo) {
+        var added = false
+        if zipList[event.zip] != nil {
+            zipList[event.zip]!.append(event)
+            print("Added event to existing key \(event.zip)")
+            added = true
+        }
+        if !added {
+            zipList[event.zip] = [event]
+            print("Added event to new key \(event.zip)")
+        }
+    }
+
     func Save() -> Bool {
         // TODO: implement encoder
         return false
@@ -41,4 +55,11 @@ class ZipListEvents /*: Codable */ {
         // TODO: implement decoder
         return false
     }
+}
+
+// add to global and zip lists
+func saveToGlobalandZipList(_ event:EventInfo){
+    ZIP_LIST_EVENTS.addEvent(event)
+    //TODO: replace dummySearchlist with the GLOBAL_EVENT_LIST when created
+    GLOBAL_EVENT_LIST.eventList.append(event)
 }

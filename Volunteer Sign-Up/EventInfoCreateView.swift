@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct EventInfoCreateView: View {
-    @StateObject var eventInfo: EventInfo
-    // @StateObject var accountInfo: AccountInfo
+    //var eventInfo: EventInfo
+    @EnvironmentObject var accountInfoFile: AccountInfoFile
+    @State var eventName: String = ""
+    @State var location: String = ""
+        @State var city: String = ""
+        @State var state: String = ""
+        @State var zip: String = ""
+    @State var dateTime: Date =  Date.now
+    @State var eventNotes: String = ""
 
     var body: some View {
         VStack {
@@ -19,26 +26,41 @@ struct EventInfoCreateView: View {
             List {
                 // Coordinator
                 Section(header: Text("Event Name")) {
-                    TextField("Event Name", text: $eventInfo.eventName)
+                    TextField("Event Name", text: $eventName)
                 }
 
                 // address
                 Section(header: Text("Address")) {
-                    TextField("123 Goofy Ln Dump Town, CA USA", text: $eventInfo.location)
+                    TextField("Street Addr.", text: $location)
+                    TextField("City", text: $city)
+                    TextField("State", text: $state)
+                    TextField("Zip", text: $zip)
                 }
 
                 // date and time
                 Section(header: Text("date and time")) {
-                    DatePicker("Enter Date and Time", selection: $eventInfo.dateTime, in: Date.now...).labelsHidden()
+                    DatePicker("Enter Date and Time", selection: $dateTime, in: Date.now...).labelsHidden()
                 }
 
                 // Event Notes/Details
                 Section(header: Text("Event Details")) {
-                    TextField("Event Details", text: $eventInfo.eventNotes)
+                    TextField("Event Details", text: $eventNotes)
                 }
             } // end list
             Button(action: {
-                // TODO: insert action
+                // create EventInfo Object
+                let tempZip = zip
+                let tempLoc = location + " " + city + " " + state + " " + zip
+                let eventInfo: EventInfo = .init(eventName: eventName, at: tempLoc, timeAndDate: dateTime, notes: eventNotes, user: accountInfoFile.myAccount.username, zip: tempZip)
+                
+                //write to listEventsCreated, gloabl and zip list
+                accountInfoFile.myAccount.myEvents.AddCreated(event: eventInfo)
+                saveToGlobalandZipList(eventInfo)
+                
+                //call func to update .plist files
+                GLOBAL_EVENT_LIST.saveHistory()
+                accountInfoFile.updateHistory()
+                
             }) {
                 Text("Create Event")
                     .bold()
@@ -50,6 +72,6 @@ struct EventInfoCreateView: View {
 
 struct EventInfoCreateView_Previews: PreviewProvider {
     static var previews: some View {
-        EventInfoCreateView(eventInfo: emptyEventInfo)
+        EventInfoCreateView(/*eventInfo: emptyEventInfo*/)
     }
 }

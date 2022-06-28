@@ -38,7 +38,7 @@ extension AccountInfo {
 extension EventInfoList {
     convenience init(testFlag: Bool) {
         self.init()
-        self.event(dummyEventInfo)
+        //self.event(dummyEventInfo)
     }
 }
 
@@ -50,4 +50,4 @@ var emptyEventInfo = EventInfo()
 // dummy account used to pass to preview for testing
 // var dummyAccountInfo = AccountInfo(testFlag: true)
 
-var dummySearchList = EventInfoList(testFlag: true)
+//var dummySearchList = EventInfoList(testFlag: true)

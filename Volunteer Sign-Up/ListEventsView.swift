@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct MyEventsView: View {
-    @StateObject var myEvents: ListEvents
-
+    @EnvironmentObject var myAccount: AccountInfoFile
     var body: some View {
         TabView {
             SignedEventsView()
@@ -20,30 +19,38 @@ struct MyEventsView: View {
             CreatedEventsView()
                 .tabItem {
                     Label("Created Events", systemImage: "person")
-                }
+                }.environmentObject(myAccount)
         }
-        .environmentObject(myEvents)
-        // .environmentObject(listDays)
+        .environmentObject(myAccount)
     }
 }
 
 struct SignedEventsView: View {
-    @EnvironmentObject var myEvents: ListEvents
+    @EnvironmentObject var myAccount: AccountInfoFile
+    
     var body: some View {
         List {
-            ForEach(myEvents.listEventsSigned) {
+            ForEach(myAccount.myAccount.myEvents.listEventsSigned) {
                 day in
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
                         event in
-                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
+                        NavigationLink(destination: EventInfoFromSignedListView(eventInfo: event)) {
                             VStack(alignment: .leading) {
                                 Text(event.eventName)
                                     .font(.headline)
                                 Text(event.eventNotes)
                                     .font(.caption)
-                            }
+                           }
                         }
+                    }.onDelete {
+                        offset in
+                        day.events.remove(atOffsets: offset)
+                        if day.events.count == 0 {
+                            myAccount.myAccount.myEvents.listEventsCreated = myAccount.myAccount.myEvents.listEventsCreated.filter { $0.date != day.date }
+
+                        }
+                        myAccount.objectWillChange.send()
                     }
                 }
             }
@@ -53,17 +60,18 @@ struct SignedEventsView: View {
 }
 
 struct CreatedEventsView: View {
-    @EnvironmentObject var myEvents: ListEvents
-
+    @EnvironmentObject var myAccount: AccountInfoFile
+    //@StateObject var myEvents = ListEvents()
     var body: some View {
-        // WIPView()
+        //VStack {
+        //EditButton()
         List {
-            ForEach(myEvents.listEventsCreated) {
+            ForEach(myAccount.myAccount.myEvents.listEventsCreated) {
                 day in
                 Section(header: Text(day.dateString)) {
                     ForEach(day.events) {
                         event in
-                        NavigationLink(destination: EventInfoView(eventInfo: event)) {
+                        NavigationLink(destination: EventInfoFromCreatedListView(eventInfo: event)) {
                             VStack(alignment: .leading) {
                                 Text(event.eventName)
                                     .font(.headline)
@@ -71,6 +79,15 @@ struct CreatedEventsView: View {
                                     .font(.caption)
                             }
                         }
+                        .environmentObject(self.myAccount)
+                    }.onDelete {
+                        offset in
+                        day.events.remove(atOffsets: offset)
+                        if day.events.count == 0 {
+                            myAccount.myAccount.myEvents.listEventsCreated = myAccount.myAccount.myEvents.listEventsCreated.filter { $0.date != day.date }
+
+                        }
+                        myAccount.objectWillChange.send()
                     }
                 }
             }
@@ -80,6 +97,6 @@ struct CreatedEventsView: View {
 
 struct MyEventsView_Previews: PreviewProvider {
     static var previews: some View {
-        MyEventsView(myEvents: ListEvents())
+        MyEventsView()
     }
 }
