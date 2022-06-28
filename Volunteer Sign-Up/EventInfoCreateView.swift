@@ -17,6 +17,7 @@ struct EventInfoCreateView: View {
         @State var zip: String = ""
     @State var dateTime: Date =  Date.now
     @State var eventNotes: String = ""
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack {
@@ -60,6 +61,7 @@ struct EventInfoCreateView: View {
                 //call func to update .plist files
                 GLOBAL_EVENT_LIST.saveHistory()
                 accountInfoFile.updateHistory()
+                self.presentationMode.wrappedValue.dismiss()
                 
             }) {
                 Text("Create Event")
