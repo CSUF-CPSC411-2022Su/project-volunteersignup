@@ -26,3 +26,13 @@ struct Balloon: Shape {
         return path
     }
 }
+
+struct SearchButtom: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .background(.blue)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+    }
+}
