@@ -52,47 +52,52 @@ struct EventList: View {
 }
 
 struct ZipSearch: View {
-    @SceneStorage("zipcode") var zipcode: String = ""
+    @State var zipcode: String = ""
     @EnvironmentObject var eventInfo: EventInfoList
-
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                HStack {
-                    Text("Search by Zip Code")
-                        .bold()
-                        .font(.largeTitle)
-                }
-                .padding(.bottom, 30)
-                HStack {
-                    Text("Zipcode")
-                        .bold()
-                    Spacer()
-                }
-                .padding(.bottom, 5)
-                HStack {
-                    TextField("Zipcode", text: $zipcode)
-                    Spacer()
-                }
-                .padding(.bottom, 20)
-                Button(action: { ZIP_LIST_EVENTS.FindByZip(zipcode) }) {
-                    Text("Search")
-                }.modifier(SearchButtom()).onSubmit {
-                    NavigationLink(destination: ZipListView()) {
-                        Text("Search")
-                    }
-                }
+        VStack {
+            HStack {
+                Text("Search by Zip Code")
+                    .bold()
+                    .font(.largeTitle)
             }
+            .padding(.bottom, 30)
+            HStack {
+                Text("Zipcode")
+                    .bold()
+                Spacer()
+            }
+            .padding(.bottom, 5)
+            HStack {
+                TextField("Zipcode", text: $zipcode)
+                Spacer()
+            }
+            .padding(.bottom, 20)
+            NavigationLink(destination: ZipListView(zipcode: zipcode)) {
+                Text("Search")
+            }.modifier(SearchButtom())
         }
     }
 }
 
 struct ZipListView: View {
-    @SceneStorage("zipcode") var zipcode: String = ""
+    @State var zipcode: String
     @EnvironmentObject var eventInfo: EventInfoList
 
     var body: some View {
-        Text("Hello")
+            HStack {
+                Text("Search Results")
+                    .bold()
+                    .font(.largeTitle)
+            }
+            .padding(.bottom, 30)
+        List {
+            ForEach(ZIP_LIST_EVENTS.FindByZip(zipcode)) {
+                event in
+                Text(event.eventName)
+            }
+        }
     }
 }
 
