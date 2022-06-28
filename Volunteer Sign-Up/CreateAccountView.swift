@@ -32,22 +32,27 @@ struct CreateAccountView: View {
                     /* TextField("Full Name", text: $myAccount.myInfo.name, prompt: Text("Enter your name")) */
                     
                     TextField("Full Name", text: $name, prompt: Text("Enter your name"))
+                        .textInputAutocapitalization(.never)
                 }
                 
                 Section(header: Text("Email")) {
                     TextField("Email", text: $email, prompt: Text("Enter your email"))
+                        .textInputAutocapitalization(.never)
                 }
                 
                 Section(header: Text("Phone")) {
                     TextField("Phone", text: $phone, prompt: Text("Enter your phone number"))
+                        .textInputAutocapitalization(.never)
                 }
                 
                 Section(header: Text("Username")) {
                     TextField("Username", text: $username, prompt: Text("Enter a username"))
+                        .textInputAutocapitalization(.never)
                 }
                 
                 Section(header: Text("Password")) {
                     SecureField("Password", text: $password, prompt: Text("Enter a password"))
+                        .textInputAutocapitalization(.never)
                 }
                 
                 // Note: There's an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly

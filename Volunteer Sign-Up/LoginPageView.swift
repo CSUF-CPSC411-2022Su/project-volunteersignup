@@ -22,10 +22,12 @@ struct LoginPageView: View {
             Form {
                 Section(header: Text("Username")) {
                     TextField("Username", text: $username, prompt: Text("Enter your username"))
+                        .textInputAutocapitalization(.never)
                 }
                 
                 Section(header: Text("Password")) {
                     SecureField("Password", text: $password, prompt: Text("Enter a password"))
+                        .textInputAutocapitalization(.never)
                 }
                 
                 // Note: There's an onSubmit() function that may be something to consider replacing this with if it doesn't integrate into the project accordingly

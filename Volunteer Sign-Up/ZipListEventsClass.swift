@@ -24,11 +24,11 @@ class ZipListEvents : Codable {
     // input        - Int; the key for the dictionary
     // output       - Array<EventInfo>; the list of events for that zipcode
     //              - nil; key was invalid
-    func FindByZip(_ zip: String) -> Any? {
+    func FindByZip(_ zip: String) -> Array<EventInfo> {
         if let keyExists = zipList[zip] {
             return keyExists
         } else {
-            return nil
+            return []
         }
     }
 
