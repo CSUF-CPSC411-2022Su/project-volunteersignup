@@ -17,7 +17,7 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
     @Published var dateTime: Date
     @Published var eventNotes: String
     @Published var owner: String
-    @Published var zip: Int
+    @Published var zip: String
 
     init() {
         self.eventName = ""
@@ -25,16 +25,25 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
         self.dateTime = Date()
         self.eventNotes = ""
         self.owner = ""
-        self.zip = -1
+        self.zip = ""
     }
 
-    init(eventName n: String, at loc: String, timeAndDate dt: Date, notes: String, user: String, zip: Int) {
+    init(eventName n: String, at loc: String, timeAndDate dt: Date, notes: String, user: String, zip: String) {
         self.eventName = n
         self.location = loc
         self.dateTime = dt
         self.eventNotes = notes
         self.owner = user
         self.zip = zip
+    }
+    
+    init(eventName n: String, at loc: String, timeAndDate dt: Date, notes: String, user: String, zip: Int) {
+        self.eventName = n
+        self.location = loc
+        self.dateTime = dt
+        self.eventNotes = notes
+        self.owner = user
+        self.zip = String(zip)
     }
 
     // conform to codable
@@ -46,7 +55,7 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
         self.dateTime = try container.decode(Date.self, forKey: .dateTime)
         self.eventNotes = try container.decode(String.self, forKey: .eventNotes)
         self.owner = try container.decode(String.self, forKey: .owner)
-        self.zip = try container.decode(Int.self, forKey: .zip)
+        self.zip = try container.decode(String.self, forKey: .zip)
     }
 
     func encode(to encoder: Encoder) throws {
