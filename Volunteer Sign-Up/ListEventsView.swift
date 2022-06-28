@@ -19,7 +19,7 @@ struct MyEventsView: View {
             CreatedEventsView()
                 .tabItem {
                     Label("Created Events", systemImage: "person")
-                }
+                }.environmentObject(myAccount)
         }
         .environmentObject(myAccount)
     }
@@ -27,6 +27,7 @@ struct MyEventsView: View {
 
 struct SignedEventsView: View {
     @EnvironmentObject var myAccount: AccountInfoFile
+    
     var body: some View {
         List {
             ForEach(myAccount.myAccount.myEvents.listEventsSigned) {
@@ -40,8 +41,16 @@ struct SignedEventsView: View {
                                     .font(.headline)
                                 Text(event.eventNotes)
                                     .font(.caption)
-                            }
+                           }
                         }
+                    }.onDelete {
+                        offset in
+                        day.events.remove(atOffsets: offset)
+                        if day.events.count == 0 {
+                            myAccount.myAccount.myEvents.listEventsCreated = myAccount.myAccount.myEvents.listEventsCreated.filter { $0.date != day.date }
+
+                        }
+                        myAccount.objectWillChange.send()
                     }
                 }
             }
@@ -52,8 +61,10 @@ struct SignedEventsView: View {
 
 struct CreatedEventsView: View {
     @EnvironmentObject var myAccount: AccountInfoFile
-    //@StateObject var myEvent = EventInfo()
+    //@StateObject var myEvents = ListEvents()
     var body: some View {
+        //VStack {
+        //EditButton()
         List {
             ForEach(myAccount.myAccount.myEvents.listEventsCreated) {
                 day in
@@ -68,7 +79,15 @@ struct CreatedEventsView: View {
                                     .font(.caption)
                             }
                         }
-                        .environmentObject(myAccount)
+                        .environmentObject(self.myAccount)
+                    }.onDelete {
+                        offset in
+                        day.events.remove(atOffsets: offset)
+                        if day.events.count == 0 {
+                            myAccount.myAccount.myEvents.listEventsCreated = myAccount.myAccount.myEvents.listEventsCreated.filter { $0.date != day.date }
+
+                        }
+                        myAccount.objectWillChange.send()
                     }
                 }
             }
