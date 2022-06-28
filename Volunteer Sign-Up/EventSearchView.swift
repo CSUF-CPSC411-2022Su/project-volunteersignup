@@ -95,7 +95,11 @@ struct ZipListView: View {
         List {
             ForEach(ZIP_LIST_EVENTS.FindByZip(zipcode)) {
                 event in
-                Text(event.eventName)
+                Section {
+                    NavigationLink(destination: EventInfoView(eventInfo: event)) {
+                        Text("Event: \(event.eventName)")
+                    }
+                }
             }
         }
     }
