@@ -38,7 +38,7 @@ extension AccountInfo {
 extension EventInfoList {
     convenience init(testFlag: Bool) {
         self.init()
-        self.event(dummyEventInfo)
+        //self.event(dummyEventInfo)
     }
 }
 
