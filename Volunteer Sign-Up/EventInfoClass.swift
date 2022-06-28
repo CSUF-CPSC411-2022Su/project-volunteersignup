@@ -102,23 +102,21 @@ class EventInfoList: ObservableObject, Identifiable {
     }
 
     func saveHistory() {
-        // TODO: Save the searchStrings array into a file
-        let searchStringListEncoder = PropertyListEncoder()
-        if let encodedSearchStrings = try? searchStringListEncoder.encode(eventList) {
-            try? encodedSearchStrings.write(to: fileURL,
+        let eventListEncoder = PropertyListEncoder()
+        if let encodedEventList = try? eventListEncoder.encode(eventList) {
+            try? encodedEventList.write(to: fileURL,
                                             options: .noFileProtection)
         }
     }
 
     func loadHistory() {
-        // TODO: Load data from the file and store it in searchStrings
-        let searchStringListDecoder = PropertyListDecoder()
-        if let retrievedSearchString = try? Data(contentsOf: fileURL),
-           let decodedSearchStrings = try?
-           searchStringListDecoder.decode([EventInfo].self,
-                                          from: retrievedSearchString)
+        let eventListDecoder = PropertyListDecoder()
+        if let retrievedEventList = try? Data(contentsOf: fileURL),
+           let decodedEventList = try?
+           eventListDecoder.decode([EventInfo].self,
+                                          from: retrievedEventList)
         {
-            eventList = decodedSearchStrings
+            eventList = decodedEventList
         }
     }
 }
