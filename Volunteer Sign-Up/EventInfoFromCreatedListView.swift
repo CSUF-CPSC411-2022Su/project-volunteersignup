@@ -60,13 +60,19 @@ struct EventInfoFromCreatedListView: View {
                 .bold()
                 .frame(width: 300, height: 50)
             }.buttonStyle(.borderedProminent)
+            .environmentObject(myAccount)
+            /*
+            Button("Print") {
+                myAccount.myAccount.myEvents.PrintCreated()
+            }
+             */
         }
     }
 }
 
 struct EventInfoFromCreatedListEditView: View {
     @StateObject var eventInfo: EventInfo
-    // @StateObject var accountInfo: AccountInfo
+    @EnvironmentObject var accountInfo: AccountInfoFile
 
     var body: some View {
         VStack {
@@ -96,6 +102,9 @@ struct EventInfoFromCreatedListEditView: View {
             } // end list
             Button(action: {
                 // TODO: insert action
+                accountInfo.myAccount.myEvents.EditCreated(updated: eventInfo)
+                accountInfo.myAccount.myEvents.PrintCreated()
+                accountInfo.objectWillChange.send()
             }) {
                 Text("Save")
                     .bold()
