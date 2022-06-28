@@ -44,6 +44,7 @@ struct EditMyAccountView: View {
                         .background(Color(UIColor.lightGray))
                         .cornerRadius(10)
                         .fixedSize(horizontal: false, vertical: true)
+                        .textInputAutocapitalization(.never)
                 }
             }
             // .padding(.top)
@@ -58,6 +59,7 @@ struct EditMyAccountView: View {
                         .background(Color(UIColor.lightGray))
                         .cornerRadius(10)
                         .fixedSize(horizontal: false, vertical: true)
+                        .textInputAutocapitalization(.never)
                 }
             }
             // .padding(.bottom)
@@ -71,6 +73,7 @@ struct EditMyAccountView: View {
                         .background(Color(UIColor.lightGray))
                         .cornerRadius(10)
                         .fixedSize(horizontal: false, vertical: true)
+                        .textInputAutocapitalization(.never)
                 }
             }
             // .padding(.bottom)
@@ -84,6 +87,7 @@ struct EditMyAccountView: View {
                         .background(Color(UIColor.lightGray))
                         .cornerRadius(10)
                         .fixedSize(horizontal: false, vertical: true)
+                        .textInputAutocapitalization(.never)
                 }
             }
             // .padding(.bottom)
@@ -97,6 +101,7 @@ struct EditMyAccountView: View {
                         .background(Color(UIColor.lightGray))
                         .cornerRadius(10)
                         .fixedSize(horizontal: false, vertical: true)
+                        .textInputAutocapitalization(.never)
                 }
             }
             // .padding(.bottom)
