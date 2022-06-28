@@ -100,7 +100,6 @@ struct MyAccountView: View {
                         Text("Sign out")
                         
                     }
-                    .navigationBarBackButtonHidden(true)
                     
                 }
                 .padding(.leading, 40)
