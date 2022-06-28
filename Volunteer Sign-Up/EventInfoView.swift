@@ -27,7 +27,10 @@ struct EventInfoView: View {
                 // address
                 Section(header: Text("Address")) {
                     // location
-                    Text("\(eventInfo.location)")
+                    HStack {
+                        Balloon().frame(width: 15, height: 20, alignment: .leading).foregroundColor(.blue)
+                        Text("\(eventInfo.location)")
+                    }
 
                     // Image(eventInfo.mapImage)
                     Button(action: {
