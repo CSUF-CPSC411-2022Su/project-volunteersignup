@@ -61,5 +61,5 @@ class ZipListEvents : Codable {
 func saveToGlobalandZipList(_ event:EventInfo){
     ZIP_LIST_EVENTS.addEvent(event)
     //TODO: replace dummySearchlist with the GLOBAL_EVENT_LIST when created
-    dummySearchList.eventList.append(event)
+    GLOBAL_EVENT_LIST.eventList.append(event)
 }

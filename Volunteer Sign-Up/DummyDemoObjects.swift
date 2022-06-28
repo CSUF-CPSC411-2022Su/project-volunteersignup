@@ -50,4 +50,4 @@ var emptyEventInfo = EventInfo()
 // dummy account used to pass to preview for testing
 // var dummyAccountInfo = AccountInfo(testFlag: true)
 
-var dummySearchList = EventInfoList(testFlag: true)
+//var dummySearchList = EventInfoList(testFlag: true)

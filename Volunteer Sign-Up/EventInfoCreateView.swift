@@ -58,6 +58,8 @@ struct EventInfoCreateView: View {
                 saveToGlobalandZipList(eventInfo)
                 
                 //call func to update .plist files
+                GLOBAL_EVENT_LIST.saveHistory()
+                accountInfoFile.updateHistory()
                 
             }) {
                 Text("Create Event")

@@ -10,7 +10,9 @@ import SwiftUI
 struct EventInfoFromCreatedListView: View {
     @StateObject var eventSearch = FindEvent()
     @StateObject var eventInfo: EventInfo
-    @EnvironmentObject var myAccount: AccountInfoFile
+    @EnvironmentObject var accountInfoFile: AccountInfoFile
+    //@Environment(\.presentationMode) var presentationMode
+    
 
     var body: some View {
         VStack {
@@ -96,6 +98,8 @@ struct EventInfoFromCreatedListEditView: View {
             } // end list
             Button(action: {
                 // TODO: insert action
+                accountInfoFile.updateHistory()
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Save")
                     .bold()

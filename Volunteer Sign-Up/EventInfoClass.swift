@@ -7,6 +7,8 @@
 
 import Foundation
 
+var GLOBAL_EVENT_LIST = EventInfoList()
+
 class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
     enum CodingKeys: CodingKey {
         case eventName, location, dateTime, eventNotes, owner, zip

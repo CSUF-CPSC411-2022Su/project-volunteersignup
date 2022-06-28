@@ -16,7 +16,7 @@ struct EventSearchView: View {
                         Image(systemName: "magnifyingglass")
                         Text("Search")
                     }
-                EventList(eventInfo: dummySearchList)
+                EventList(eventInfo: GLOBAL_EVENT_LIST)
                     .tabItem {
                         Image(systemName: "mappin.and.ellipse")
                         Text("View Events")
@@ -105,6 +105,6 @@ struct EventSearchView_Previews: PreviewProvider {
 
 struct EventList_Previews: PreviewProvider {
     static var previews: some View {
-        EventList(eventInfo: dummySearchList)
+        EventList(eventInfo: GLOBAL_EVENT_LIST)
     }
 }

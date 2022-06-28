@@ -61,6 +61,7 @@ struct EventInfoView: View {
             Button(action: {
                 // TODO: insert action
                 accountInfoFile.myAccount.myEvents.AddSigned(event: eventInfo)
+                accountInfoFile.updateHistory()
                 self.presentationMode.wrappedValue.dismiss()
                 
             }) {
