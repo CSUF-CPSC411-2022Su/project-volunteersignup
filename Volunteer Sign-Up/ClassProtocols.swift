@@ -12,20 +12,22 @@
 
 import Foundation
 
+/*
 protocol p_eventSearch {
     var searchLocation: String { get set }
     var searchRadius: Int { get }
 
     func findEvent() throws -> p_eventSearch
 }
+ */
 
-protocol p_Event: /* Codable, */ Identifiable {
+protocol p_Event: Codable, Identifiable {
     var eventName: String { get set }
     var location: String { get set }
     var dateTime: Date { get set }
     var eventNotes: String { get set }
     var owner: String { get set }
-    var zip: Int { get set }
+    var zip: String { get set }
 
     func saveEventInfo() throws -> Bool
     func editEventInfo() throws -> Bool

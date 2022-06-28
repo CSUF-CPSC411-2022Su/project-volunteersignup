@@ -10,8 +10,9 @@ import SwiftUI
 struct EventInfoView: View {
     @StateObject var eventSearch = FindEvent()
     @StateObject var eventInfo: EventInfo
-    // @StateObject var accountInfo: AccountInfo
-
+    @EnvironmentObject var accountInfoFile: AccountInfoFile
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
             // Event Name
@@ -27,7 +28,10 @@ struct EventInfoView: View {
                 // address
                 Section(header: Text("Address")) {
                     // location
-                    Text("\(eventInfo.location)")
+                    HStack {
+                        Balloon().frame(width: 15, height: 20, alignment: .leading).foregroundColor(.blue)
+                        Text("\(eventInfo.location)")
+                    }
 
                     // Image(eventInfo.mapImage)
                     Button(action: {
@@ -56,6 +60,9 @@ struct EventInfoView: View {
             } // end list
             Button(action: {
                 // TODO: insert action
+                accountInfoFile.myAccount.myEvents.AddSigned(event: eventInfo)
+                self.presentationMode.wrappedValue.dismiss()
+                
             }) {
                 Text("Sign Up")
                     .bold()
