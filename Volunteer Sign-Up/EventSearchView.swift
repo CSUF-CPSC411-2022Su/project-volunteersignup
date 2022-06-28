@@ -22,10 +22,7 @@ struct EventSearchView: View {
                         Text("View Events")
                     }
             }
-
-            // EventList(eventInfo: dummySearchList)
             Spacer()
-
         }.padding()
     }
 }
@@ -54,44 +51,6 @@ struct EventList: View {
     }
 }
 
-/* changed to EventInfoView
-  struct EventMap: View {
-      //@State var searchString: String = ""
-      @StateObject var eventSearch = FindEvent()
-      @StateObject var eventInfo = EventInfoList(testFlag: true)
-
-      var body: some View {
-          VStack {
-              HStack {
-                  Balloon().fill(.pink)
-                      .frame(width: 40, height: 50)
-
-                 Text("Hello")
-             }
-             ForEach(eventInfo.eventList) {
-                 event in
-                 let searchString = event.location
-                 HStack {
-                     Balloon().fill(.pink)
-                         .frame(width: 40, height: 50)
-                     Text(eventSearch.searchLocation)
-                         .font(.body)
-                 }
-                 Button(action: {
-                     eventSearch.find(searchString)
-                 }) {
-                     Text("View Location")
-                 }
-                 Image(uiImage: eventSearch.image)
-                 NavigationLink(destination: EventInfoView(eventInfo: dummyEventInfo)) {
-                     Text("Sign up to volunteer")
-                 }
-             }
-         }
-     }
- }
- */
-
 struct ZipSearch: View {
     @SceneStorage("zipcode") var zipcode: String = ""
     @EnvironmentObject var eventInfo: EventInfoList
@@ -118,9 +77,22 @@ struct ZipSearch: View {
                 .padding(.bottom, 20)
                 Button(action: { ZIP_LIST_EVENTS.FindByZip(zipcode) }) {
                     Text("Search")
+                }.modifier(SearchButtom()).onSubmit {
+                    NavigationLink(destination: ZipListView()) {
+                        Text("Search")
+                    }
                 }
             }
         }
+    }
+}
+
+struct ZipListView: View {
+    @SceneStorage("zipcode") var zipcode: String = ""
+    @EnvironmentObject var eventInfo: EventInfoList
+
+    var body: some View {
+        Text("Hello")
     }
 }
 
@@ -136,12 +108,3 @@ struct EventList_Previews: PreviewProvider {
         EventList(eventInfo: dummySearchList)
     }
 }
-
-/*
- struct EventMap_Previews: PreviewProvider {
-     static var previews: some View {
-         EventMap()
-
-     }
- }
- */
