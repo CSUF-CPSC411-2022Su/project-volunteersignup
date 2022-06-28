@@ -21,24 +21,24 @@ struct EventSearchView: View {
                         Image(systemName: "mappin.and.ellipse")
                         Text("View Events")
                     }
-                }
-            
-            //EventList(eventInfo: dummySearchList)
+            }
+
+            // EventList(eventInfo: dummySearchList)
             Spacer()
-            
+
         }.padding()
     }
 }
 
 struct EventList: View {
     @StateObject var eventInfo: EventInfoList
-    
+
     var body: some View {
         VStack {
             HStack {
-            Text("View Events")
-                .bold()
-                .font(.largeTitle)
+                Text("View Events")
+                    .bold()
+                    .font(.largeTitle)
             }
             List {
                 ForEach(eventInfo.eventList) {
@@ -55,54 +55,54 @@ struct EventList: View {
 }
 
 /* changed to EventInfoView
- struct EventMap: View {
-     //@State var searchString: String = ""
-     @StateObject var eventSearch = FindEvent()
-     @StateObject var eventInfo = EventInfoList(testFlag: true)
-    
-     var body: some View {
-         VStack {
-             HStack {
-                 Balloon().fill(.pink)
-                     .frame(width: 40, height: 50)
-                
-                Text("Hello")
-            }
-            ForEach(eventInfo.eventList) {
-                event in
-                let searchString = event.location
-                HStack {
-                    Balloon().fill(.pink)
-                        .frame(width: 40, height: 50)
-                    Text(eventSearch.searchLocation)
-                        .font(.body)
-                }
-                Button(action: {
-                    eventSearch.find(searchString)
-                }) {
-                    Text("View Location")
-                }
-                Image(uiImage: eventSearch.image)
-                NavigationLink(destination: EventInfoView(eventInfo: dummyEventInfo)) {
-                    Text("Sign up to volunteer")
-                }
-            }
-        }
-    }
-}
-*/
+  struct EventMap: View {
+      //@State var searchString: String = ""
+      @StateObject var eventSearch = FindEvent()
+      @StateObject var eventInfo = EventInfoList(testFlag: true)
+
+      var body: some View {
+          VStack {
+              HStack {
+                  Balloon().fill(.pink)
+                      .frame(width: 40, height: 50)
+
+                 Text("Hello")
+             }
+             ForEach(eventInfo.eventList) {
+                 event in
+                 let searchString = event.location
+                 HStack {
+                     Balloon().fill(.pink)
+                         .frame(width: 40, height: 50)
+                     Text(eventSearch.searchLocation)
+                         .font(.body)
+                 }
+                 Button(action: {
+                     eventSearch.find(searchString)
+                 }) {
+                     Text("View Location")
+                 }
+                 Image(uiImage: eventSearch.image)
+                 NavigationLink(destination: EventInfoView(eventInfo: dummyEventInfo)) {
+                     Text("Sign up to volunteer")
+                 }
+             }
+         }
+     }
+ }
+ */
 
 struct ZipSearch: View {
     @SceneStorage("zipcode") var zipcode: String = ""
     @EnvironmentObject var eventInfo: EventInfoList
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                Text("Search by Zip Code")
-                    .bold()
-                    .font(.largeTitle)
+                    Text("Search by Zip Code")
+                        .bold()
+                        .font(.largeTitle)
                 }
                 .padding(.bottom, 30)
                 HStack {
@@ -141,7 +141,7 @@ struct EventList_Previews: PreviewProvider {
  struct EventMap_Previews: PreviewProvider {
      static var previews: some View {
          EventMap()
-            
+
      }
  }
  */

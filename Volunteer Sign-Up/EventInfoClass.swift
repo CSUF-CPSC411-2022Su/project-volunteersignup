@@ -36,7 +36,7 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
         self.owner = user
         self.zip = zip
     }
-    
+
     init(eventName n: String, at loc: String, timeAndDate dt: Date, notes: String, user: String, zip: Int) {
         self.eventName = n
         self.location = loc
@@ -90,17 +90,17 @@ class EventInfoList: ObservableObject, Identifiable {
         eventList.append(newCopy)
 
         eventList.append(EventInfo(eventName: "Food Drive", at: "Southlands Church Brea 2950 E Imperial Hwy, Brea, CA", timeAndDate: Date(), notes: "N/A", user: "Kate", zip: 92821))
-        
+
         saveHistory()
     }
 
     init() {
         self.fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         self.fileURL = fileURL.appendingPathComponent("events").appendingPathExtension("plist")
-        
+
         loadHistory()
     }
-    
+
     func saveHistory() {
         // TODO: Save the searchStrings array into a file
         let searchStringListEncoder = PropertyListEncoder()
@@ -122,50 +122,3 @@ class EventInfoList: ObservableObject, Identifiable {
         }
     }
 }
-
-/*
-class EventPList: ObservableObject, Identifiable {
-    @Published var events: [String] = []
-    var maxsearches: Int = 5
-    var fileURL: URL
-
-    init() {
-        // TODO: Create a path to a file named crosswalks.plist and store in fileURL
-        self.fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        self.fileURL = fileURL.appendingPathComponent("events").appendingPathExtension("plist")
-
-        // fileURL = URL(string: \(archiveURL))! // Delete this line and replace with your code
-
-        loadHistory()
-    }
-
-    func addEventString(_ searchString: String) {
-        if events.count == maxsearches {
-            events.remove(at: maxsearches - 1)
-        }
-        events.insert(searchString, at: 0)
-        saveHistory()
-    }
-
-    func saveHistory() {
-        // TODO: Save the searchStrings array into a file
-        let searchStringListEncoder = PropertyListEncoder()
-        if let encodedSearchStrings = try? searchStringListEncoder.encode(events) {
-            try? encodedSearchStrings.write(to: fileURL,
-                                            options: .noFileProtection)
-        }
-    }
-
-    func loadHistory() {
-        // TODO: Load data from the file and store it in searchStrings
-        let searchStringListDecoder = PropertyListDecoder()
-        if let retrievedSearchString = try? Data(contentsOf: fileURL),
-           let decodedSearchStrings = try?
-           searchStringListDecoder.decode([String].self,
-                                          from: retrievedSearchString)
-        {
-            events = decodedSearchStrings
-        }
-    }
-}
-*/
