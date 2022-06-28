@@ -73,6 +73,7 @@ struct EventInfoFromCreatedListView: View {
 struct EventInfoFromCreatedListEditView: View {
     @StateObject var eventInfo: EventInfo
     @EnvironmentObject var accountInfo: AccountInfoFile
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack {
@@ -102,9 +103,11 @@ struct EventInfoFromCreatedListEditView: View {
             } // end list
             Button(action: {
                 // TODO: insert action
+                accountInfo.updateHistory()
                 accountInfo.myAccount.myEvents.EditCreated(updated: eventInfo)
                 accountInfo.myAccount.myEvents.PrintCreated()
                 accountInfo.objectWillChange.send()
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Save")
                     .bold()
