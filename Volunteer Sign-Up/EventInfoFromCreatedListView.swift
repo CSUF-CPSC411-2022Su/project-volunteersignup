@@ -103,7 +103,10 @@ struct EventInfoFromCreatedListEditView: View {
             } // end list
             Button(action: {
                 // TODO: insert action
-                accountInfo.updateHistory()
+                guard accountInfo.updateHistory() else {
+                    print("account info was not updated")
+                    return
+                }
                 accountInfo.myAccount.myEvents.EditCreated(updated: eventInfo)
                 accountInfo.myAccount.myEvents.PrintCreated()
                 accountInfo.objectWillChange.send()
