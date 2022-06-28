@@ -25,7 +25,7 @@ protocol p_Event: /* Codable, */ Identifiable {
     var dateTime: Date { get set }
     var eventNotes: String { get set }
     var owner: String { get set }
-    var zip: Int { get set }
+    var zip: String { get set }
 
     func saveEventInfo() throws -> Bool
     func editEventInfo() throws -> Bool
