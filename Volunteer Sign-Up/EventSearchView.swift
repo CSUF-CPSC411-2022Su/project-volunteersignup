@@ -29,7 +29,7 @@ struct EventSearchView: View {
 
 struct EventList: View {
     @StateObject var eventInfo: EventInfoList
-
+    
     var body: some View {
         VStack {
             HStack {
@@ -84,18 +84,22 @@ struct ZipSearch: View {
 struct ZipListView: View {
     @State var zipcode: String
     @EnvironmentObject var eventInfo: EventInfoList
-
+    
     var body: some View {
-            HStack {
-                Text("Search Results")
-                    .bold()
-                    .font(.largeTitle)
-            }
-            .padding(.bottom, 30)
+        HStack {
+            Text("Search Results")
+                .bold()
+                .font(.largeTitle)
+        }
+        .padding(.bottom, 30)
         List {
             ForEach(ZIP_LIST_EVENTS.FindByZip(zipcode)) {
                 event in
-                Text(event.eventName)
+                Section {
+                    NavigationLink(destination: EventInfoView(eventInfo: event)) {
+                        Text("Event: \(event.eventName)")
+                    }
+                }
             }
         }
     }
