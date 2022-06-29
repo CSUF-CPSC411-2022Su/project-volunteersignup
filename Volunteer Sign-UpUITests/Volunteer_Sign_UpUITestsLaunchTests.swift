@@ -8,7 +8,6 @@
 import XCTest
 
 class Volunteer_Sign_UpUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
