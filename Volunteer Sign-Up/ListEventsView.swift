@@ -83,8 +83,11 @@ struct CreatedEventsView: View {
                         for index in indexes {
                             // Removes created event from global list on deletion
                             // TODO: change to id to ensure that events with the same name don't get deleted.
+                            ZIP_LIST_EVENTS.zipList[day.events[index].zip] = ZIP_LIST_EVENTS.zipList[day.events[index].zip]!.filter { $0.eventName != day.events[index].eventName }
+                            myAccount.myAccount.myEvents.DeleteSigned(event: day.events[index])
                             GLOBAL_EVENT_LIST.eventList = GLOBAL_EVENT_LIST.eventList.filter { $0.eventName != day.events[index].eventName }
                             GLOBAL_EVENT_LIST.saveHistory()
+                            ZIP_LIST_EVENTS.saveHistory()
                         }
                         day.events.remove(atOffsets: offset)
                         

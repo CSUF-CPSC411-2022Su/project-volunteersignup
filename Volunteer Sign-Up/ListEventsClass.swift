@@ -49,13 +49,24 @@ class ListEvents: Codable, ObservableObject, Identifiable {
         try container.encode(listEventsCreated, forKey: .listEventsCreated)
         try container.encode(id, forKey: .id)
     }
+    
+    func DeleteSigned(event: EventInfo) {
+        for day in self.listEventsSigned {
+            if day.date == event.dateTime {
+                day.events = day.events.filter { $0.id != event.id }
+                if day.events.count == 0 {
+                    self.listEventsSigned = listEventsSigned.filter { $0.date != day.date }
+                }
+            }
+        }
+    }
 
     func AddSigned(event: EventInfo) {
-        //var list = listEventsSigned
         let date = event.dateTime
+        let dateString = date.formatted(date: .abbreviated, time: .omitted)
         var added = false
         for day in self.listEventsSigned {
-            if day.date == date {
+            if day.dateString == dateString {
                 day.events.append(event)
                 added = true
             }
