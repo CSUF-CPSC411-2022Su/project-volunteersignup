@@ -82,6 +82,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
             sortList()
         }
     }
+
     func EditSigned(updated: EventInfo) {
         // Deletes the old event from the list
         for day in listEventsSigned {
