@@ -28,7 +28,6 @@ protocol p_Event: Codable, Identifiable {
     var eventNotes: String { get set }
     var owner: String { get set }
     var zip: String { get set }
-
     func saveEventInfo() throws -> Bool
     func editEventInfo() throws -> Bool
     func deleteEventInfo() throws -> Bool
@@ -37,7 +36,6 @@ protocol p_Event: Codable, Identifiable {
 protocol p_ListEvents {
     var listEventsCreated: [EventInfo] { get set }
     var listEventsSigned: [EventInfo] { get set }
-
     func EditList(_ list: [EventInfo]) throws -> p_ListEvents
     func DeleteEvent(at index: Int, in list: [EventInfo]) throws -> Bool
 }

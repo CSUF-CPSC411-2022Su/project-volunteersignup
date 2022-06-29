@@ -103,14 +103,21 @@ struct EventInfoFromCreatedListEditView: View {
             } // end list
             Button(action: {
                 // TODO: insert action
+                //print(eventInfo.id)
+                GLOBAL_EVENT_LIST.eventList = GLOBAL_EVENT_LIST.eventList.filter { $0.id != eventInfo.id }
+                GLOBAL_EVENT_LIST.event(eventInfo)
+
+                //accountInfo.updateHistory()
+                accountInfo.myAccount.myEvents.EditCreated(updated: eventInfo)
+                accountInfo.myAccount.myEvents.PrintCreated()
+                accountInfo.objectWillChange.send()
                 guard accountInfo.updateHistory() else {
                     print("account info was not updated")
                     return
                 }
-                accountInfo.myAccount.myEvents.EditCreated(updated: eventInfo)
-                accountInfo.myAccount.myEvents.PrintCreated()
-                accountInfo.objectWillChange.send()
+
                 self.presentationMode.wrappedValue.dismiss()
+                
             }) {
                 Text("Save")
                     .bold()

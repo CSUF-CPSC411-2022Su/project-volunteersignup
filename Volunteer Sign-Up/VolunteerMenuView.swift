@@ -31,7 +31,6 @@ struct VolunteerMenuView: View {
 
     @EnvironmentObject var myAccountFile: AccountInfoFile
     @State var listEvents = ListEvents()
-
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {

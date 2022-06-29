@@ -20,6 +20,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
 
     // Initializes ListEvents with Dummy Data
     init() {
+        /*
         let events = [EventInfo(eventName: "Dummy Event", at: "Epic Dr.", timeAndDate: Date(), notes: "Bring sandiwches", user: "father", zip: 100), EventInfo(eventName: "Milk Fest", at: "Pog Ch.", timeAndDate: Date(), notes: "Lol Nerd", user: "Dad", zip: 10)]
         var day = Day(events: events)
         listEventsSigned.append(day)
@@ -31,6 +32,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
             day = Day(events: events2)
         }
         listEventsCreated.append(day)
+        */
     }
 
     // conform to Codable
@@ -47,19 +49,36 @@ class ListEvents: Codable, ObservableObject, Identifiable {
         try container.encode(listEventsCreated, forKey: .listEventsCreated)
         try container.encode(id, forKey: .id)
     }
+    
+    func DeleteSigned(event: EventInfo) {
+        let date = event.dateTime
+        let dateString = date.formatted(date: .abbreviated, time: .omitted)
+        print("attempting to delete \(event.eventName)")
+        for day in listEventsSigned {
+            //for event_t in day {
+                //print(date)
+                if day.dateString == dateString {
+                    day.events = day.events.filter { $0.eventName != event.eventName }
+                    print("deleting \(event.eventName)")
+                    if day.events.count == 0 {
+                        self.listEventsSigned = listEventsSigned.filter { $0.date != day.date }
+                    }
+                }
+        }
+    }
 
     func AddSigned(event: EventInfo) {
-        // var list = listEventsSigned
         let date = event.dateTime
+        let dateString = date.formatted(date: .abbreviated, time: .omitted)
         var added = false
-        for day in listEventsSigned {
-            if day.date == date {
+        for day in self.listEventsSigned {
+            if day.dateString == dateString {
                 day.events.append(event)
                 added = true
             }
         }
         if !added {
-            listEventsSigned.append(Day(events: [event]))
+            self.listEventsSigned.append(Day(events: [event]))
             sortList()
         }
     }
@@ -95,15 +114,17 @@ class ListEvents: Codable, ObservableObject, Identifiable {
         // var list = listEventsCreated
         let date = event.dateTime
         var added = false
-        for day in listEventsCreated {
-            if day.date == date {
+        let dateString = date.formatted(date: .abbreviated, time: .omitted)
+
+        for day in self.listEventsCreated {
+            if day.dateString == dateString {
                 day.events.append(event)
                 print("Added event")
                 added = true
             }
         }
         if !added {
-            listEventsCreated.append(Day(events: [event]))
+            self.listEventsCreated.append(Day(events: [event]))
             sortList()
         }
     }
