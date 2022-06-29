@@ -40,15 +40,14 @@ struct SignedEventsView: View {
                                     .font(.headline)
                                 Text(event.eventNotes)
                                     .font(.caption)
-                           }
+                            }
                         }
                     }.onDelete {
                         offset in
                         day.events.remove(atOffsets: offset)
                         if day.events.count == 0 {
                             // Removes day from list if the day no longer holds any events
-                            myAccount.myAccount.myEvents.listEventsCreated = myAccount.myAccount.myEvents.listEventsCreated.filter { $0.date != day.date }
- 
+                            myAccount.myAccount.myEvents.listEventsSigned = myAccount.myAccount.myEvents.listEventsSigned.filter { $0.date != day.date }
                         }
                         myAccount.objectWillChange.send()
                     }
@@ -79,9 +78,8 @@ struct CreatedEventsView: View {
                         .environmentObject(self.myAccount)
                     }.onDelete {
                         offset in
-                        
-                        //Converts offset values into integers, so the events can be accessed for comparing events to global events
-                        let indexes = offset.map({$0})
+                        // Converts offset values into integers, so the events can be accessed for comparing events to global events
+                        let indexes = offset.map { $0 }
                         for index in indexes {
                             // Removes created event from global list on deletion
                             // TODO: change to id to ensure that events with the same name don't get deleted.

@@ -15,23 +15,12 @@ struct GreenButton: ButtonStyle {
             .background(.blue)
             .foregroundColor(.white)
             .cornerRadius(16)
-            //.bold()
-            //.clipShape(Capsule())
     }
 }
 
-/*
- .bold()
- .frame(width: 300, height: 50)
-}.buttonStyle(.borderedProminent)
- */
-
 struct VolunteerMenuView: View {
-    //@StateObject var myEvents = ListEvents()
-
     @EnvironmentObject var myAccountFile: AccountInfoFile
     @State var listEvents = ListEvents()
-
     var body: some View {
         // TODO: Link Find Events, Create Event, and My Profile to their respective pages
         VStack {
@@ -42,7 +31,7 @@ struct VolunteerMenuView: View {
             .buttonStyle(GreenButton())
 
             NavigationLink("Create Event") {
-                EventInfoCreateView(/*eventInfo: emptyEventInfo*/)
+                EventInfoCreateView()
             }
             .buttonStyle(GreenButton())
 
@@ -50,7 +39,7 @@ struct VolunteerMenuView: View {
                 MyEventsView()
             }
             .buttonStyle(GreenButton())
-            
+
             NavigationLink("My Profile") {
                 MyAccountView()
             }
