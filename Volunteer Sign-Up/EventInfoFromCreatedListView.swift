@@ -108,6 +108,7 @@ struct EventInfoFromCreatedListEditView: View {
                 GLOBAL_EVENT_LIST.event(eventInfo)
 
                 // accountInfo.updateHistory()
+                accountInfo.myAccount.myEvents.EditSigned(updated: eventInfo)
                 accountInfo.myAccount.myEvents.EditCreated(updated: eventInfo)
                 accountInfo.myAccount.myEvents.PrintCreated()
                 accountInfo.objectWillChange.send()

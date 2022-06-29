@@ -49,6 +49,7 @@ struct SignedEventsView: View {
                             // Removes day from list if the day no longer holds any events
                             myAccount.myAccount.myEvents.listEventsSigned = myAccount.myAccount.myEvents.listEventsSigned.filter { $0.date != day.date }
                         }
+                        _ = myAccount.updateHistory()
                         myAccount.objectWillChange.send()
                     }
                 }
@@ -98,6 +99,7 @@ struct CreatedEventsView: View {
                             // Removes day from list if the day no longer holds any events
                             myAccount.myAccount.myEvents.listEventsCreated = myAccount.myAccount.myEvents.listEventsCreated.filter { $0.date != day.date }
                         }
+                        _ = myAccount.updateHistory()
                         myAccount.objectWillChange.send()
                         GLOBAL_EVENT_LIST.objectWillChange.send()
                     }

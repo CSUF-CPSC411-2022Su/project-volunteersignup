@@ -82,6 +82,23 @@ class ListEvents: Codable, ObservableObject, Identifiable {
             sortList()
         }
     }
+    func EditSigned(updated: EventInfo) {
+        // Deletes the old event from the list
+        for day in listEventsSigned {
+            for event in day.events {
+                if event.id == updated.id {
+                    day.events = day.events.filter { $0.id != updated.id }
+                    // Eliminates day from array if it no longer holds any events
+                    if day.events.count == 0 {
+                        listEventsSigned = listEventsSigned.filter { $0.date != day.date }
+                    }
+                }
+            }
+        }
+        // Adds the new Event
+        AddSigned(event: updated)
+        objectWillChange.send()
+    }
 
     func EditCreated(updated: EventInfo) {
         // Deletes the old event from the list
