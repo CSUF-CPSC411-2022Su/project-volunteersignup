@@ -15,19 +15,19 @@ struct GreenButton: ButtonStyle {
             .background(.blue)
             .foregroundColor(.white)
             .cornerRadius(16)
-            //.bold()
-            //.clipShape(Capsule())
+        // .bold()
+        // .clipShape(Capsule())
     }
 }
 
 /*
- .bold()
- .frame(width: 300, height: 50)
-}.buttonStyle(.borderedProminent)
- */
+  .bold()
+  .frame(width: 300, height: 50)
+ }.buttonStyle(.borderedProminent)
+  */
 
 struct VolunteerMenuView: View {
-    //@StateObject var myEvents = ListEvents()
+    // @StateObject var myEvents = ListEvents()
 
     @EnvironmentObject var myAccountFile: AccountInfoFile
     @State var listEvents = ListEvents()
@@ -42,7 +42,7 @@ struct VolunteerMenuView: View {
             .buttonStyle(GreenButton())
 
             NavigationLink("Create Event") {
-                EventInfoCreateView(/*eventInfo: emptyEventInfo*/)
+                EventInfoCreateView( /* eventInfo: emptyEventInfo */ )
             }
             .buttonStyle(GreenButton())
 
@@ -50,7 +50,7 @@ struct VolunteerMenuView: View {
                 MyEventsView()
             }
             .buttonStyle(GreenButton())
-            
+
             NavigationLink("My Profile") {
                 MyAccountView()
             }

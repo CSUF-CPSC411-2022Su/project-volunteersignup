@@ -107,7 +107,7 @@ class EventInfoList: ObservableObject, Identifiable {
         let eventListEncoder = PropertyListEncoder()
         if let encodedEventList = try? eventListEncoder.encode(eventList) {
             try? encodedEventList.write(to: fileURL,
-                                            options: .noFileProtection)
+                                        options: .noFileProtection)
         }
     }
 
@@ -116,7 +116,7 @@ class EventInfoList: ObservableObject, Identifiable {
         if let retrievedEventList = try? Data(contentsOf: fileURL),
            let decodedEventList = try?
            eventListDecoder.decode([EventInfo].self,
-                                          from: retrievedEventList)
+                                   from: retrievedEventList)
         {
             eventList = decodedEventList
         }

@@ -12,7 +12,7 @@ struct UserInfo: Codable {
     var address: String
     var email: String
     var phone: String
-    
+
     init() {
         self.name = ""
         self.address = ""
@@ -26,7 +26,7 @@ struct UserInfo: Codable {
      var address: String
      var email: String
      var phone: String
-    
+
      init(){
          self.name = ""
          self.address = ""
