@@ -11,7 +11,7 @@ import Foundation
 var ZIP_LIST_EVENTS = ZipListEvents()
 
 // class used to store Events by Zip to assist with searching
-class ZipListEvents : Codable {
+class ZipListEvents: Codable {
     var zipList: [String: [EventInfo]]
     var fileURL: URL
 
@@ -19,7 +19,7 @@ class ZipListEvents : Codable {
         self.zipList = [:]
         self.fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         self.fileURL = fileURL.appendingPathComponent("ZIP_LIST_EVENTS").appendingPathExtension("plist")
-        
+
         loadHistory()
     }
 
@@ -29,7 +29,7 @@ class ZipListEvents : Codable {
     // input        - Int; the key for the dictionary
     // output       - Array<EventInfo>; the list of events for that zipcode
     //              - nil; key was invalid
-    func FindByZip(_ zip: String) -> Array<EventInfo> {
+    func FindByZip(_ zip: String) -> [EventInfo] {
         if let keyExists = zipList[zip] {
             return keyExists
         } else {
@@ -37,7 +37,6 @@ class ZipListEvents : Codable {
         }
     }
 
-    
     func addEvent(_ event: EventInfo) {
         var added = false
         if zipList[event.zip] != nil {
@@ -60,13 +59,12 @@ class ZipListEvents : Codable {
         // TODO: implement decoder
         return false
     }
-    
 
     func saveHistory() {
         let eventListEncoder = PropertyListEncoder()
         if let encodedEventList = try? eventListEncoder.encode(zipList) {
             try? encodedEventList.write(to: fileURL,
-                                            options: .noFileProtection)
+                                        options: .noFileProtection)
         }
     }
 
@@ -74,18 +72,17 @@ class ZipListEvents : Codable {
         let eventListDecoder = PropertyListDecoder()
         if let retrievedEventList = try? Data(contentsOf: fileURL),
            let decodedEventList = try?
-            eventListDecoder.decode([String: [EventInfo]].self,
-                                          from: retrievedEventList)
+           eventListDecoder.decode([String: [EventInfo]].self,
+                                   from: retrievedEventList)
         {
             zipList = decodedEventList
         }
     }
-    
 }
 
 // add to global and zip lists
-func saveToGlobalandZipList(_ event:EventInfo){
+func saveToGlobalandZipList(_ event: EventInfo) {
     ZIP_LIST_EVENTS.addEvent(event)
-    //TODO: replace dummySearchlist with the GLOBAL_EVENT_LIST when created
+    // TODO: replace dummySearchlist with the GLOBAL_EVENT_LIST when created
     GLOBAL_EVENT_LIST.eventList.append(event)
 }

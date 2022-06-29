@@ -21,18 +21,18 @@ class ListEvents: Codable, ObservableObject, Identifiable {
     // Initializes ListEvents with Dummy Data
     init() {
         /*
-        let events = [EventInfo(eventName: "Dummy Event", at: "Epic Dr.", timeAndDate: Date(), notes: "Bring sandiwches", user: "father", zip: 100), EventInfo(eventName: "Milk Fest", at: "Pog Ch.", timeAndDate: Date(), notes: "Lol Nerd", user: "Dad", zip: 10)]
-        var day = Day(events: events)
-        listEventsSigned.append(day)
+         let events = [EventInfo(eventName: "Dummy Event", at: "Epic Dr.", timeAndDate: Date(), notes: "Bring sandiwches", user: "father", zip: 100), EventInfo(eventName: "Milk Fest", at: "Pog Ch.", timeAndDate: Date(), notes: "Lol Nerd", user: "Dad", zip: 10)]
+         var day = Day(events: events)
+         listEventsSigned.append(day)
 
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        if let date = formatter.date(from: "2016/10/08 22:31") {
-            let events2 = [EventInfo(eventName: "Ray William Johnson Meet and Greet", at: "Doinyur, Mom CA.", timeAndDate: date, notes: "Meet Ray, the creator of the hit youtube song \"Doin Your Mom\"!!!", user: "Ray", zip: 299)]
-            day = Day(events: events2)
-        }
-        listEventsCreated.append(day)
-        */
+         let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy/MM/dd HH:mm"
+         if let date = formatter.date(from: "2016/10/08 22:31") {
+             let events2 = [EventInfo(eventName: "Ray William Johnson Meet and Greet", at: "Doinyur, Mom CA.", timeAndDate: date, notes: "Meet Ray, the creator of the hit youtube song \"Doin Your Mom\"!!!", user: "Ray", zip: 299)]
+             day = Day(events: events2)
+         }
+         listEventsCreated.append(day)
+         */
     }
 
     // conform to Codable
@@ -49,21 +49,21 @@ class ListEvents: Codable, ObservableObject, Identifiable {
         try container.encode(listEventsCreated, forKey: .listEventsCreated)
         try container.encode(id, forKey: .id)
     }
-    
+
     func DeleteSigned(event: EventInfo) {
         let date = event.dateTime
         let dateString = date.formatted(date: .abbreviated, time: .omitted)
         print("attempting to delete \(event.eventName)")
         for day in listEventsSigned {
-            //for event_t in day {
-                //print(date)
-                if day.dateString == dateString {
-                    day.events = day.events.filter { $0.eventName != event.eventName }
-                    print("deleting \(event.eventName)")
-                    if day.events.count == 0 {
-                        self.listEventsSigned = listEventsSigned.filter { $0.date != day.date }
-                    }
+            // for event_t in day {
+            // print(date)
+            if day.dateString == dateString {
+                day.events = day.events.filter { $0.eventName != event.eventName }
+                print("deleting \(event.eventName)")
+                if day.events.count == 0 {
+                    listEventsSigned = listEventsSigned.filter { $0.date != day.date }
                 }
+            }
         }
     }
 
@@ -71,14 +71,14 @@ class ListEvents: Codable, ObservableObject, Identifiable {
         let date = event.dateTime
         let dateString = date.formatted(date: .abbreviated, time: .omitted)
         var added = false
-        for day in self.listEventsSigned {
+        for day in listEventsSigned {
             if day.dateString == dateString {
                 day.events.append(event)
                 added = true
             }
         }
         if !added {
-            self.listEventsSigned.append(Day(events: [event]))
+            listEventsSigned.append(Day(events: [event]))
             sortList()
         }
     }
@@ -116,7 +116,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
         var added = false
         let dateString = date.formatted(date: .abbreviated, time: .omitted)
 
-        for day in self.listEventsCreated {
+        for day in listEventsCreated {
             if day.dateString == dateString {
                 day.events.append(event)
                 print("Added event")
@@ -124,7 +124,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
             }
         }
         if !added {
-            self.listEventsCreated.append(Day(events: [event]))
+            listEventsCreated.append(Day(events: [event]))
             sortList()
         }
     }

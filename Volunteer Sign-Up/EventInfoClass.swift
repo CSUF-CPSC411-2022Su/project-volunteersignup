@@ -91,10 +91,10 @@ class EventInfoList: ObservableObject, Identifiable {
     var fileURL: URL
 
     func event(_ event: EventInfo) {
-        //let newCopy = EventInfo(eventName: event.eventName, at: event.location, timeAndDate: event.dateTime, notes: event.eventNotes, user: event.owner, zip: event.zip)
+        // let newCopy = EventInfo(eventName: event.eventName, at: event.location, timeAndDate: event.dateTime, notes: event.eventNotes, user: event.owner, zip: event.zip)
         eventList.append(event)
 
-        //eventList.append(EventInfo(eventName: "Food Drive", at: "Southlands Church Brea 2950 E Imperial Hwy, Brea, CA", timeAndDate: Date(), notes: "N/A", user: "Kate", zip: 92821))
+        // eventList.append(EventInfo(eventName: "Food Drive", at: "Southlands Church Brea 2950 E Imperial Hwy, Brea, CA", timeAndDate: Date(), notes: "N/A", user: "Kate", zip: 92821))
 
         saveHistory()
     }
