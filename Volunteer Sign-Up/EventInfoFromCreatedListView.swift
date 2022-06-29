@@ -55,17 +55,17 @@ struct EventInfoFromCreatedListView: View {
                 }
             } // end list
             NavigationLink(destination:
-                            EventInfoFromCreatedListEditView(eventInfo: eventInfo)){
-                Text("Edit")
-                .bold()
-                .frame(width: 300, height: 50)
-            }.buttonStyle(.borderedProminent)
-            .environmentObject(myAccount)
+                EventInfoFromCreatedListEditView(eventInfo: eventInfo)) {
+                    Text("Edit")
+                        .bold()
+                        .frame(width: 300, height: 50)
+                }.buttonStyle(.borderedProminent)
+                .environmentObject(myAccount)
             /*
-            Button("Print") {
-                myAccount.myAccount.myEvents.PrintCreated()
-            }
-             */
+             Button("Print") {
+                 myAccount.myAccount.myEvents.PrintCreated()
+             }
+              */
         }
     }
 }

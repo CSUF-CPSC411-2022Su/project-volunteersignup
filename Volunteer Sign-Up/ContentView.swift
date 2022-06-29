@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var myAccount: AccountInfoFile = .init()
+
     var body: some View {
         NavigationView {
             HomeView()

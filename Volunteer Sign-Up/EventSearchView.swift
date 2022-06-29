@@ -29,6 +29,7 @@ struct EventSearchView: View {
 
 struct EventList: View {
     @StateObject var eventInfo: EventInfoList
+
     var body: some View {
         VStack {
             HStack {
@@ -53,6 +54,7 @@ struct EventList: View {
 struct ZipSearch: View {
     @State var zipcode: String = ""
     @EnvironmentObject var eventInfo: EventInfoList
+
     var body: some View {
         VStack {
             HStack {
@@ -82,6 +84,7 @@ struct ZipSearch: View {
 struct ZipListView: View {
     @State var zipcode: String
     @EnvironmentObject var eventInfo: EventInfoList
+
     var body: some View {
         HStack {
             Text("Search Results")

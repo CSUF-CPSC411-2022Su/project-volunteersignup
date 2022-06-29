@@ -84,39 +84,29 @@ struct MyAccountView: View {
             
             Spacer()
             
-            /*VStack {
-                NavigationLink(destination: EditMyAccountView()) {
-                    Text("Edit")
-                }
-            }
-            .padding()*/
+            /* VStack {
+                 NavigationLink(destination: EditMyAccountView()) {
+                     Text("Edit")
+                 }
+             }
+             .padding() */
             
             HStack {
-                
                 VStack {
-                    
                     NavigationLink(destination: HomeView()) {
-                        
                         Text("Sign out")
-                        
                     }
-                    
                 }
                 .padding(.leading, 40)
                 
                 Spacer()
                 
                 VStack {
-                    
                     NavigationLink(destination: EditMyAccountView()) {
-                        
                         Text("Edit")
-                        
                     }
-                    
                 }
                 .padding(.trailing, 40)
-                    
             }
             
             Spacer()

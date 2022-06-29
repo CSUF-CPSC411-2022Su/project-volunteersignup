@@ -26,7 +26,7 @@ struct MyEventsView: View {
  
 struct SignedEventsView: View {
     @EnvironmentObject var myAccount: AccountInfoFile
-    
+
     var body: some View {
         List {
             ForEach(myAccount.myAccount.myEvents.listEventsSigned) {
@@ -60,7 +60,10 @@ struct SignedEventsView: View {
  
 struct CreatedEventsView: View {
     @EnvironmentObject var myAccount: AccountInfoFile
+    // @StateObject var myEvents = ListEvents()
     var body: some View {
+        // VStack {
+        // EditButton()
         List {
             ForEach(myAccount.myAccount.myEvents.listEventsCreated) {
                 day in

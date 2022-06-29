@@ -14,12 +14,12 @@ import Foundation
 
 /*
  protocol p_eventSearch {
- var searchLocation: String { get set }
- var searchRadius: Int { get }
+     var searchLocation: String { get set }
+     var searchRadius: Int { get }
 
- func findEvent() throws -> p_eventSearch
+     func findEvent() throws -> p_eventSearch
  }
- */
+  */
 
 protocol p_Event: Codable, Identifiable {
     var eventName: String { get set }

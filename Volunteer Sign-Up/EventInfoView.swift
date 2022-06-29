@@ -12,7 +12,7 @@ struct EventInfoView: View {
     @StateObject var eventInfo: EventInfo
     @EnvironmentObject var accountInfoFile: AccountInfoFile
     @Environment(\.presentationMode) var presentationMode
-    
+
     var body: some View {
         VStack {
             // Event Name
@@ -66,7 +66,7 @@ struct EventInfoView: View {
                     return
                 }
                 self.presentationMode.wrappedValue.dismiss()
-                
+
             }) {
                 Text("Sign Up")
                     .bold()

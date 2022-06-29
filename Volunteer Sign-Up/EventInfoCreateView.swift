@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct EventInfoCreateView: View {
-    //var eventInfo: EventInfo
+    // var eventInfo: EventInfo
     @EnvironmentObject var accountInfoFile: AccountInfoFile
     @State var eventName: String = ""
     @State var location: String = ""
-        @State var city: String = ""
-        @State var state: String = ""
-        @State var zip: String = ""
-    @State var dateTime: Date =  Date.now
+    @State var city: String = ""
+    @State var state: String = ""
+    @State var zip: String = ""
+    @State var dateTime: Date = .now
     @State var eventNotes: String = ""
     @Environment(\.presentationMode) var presentationMode
 
@@ -53,17 +53,17 @@ struct EventInfoCreateView: View {
                 let tempZip = zip
                 let tempLoc = location + " " + city + " " + state + " " + zip
                 let eventInfo: EventInfo = .init(eventName: eventName, at: tempLoc, timeAndDate: dateTime, notes: eventNotes, user: accountInfoFile.myAccount.username, zip: tempZip)
-                
-                //write to listEventsCreated, gloabl and zip list
+
+                // write to listEventsCreated, gloabl and zip list
                 accountInfoFile.myAccount.myEvents.AddCreated(event: eventInfo)
                 saveToGlobalandZipList(eventInfo)
-                
-                //call func to update .plist files
+
+                // call func to update .plist files
                 GLOBAL_EVENT_LIST.saveHistory()
                 ZIP_LIST_EVENTS.saveHistory()
-                let _ = accountInfoFile.updateHistory()
+                _ = accountInfoFile.updateHistory()
                 self.presentationMode.wrappedValue.dismiss()
-                
+
             }) {
                 Text("Create Event")
                     .bold()
@@ -75,6 +75,6 @@ struct EventInfoCreateView: View {
 
 struct EventInfoCreateView_Previews: PreviewProvider {
     static var previews: some View {
-        EventInfoCreateView(/*eventInfo: emptyEventInfo*/)
+        EventInfoCreateView( /* eventInfo: emptyEventInfo */ )
     }
 }

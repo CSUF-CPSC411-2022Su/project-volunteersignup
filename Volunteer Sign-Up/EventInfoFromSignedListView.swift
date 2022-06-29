@@ -55,14 +55,14 @@ struct EventInfoFromSignedListView: View {
                 }
             } // end list
             /*
-            Button(action: {
-                // TODO: insert action
-            }) {
-                Text("Sign Up")
-                    .bold()
-                    .frame(width: 300, height: 50)
-            }.buttonStyle(.borderedProminent)
-            */
+             Button(action: {
+                 // TODO: insert action
+             }) {
+                 Text("Sign Up")
+                     .bold()
+                     .frame(width: 300, height: 50)
+             }.buttonStyle(.borderedProminent)
+             */
         }
     }
 }
