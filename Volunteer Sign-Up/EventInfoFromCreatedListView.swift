@@ -111,7 +111,10 @@ struct EventInfoFromCreatedListEditView: View {
                 accountInfo.myAccount.myEvents.EditCreated(updated: eventInfo)
                 accountInfo.myAccount.myEvents.PrintCreated()
                 accountInfo.objectWillChange.send()
-                accountInfo.updateHistory()
+                guard accountInfo.updateHistory() else {
+                    print("account info was not updated")
+                    return
+                }
 
                 self.presentationMode.wrappedValue.dismiss()
                 
