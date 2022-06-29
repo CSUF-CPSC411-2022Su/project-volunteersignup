@@ -51,13 +51,19 @@ class ListEvents: Codable, ObservableObject, Identifiable {
     }
     
     func DeleteSigned(event: EventInfo) {
-        for day in self.listEventsSigned {
-            if day.date == event.dateTime {
-                day.events = day.events.filter { $0.id != event.id }
-                if day.events.count == 0 {
-                    self.listEventsSigned = listEventsSigned.filter { $0.date != day.date }
+        let date = event.dateTime
+        let dateString = date.formatted(date: .abbreviated, time: .omitted)
+        print("attempting to delete \(event.eventName)")
+        for day in listEventsSigned {
+            //for event_t in day {
+                //print(date)
+                if day.dateString == dateString {
+                    day.events = day.events.filter { $0.eventName != event.eventName }
+                    print("deleting \(event.eventName)")
+                    if day.events.count == 0 {
+                        self.listEventsSigned = listEventsSigned.filter { $0.date != day.date }
+                    }
                 }
-            }
         }
     }
 
