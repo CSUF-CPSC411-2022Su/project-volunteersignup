@@ -20,7 +20,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
 
     // Initializes ListEvents with Dummy Data
     init() {
-        
+        /*
         let events = [EventInfo(eventName: "Dummy Event", at: "Epic Dr.", timeAndDate: Date(), notes: "Bring sandiwches", user: "father", zip: 100), EventInfo(eventName: "Milk Fest", at: "Pog Ch.", timeAndDate: Date(), notes: "Lol Nerd", user: "Dad", zip: 10)]
         var day = Day(events: events)
         listEventsSigned.append(day)
@@ -32,7 +32,7 @@ class ListEvents: Codable, ObservableObject, Identifiable {
             day = Day(events: events2)
         }
         listEventsCreated.append(day)
-        
+        */
     }
 
     // conform to Codable
@@ -97,8 +97,10 @@ class ListEvents: Codable, ObservableObject, Identifiable {
         //var list = listEventsCreated
         let date = event.dateTime
         var added = false
+        let dateString = date.formatted(date: .abbreviated, time: .omitted)
+
         for day in self.listEventsCreated {
-            if day.date == date {
+            if day.dateString == dateString {
                 day.events.append(event)
                 print("Added event")
                 added = true
