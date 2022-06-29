@@ -11,7 +11,7 @@ var GLOBAL_EVENT_LIST = EventInfoList()
 
 class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
     enum CodingKeys: CodingKey {
-        case eventName, location, dateTime, eventNotes, owner, zip
+        case eventName, location, dateTime, eventNotes, owner, zip, id
     }
 
     @Published var eventName: String
@@ -20,6 +20,7 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
     @Published var eventNotes: String
     @Published var owner: String
     @Published var zip: String
+    var id = UUID()
 
     init() {
         self.eventName = ""
@@ -58,6 +59,7 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
         self.eventNotes = try container.decode(String.self, forKey: .eventNotes)
         self.owner = try container.decode(String.self, forKey: .owner)
         self.zip = try container.decode(String.self, forKey: .zip)
+        self.id = try container.decode(UUID.self, forKey: .id)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -68,6 +70,7 @@ class EventInfo: p_Event, Codable, Identifiable, ObservableObject {
         try container.encode(eventNotes, forKey: .eventNotes)
         try container.encode(owner, forKey: .owner)
         try container.encode(zip, forKey: .zip)
+        try container.encode(id, forKey: .id)
     }
 
     func saveEventInfo() throws -> Bool {
@@ -88,10 +91,10 @@ class EventInfoList: ObservableObject, Identifiable {
     var fileURL: URL
 
     func event(_ event: EventInfo) {
-        let newCopy = EventInfo(eventName: event.eventName, at: event.location, timeAndDate: event.dateTime, notes: event.eventNotes, user: event.owner, zip: event.zip)
-        eventList.append(newCopy)
+        //let newCopy = EventInfo(eventName: event.eventName, at: event.location, timeAndDate: event.dateTime, notes: event.eventNotes, user: event.owner, zip: event.zip)
+        eventList.append(event)
 
-        eventList.append(EventInfo(eventName: "Food Drive", at: "Southlands Church Brea 2950 E Imperial Hwy, Brea, CA", timeAndDate: Date(), notes: "N/A", user: "Kate", zip: 92821))
+        //eventList.append(EventInfo(eventName: "Food Drive", at: "Southlands Church Brea 2950 E Imperial Hwy, Brea, CA", timeAndDate: Date(), notes: "N/A", user: "Kate", zip: 92821))
 
         saveHistory()
     }
